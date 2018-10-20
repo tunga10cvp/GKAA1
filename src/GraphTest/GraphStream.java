@@ -3,9 +3,11 @@ package GraphTest;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 
+import java.io.IOException;
+
 public class GraphStream {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Graph graph = new SingleGraph("Tutorial 1");
 		
 		graph.addNode("A" );
@@ -26,8 +28,9 @@ public class GraphStream {
 		System.out.println(AB.isDirected());
 		System.out.println(AB.getId());
 
+        GraphIO.saveGraph(graph, "test1.gka");
 
 
-	}
+    }
 
 }
