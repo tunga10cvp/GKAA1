@@ -18,18 +18,21 @@ public class GraphStream {
 		graph.addEdge("BC", "B", "C" );
 		graph.addEdge("CA", "C", "A" );
 		graph.addEdge("CD", "C", "D");
-		
+		graph.addEdge("DA", "D", "A");
+	//	graph.addEdge("BC", "C", "B");
+
 		graph.display();
 
 		Node A = graph.getNode("A");
 		Edge AB = graph.getEdge("Test");
+		Edge DA = graph.getEdge("DA");
 		System.out.println(AB.getId());
 
+		System.out.println(DA.isDirected());
 		System.out.println(AB.isDirected());
 		System.out.println(AB.getId());
 
         GraphIO.saveGraph(graph, "test1.gka");
-
 
     }
 
