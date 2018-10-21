@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import org.graphstream.graph.*;
 
-public class GraphIO {
+public class GraphIOSave {
 
     /**
      * makes a new file and formats a Graph-object to the following form:

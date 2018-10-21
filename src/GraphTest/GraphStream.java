@@ -32,7 +32,7 @@ public class GraphStream {
 		System.out.println(AB.isDirected());
 		System.out.println(AB.getId());
 
-        GraphIO.saveGraph(graph, "test1.gka");
+        GraphIOSave.saveGraph(graph, "test1.gka");
 
     }
 
