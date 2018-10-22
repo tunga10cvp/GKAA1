@@ -6,7 +6,8 @@ import org.graphstream.graph.implementations.*;
 import java.io.IOException;
 
 public class GraphStream {
-	
+
+
 	public static void main(String[] args) throws IOException {
 		Graph graph = new SingleGraph("Tutorial 1");
 		
@@ -21,7 +22,7 @@ public class GraphStream {
 		graph.addEdge("DA", "D", "A");
 	//	graph.addEdge("BC", "C", "B");
 
-		graph.display();
+		//graph.display();
 
 		Node A = graph.getNode("A");
 		Edge AB = graph.getEdge("Test");
@@ -32,7 +33,8 @@ public class GraphStream {
 		System.out.println(AB.isDirected());
 		System.out.println(AB.getId());
 
-        GraphIOSave.saveGraph(graph, "test1.gka");
+        GraphIOSave.saveGraph(graph, "gka-Dateien/graph01.gka");
+		// graph.display();
 
     }
 
