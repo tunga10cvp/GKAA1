@@ -24,6 +24,8 @@ public class GraphIORead {
                 if(component.contains("--")) {
                     String[] extractedNodes = component.split("--");
                     toLoad.addEdge(extractedNodes[0] + extractedNodes[1], extractedNodes[0], extractedNodes[1]);
+
+
                 }
                 else if(component.contains("->")){
                     String[] extractedNodes = component.split("->");
