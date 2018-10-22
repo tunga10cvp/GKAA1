@@ -1,4 +1,4 @@
-package Graphtest;
+package GraphTest;
 
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.MultiGraph;

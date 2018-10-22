@@ -1,5 +1,0 @@
-A -- B (Test);
-B -- C (BC);
-C -- A (CA);
-C -- D (CD);
-D -- A (DA);
