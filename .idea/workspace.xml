@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae95200c-db5f-4929-a58f-274beda15a6a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/graph01.gka" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphTest/EdgeGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphTest/Graph1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphTest/GraphIORead.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphTest/VertexGraph.java" afterDir="false" />
+    <list default="true" id="ae95200c-db5f-4929-a58f-274beda15a6a" name="Default Changelist" comment="...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GraphTest/GraphStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GraphTest/GraphStream.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gka-Dateien/graph01.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph01.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gka-Dateien/graph02.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph02.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gka-Dateien/graph03.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph03.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gka-Dateien/graph04.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph04.gka" afterDir="false" />
@@ -20,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/gka-Dateien/graph09.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph09.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gka-Dateien/graph10.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph10.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gka-Dateien/graph11.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/graph11.gka" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphTest/GraphStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphTest/GraphStream.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,14 +39,14 @@
         <counts>
           <entry key="gka" value="42" />
           <entry key="iml" value="1" />
-          <entry key="java" value="33" />
+          <entry key="java" value="37" />
           <entry key="test" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="37" />
           <entry key="PLAIN_TEXT" value="44" />
         </counts>
       </usages-collector>
@@ -62,13 +54,13 @@
         <counts>
           <entry key="dummy" value="24" />
           <entry key="gka" value="1" />
-          <entry key="java" value="1810" />
+          <entry key="java" value="2185" />
           <entry key="txt" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1810" />
+          <entry key="JAVA" value="2185" />
           <entry key="PLAIN_TEXT" value="57" />
         </counts>
       </usages-collector>
@@ -85,28 +77,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphTest/GraphIOSave.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-131">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="65">
+              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GraphTest/GraphIORead.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph08.gka">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/GraphTest/EdgeGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph07.gka">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph06.gka">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/GraphTest/Graph1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#591#592#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -184,12 +196,12 @@
         <option value="$PROJECT_DIR$/src/GraphTest/GraphStream.java" />
         <option value="$PROJECT_DIR$/graph01.gka" />
         <option value="$PROJECT_DIR$/src/GraphTest/GraphLesen.java" />
-        <option value="$PROJECT_DIR$/src/GraphTest/GraphIORead.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/Vertex.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/Graph.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/Edge.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/VertexGraph.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/EdgeGraph.java" />
+        <option value="$PROJECT_DIR$/src/GraphTest/GraphIORead.java" />
       </list>
     </option>
   </component>
@@ -226,6 +238,11 @@
             <path>
               <item name="Aufgabe1GKA" type="b2602c69:ProjectViewProjectNode" />
               <item name="Aufgabe1GKA" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Aufgabe1GKA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aufgabe1GKA" type="462c0819:PsiDirectoryNode" />
               <item name="gka-Dateien" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,10 +265,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540213217078" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540216196212" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -367,7 +385,7 @@
       <workItem from="1540041780731" duration="4841000" />
       <workItem from="1540111284587" duration="3227000" />
       <workItem from="1540115051247" duration="909000" />
-      <workItem from="1540117067381" duration="11632000" />
+      <workItem from="1540117067381" duration="14623000" />
     </task>
     <task id="LOCAL-00001" summary="gka-Da">
       <created>1540113153161</created>
@@ -390,11 +408,46 @@
       <option name="project" value="LOCAL" />
       <updated>1540115211535</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="...">
+      <created>1540213148608</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540213148608</updated>
+    </task>
+    <task id="LOCAL-00005" summary="...">
+      <created>1540213169317</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1540213169317</updated>
+    </task>
+    <task id="LOCAL-00006" summary="...">
+      <created>1540213223392</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1540213223392</updated>
+    </task>
+    <task id="LOCAL-00007" summary="...">
+      <created>1540213278592</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1540213278592</updated>
+    </task>
+    <task id="LOCAL-00008" summary="...">
+      <created>1540215439479</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1540215439479</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23236000" />
+    <option name="totallyTimeSpent" value="26227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="805" extended-state="0" />
@@ -409,7 +462,7 @@
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32819074" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.32819074" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.19635344" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -418,7 +471,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32959327" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32959327" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.32819074" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32678822" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -494,24 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphTest/Graph1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="6" column="58" lean-forward="true" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphTest/VertexGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -532,20 +567,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphTest/GraphIORead.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphTest/EdgeGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -596,10 +617,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphTest/Graph1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphTest/GraphIOSave.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="65">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphTest/EdgeGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphTest/GraphIORead.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
