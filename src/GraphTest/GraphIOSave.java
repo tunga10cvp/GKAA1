@@ -25,33 +25,45 @@ public class GraphIOSave {
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(filename), "utf-8"))) {
 
+            String componentString;
+
             for (Edge currentEdge : graphToSave.getEachEdge()) {
-                String edgeString = "";
+
+                //reset the componentString
+                componentString = "";
 
                 //add the source-node to the string
-                edgeString += currentEdge.getNode0();
+                componentString += currentEdge.getNode0();
 
                 if(currentEdge.isDirected()) {
-                    //add the target-node only if it's a different node
-                    if(currentEdge.getNode1() != currentEdge.getNode0()){
-                        edgeString += " -> " + currentEdge.getNode1();
-                    }
+                        componentString += " -> " + currentEdge.getNode1();
                 }
                 else{
-                    //add the target-node only if it's a different node
-                    if(currentEdge.getNode1() != currentEdge.getNode0()){
-                        edgeString += " -- " + currentEdge.getNode1();
-                    }
+                        componentString += " -- " + currentEdge.getNode1();
                 }
                 //there is always a name for each edge in GraphStream, so add that
-                edgeString += " (" + currentEdge.getId() + ")";
+                componentString += " (" + currentEdge.getId() + ")";
 
                 //weight is an extra attribute in Graphstream, so check for that and add it
                 if(currentEdge.hasAttribute("weight"))
-                    edgeString += ": " + currentEdge.getAttribute("weight");
+                    componentString += ": " + currentEdge.getAttribute("weight");
 
-                edgeString += ";\n";
-                writer.write(edgeString);
+                componentString += ";\n";
+                writer.write(componentString);
+            }
+
+            for(Node currentNode: graphToSave.getEachNode()){
+
+                //reset the componentString
+                componentString = "";
+
+                if(currentNode.getDegree() == 0){
+                    componentString += currentNode.getId();
+                    componentString += "(" + currentNode.getId() + ")";
+                    componentString += ";\n";
+                }
+
+                writer.write(componentString);
             }
         }
 
