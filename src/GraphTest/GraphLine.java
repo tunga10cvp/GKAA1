@@ -2,7 +2,14 @@ package GraphTest;
 
 import java.util.Objects;
 
+
+
 public class GraphLine {
+    /** Jeder Graph besteht aus ganz vielen Zielen( Line)
+     *  Jede Zeile(Graphline) ist ein Teil, der aus 2 Konten(Source, Target), die Verbing (gerichtet(Drirected->) oder ungerichtet(--)),
+     *  Edgegewicht und name
+     *
+     */
 
     private String nodeSource;
     private String nodeTarget;
@@ -50,6 +57,11 @@ public class GraphLine {
         this.name = name;
     }
 
+    /**
+     * Prüf ob es einen eizelnen Konten gibt, der keine Kante hat
+     *
+     * @return true, wenn es keine Kante gibt
+     */
     public boolean SingleNode(){
         return nodeTarget == null;
     }
@@ -59,7 +71,7 @@ public class GraphLine {
         StringBuilder sb = new StringBuilder(nodeSource);
         sb.append(nodeSource);
         if(isDirected){
-            sb.append("->")
+            sb.append("->");
         }
         else {
             sb.append("--");
@@ -67,6 +79,8 @@ public class GraphLine {
         sb.append(nodeTarget + ";");
         sb.append("w =");
         sb.append(weight);
+
+        return sb.toString();
     }
 
     @Override
