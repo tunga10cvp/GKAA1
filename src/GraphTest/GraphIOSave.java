@@ -35,14 +35,16 @@ public class GraphIOSave {
                 //add the source-node to the string
                 componentString += currentEdge.getNode0();
 
+                //Add the symbols for directed or undirected edge, plus the ID of the target-node
                 if(currentEdge.isDirected()) {
                         componentString += " -> " + currentEdge.getNode1();
                 }
                 else{
                         componentString += " -- " + currentEdge.getNode1();
                 }
-                //there is always a name for each edge in GraphStream, so add that
-                componentString += " (" + currentEdge.getId() + ")";
+                //If there is a name for the edge in GraphStream, add that
+                if(currentEdge.hasAttribute("name"))
+                componentString += " (" + currentEdge.getAttribute("name") + ")";
 
                 //weight is an extra attribute in Graphstream, so check for that and add it
                 if(currentEdge.hasAttribute("weight"))
@@ -58,8 +60,8 @@ public class GraphIOSave {
                 componentString = "";
 
                 if(currentNode.getDegree() == 0){
-                    componentString += currentNode.getId();
-                    componentString += "(" + currentNode.getId() + ")";
+                    //Node-name = ID
+                    componentString += currentNode;
                     componentString += ";\n";
                 }
 
