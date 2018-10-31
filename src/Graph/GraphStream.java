@@ -3,41 +3,58 @@ package Graph;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class GraphStream {
+	public static void main(String args[]) {
+		new GraphStream();
+	}
 
+	public GraphStream() {
+		Graph graph = new SingleGraph("tutorial 1");
 
-	public static void main(String[] args) throws IOException {
-		Graph graph = new SingleGraph("Tutorial 1");
-		
-		graph.addNode("A" );
-		graph.addNode("B" );								//Parsing
-		graph.addNode("C" );
-		graph.addNode("D");
-		graph.addNode("E");
-		graph.addEdge("Test", "A", "B" );
-		graph.addEdge("BC", "B", "C" );
-		graph.addEdge("CA", "C", "A" );
-		graph.addEdge("CD", "C", "D");
-		graph.addEdge("DA", "D", "A");
-		graph.getEdge("BC").setAttribute("weight", 1.2);
-	//	graph.addEdge("BC", "C", "B");
+		graph.addAttribute("ui.stylesheet", styleSheet);
+		graph.setAutoCreate(true);
+		graph.setStrict(false);
+		graph.display();
 
-		//graph.display();
+		graph.addEdge("AB", "A", "B");
+		graph.addEdge("BC", "B", "C");
+		graph.addEdge("CA", "C", "A");
+		graph.addEdge("AD", "A", "D");
+		graph.addEdge("DE", "D", "E");
+		graph.addEdge("DF", "D", "F");
+		graph.addEdge("EF", "E", "F");
 
-		Node A = graph.getNode("A");
-		Edge AB = graph.getEdge("Test");
-		Edge DA = graph.getEdge("DA");
-		System.out.println(AB.getId());
+		for (Node node : graph) {
+			node.addAttribute("ui.label", node.getId());
+		}
 
-		System.out.println(DA.isDirected());
-		System.out.println(AB.isDirected());
-		System.out.println(AB.getId());
+		explore(graph.getNode("A"));
+	}
 
-        GraphIOSave.saveGraph(graph, "gka-Dateien/graph01.gka");
-		// graph.display();
+	public void explore(Node source) {
+		Iterator<? extends Node> k = source.getBreadthFirstIterator();
 
-    }
+		while (k.hasNext()) {
+			Node next = k.next();
+			next.setAttribute("ui.class", "marked");
+			sleep();
+		}
+	}
 
+	protected void sleep() {
+		try { Thread.sleep(1000); } catch (Exception e) {}
+	}
+
+	protected String styleSheet =
+			"node {" +
+					"	fill-color: black;" +
+					"}" +
+					"node.marked {" +
+					"	fill-color: red;" +
+					"}";
 }

@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ae95200c-db5f-4929-a58f-274beda15a6a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphTest/GraphIOSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/GraphIOSave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphTest/GraphStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/GraphStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphTest/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphTest/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph/GraphStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/GraphStream.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Graph/GraphStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="690">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,14 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graph/ReadFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-914">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -191,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/GraphTest/GraphLine.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/GraphIORead2.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/ReadFile.java" />
+        <option value="$PROJECT_DIR$/src/Graph/GraphStream.java" />
       </list>
     </option>
   </component>
@@ -250,7 +245,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541009577246" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541009991110" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -279,7 +274,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ReadFile">
+  <component name="RunManager" selected="Application.GraphStream">
     <configuration name="Einlesen (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Einlesen" />
       <module name="Aufgabe1GKA" />
@@ -348,8 +343,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReadFile" />
         <item itemvalue="Application.GraphStream" />
+        <item itemvalue="Application.ReadFile" />
         <item itemvalue="Application.GraphIORead (1)" />
         <item itemvalue="Application.GraphIORead" />
         <item itemvalue="Application.Einlesen (1)" />
@@ -378,7 +373,7 @@
       <workItem from="1540483834315" duration="291000" />
       <workItem from="1540546420505" duration="7705000" />
       <workItem from="1540737918950" duration="10407000" />
-      <workItem from="1541008407969" duration="1161000" />
+      <workItem from="1541008407969" duration="1475000" />
     </task>
     <task id="LOCAL-00001" summary="gka-Da">
       <created>1540113153161</created>
@@ -478,14 +473,22 @@
       <option name="project" value="LOCAL" />
       <updated>1541009560758</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="ReadFile neu schreiben, läuft :)">
+      <created>1541009618351</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1541009618351</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49653000" />
+    <option name="totallyTimeSpent" value="49967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="243" y="23" width="1197" height="803" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49372384" visible="true" weight="0.18528138" />
       <window_info id="Structure" order="1" sideWeight="0.50627613" side_tool="true" weight="0.21961325" />
@@ -662,16 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/GraphStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphTest/GraphIORead.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -691,8 +684,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-914">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph/GraphStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
