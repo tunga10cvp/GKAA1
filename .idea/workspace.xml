@@ -243,7 +243,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541009417959" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541009488531" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -272,7 +272,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GraphIORead2">
+  <component name="RunManager" selected="Application.ReadFile">
     <configuration name="Einlesen (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Einlesen" />
       <module name="Aufgabe1GKA" />
@@ -306,19 +306,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphIORead2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Graph.GraphIORead2" />
-      <module name="Aufgabe1GKA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Graph.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GraphStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GraphTest.GraphStream" />
       <module name="Aufgabe1GKA" />
@@ -332,16 +319,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Graph.ReadFile" />
+      <module name="Aufgabe1GKA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.GraphStream" />
       <item itemvalue="Application.Einlesen (1)" />
       <item itemvalue="Application.GraphIORead" />
       <item itemvalue="Application.GraphIORead (1)" />
-      <item itemvalue="Application.GraphIORead2" />
+      <item itemvalue="Application.ReadFile" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GraphIORead2" />
+        <item itemvalue="Application.ReadFile" />
         <item itemvalue="Application.GraphStream" />
         <item itemvalue="Application.GraphIORead (1)" />
         <item itemvalue="Application.GraphIORead" />
