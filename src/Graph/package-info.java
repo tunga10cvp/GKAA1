@@ -5,4 +5,4 @@
  * @author tungcr7
  *
  */
-package GraphTest;
+package Graph;

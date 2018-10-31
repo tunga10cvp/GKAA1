@@ -1,4 +1,4 @@
-package GraphTest;
+package Graph;
 
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;

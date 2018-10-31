@@ -1,4 +1,4 @@
-package GraphTest;
+package Graph;
 
 import java.io.*;
 import java.io.IOException;
