@@ -25,6 +25,8 @@ public class GraphIOSave {
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(filename), "utf-8"))) {
 
+
+
             String componentString;
 
             for (Edge currentEdge : graphToSave.getEachEdge()) {
