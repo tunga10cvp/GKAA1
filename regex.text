@@ -1,0 +1,49 @@
+Regex Regel:
+
+^(\w+)(?:\s*(->|--)\s*(\w+)\s*(?:\(\s*(\w+)\s*\)\s*)?(?::\s*(\d+)\s*)?)?;$
+
+Erklärung:
+
+eine Gruppe besteht aus ()
+
+jeder ?: heißt die Gruppe wird nicht mit gezählt
+
+(\w+) : wir fangen mit dem ersten Knoten an (1 oder beliebig mit Buchstaben oder Zahl) : erste Gruppe
+
+\s*(->|--)\s* : 0 der beliebeg Leerzeichen, entweder -- oder ->, 0 der beliebeg Leerzeiche. (->|--) ist 2. Gruppe
+
+\s*(\w+)\s* : 0 der beliebeg Leerzeichen, 2. Konte mit beliebig Buchstaben oder Zahlen, 0 der beliebeg Leerzeiche. (\w+) ist 3. Gruppe
+
+\(\s*(\w+)\s*\)\s* : 0 der beliebeg Leerzeichen, (name mit beliebig Buchstaben oder Zahlen), 0 der beliebeg Leerzeiche. (\w+) ist 4. Gruppe (nur Name ohne ())
+
+:\s*(\d+)\s*:  einmal : , Leerzeichen, gewicht, Leerzeichen
+
+?; heißt ; für jeder Zeile
+
+Ich habe es getestet mit https://regex101.com
+
+Test String:
+
+v3 -- s : 2;
+v2 -- v1:4;
+q -- s;
+v4 -- v3:2;
+v6--v2 : 2;
+v7--s;
+v7-- s;
+v7 --s;
+c1 -> 213;
+v1 -> v2 (hbgjr) : 3;
+v8 -- v4 (adf) ;
+q -- v5 : 6;
+v5 -- v4 : 7;
+q -- v1 : 8;
+v6 -- s : 8;
+v7 -- v8 (f): 8;
+q -- v4 : 9;
+v8 -- s: 5;
+v1 -- v7 :  9;
+
+a;
+
+
