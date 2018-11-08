@@ -49,8 +49,9 @@ public class GraphAlgorithms {
         System.out.println(bfsReturn);
     }
 
-    public static List<Node> traverseWithBFS(Graph graph, Node sourceNode, Node targetNode){
+    /*public static List<Node> traverseWithBFS(Graph graph, Node sourceNode, Node targetNode){
         List<Node> nodeList = new LinkedList<>();
+        boolean pathFound = false;
         Node currentNode;
 
         //Add sourceNode to the queue
@@ -58,7 +59,7 @@ public class GraphAlgorithms {
         ((LinkedList<Node>) nodeList).addFirst(sourceNode);
 
 
-        while(!nodeList.isEmpty()){
+        while(pathFound == false){
             //get next element from the queue
             currentNode = ((LinkedList<Node>) nodeList).removeFirst();
 
@@ -81,6 +82,10 @@ public class GraphAlgorithms {
                     adjacentNode.setAttribute("precursor", currentNode);
                     adjacentNode.setAttribute("pathLength", adjacentLength);
                     ((LinkedList<Node>) nodeList).addLast(adjacentNode);
+
+                    //unvisited adjacentnode is targetNode menas shortest path found
+                    if(adjacentNode.equals(targetNode))
+                        pathFound = true;
                 }
             }
         }
@@ -94,5 +99,52 @@ public class GraphAlgorithms {
         ((LinkedList<Node>)nodeList).addFirst(currentNode);
 
         return nodeList;
+    }*/
+
+    public static List<Node> traverseWithBFS(Graph graph, Node sourceNode, Node targetNode){
+        List<Node> nodeList = new LinkedList<>();
+        Node currentNode;
+
+        //Add sourceNode to the queue and mark as visited
+        ((LinkedList<Node>) nodeList).addLast(sourceNode);
+        sourceNode.addAttribute("visited", null);
+
+
+        while(!nodeList.isEmpty()){
+            //get next element from the queue
+            currentNode = ((LinkedList<Node>) nodeList).removeFirst();
+
+            //if targetNode is reached, a path is found
+            if(currentNode == targetNode)
+                return pathAsList(sourceNode, targetNode);
+
+            //Save the current node as their precursor if adjacentNode was not visited before
+            for(Edge leavingEdge : currentNode.getEachLeavingEdge()){
+                Node adjacentNode = leavingEdge.getNode1();
+
+                if(!adjacentNode.hasAttribute("visited")) {
+                    adjacentNode.setAttribute("visited", currentNode);
+                    ((LinkedList<Node>) nodeList).addLast(adjacentNode);
+                }
+
+            }
+        }
+
+        //if the list is empty, there is no path
+        System.out.println("Kein Weg gefunden!");
+        return null;
+    }
+
+    private static List<Node> pathAsList(Node sourceNode, Node targetNode){
+        List<Node> path = new LinkedList<>();
+        Node currentNode;
+
+        //use the list for saving of the path, beginning from the targetNode
+        for(currentNode = targetNode;!currentNode.equals(sourceNode); currentNode = currentNode.getAttribute("visited")){
+            ((LinkedList<Node>)path).addFirst(currentNode);
+        }
+        ((LinkedList<Node>)path).addFirst(currentNode);
+
+        return path;
     }
 }
