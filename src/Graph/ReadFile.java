@@ -1,14 +1,20 @@
 package Graph;
 
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.graph.implementations.SingleGraph;
 
 import java.io.*;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+
+import static Graph.GraphAlgorithms.traverseWithBFS;
 
 /**
  * Klasse ReadFile fürs Einlesen einer Datei und zeichne den Graphen
@@ -25,19 +31,18 @@ import java.util.regex.Pattern;
  */
 public class ReadFile {
 
-
-
-
     public static void main(final String[] args) {
-        String filename = "graph03.gka";
-        readFile(filename);
+        String filename = "gka-Dateien/graph06.gka";
+        Graph graph = readFile(filename);
+        graph.display();
+
     }
 
     /**
-
-    **/
-    private static void readFile(String filename) {
-        String filePath = new String("gka-Dateien/" + filename);
+     Liest jeder Zeile der Datei mit Hilfe der Regulär Ausdrücke
+     **/
+    public static Graph readFile(String filename) {
+        String filePath = new String(filename);
         File file = new File(filePath);
 
         String line;
@@ -54,9 +59,7 @@ public class ReadFile {
 
                 //regex formatiert jeder Zeile
                 String regex =
-                        "^([\\wÄäÖöÜüß]+)(?:\\s*(->|--)\\s*([\\wÄäÖöÜüß]+)\\s*(?:\\(\\s*([\\wÄäÖöÜüß]+)\\s*\\)\\s*)?(?::\\s*(\\d+)\\s*)?)?;";
-
-
+                        "^([\\wÄäÖöÜüß]+)(?:\\s*(->|--)\\s*([\\wÄäÖöÜüß]+)\\s*(?::\\s*(\\d+)\\s*)?)?\\s*(?:\\(\\s*([\\wÄäÖöÜüß]+)\\s*\\)\\s*)?;";
                 Pattern pattern = Pattern.compile(regex);
                 Matcher matcher = pattern.matcher(line);
 
@@ -64,47 +67,44 @@ public class ReadFile {
                 showGraph(graph, matcher);
             }
 
-            //zeichnet Graph
-            graph.display();
+           return graph;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 
+    /**
+     *
+     * @param graph
+     * @param matcher
+     */
     private static void showGraph(Graph graph, Matcher matcher) {
         //suche alle Teile of Dateien
         while (matcher.find()) {
             //Auslesen der einzelnen Gruppen
             final String node1 = matcher.group(1);
-            final String node2 = matcher.group(3);
             final String edge = matcher.group(2);
-            final String weight = matcher.group(5);
-            final String edgeName = matcher.group(4); // TODO!!!
+            final String node2 = matcher.group(3);
+            final String edgeName = matcher.group(5);
+            final String weight = matcher.group(4);
 
+            // ID für jede Kante mit Random in String
             String idEdge = edgeID();
-
-
-
-//            System.out.println("Node1: " + node1);
-//            System.out.println("Edge: " + edge);
-//            System.out.println("Node2: " + node2);
-//            System.out.println("EdgeWeight: " + weight);
-//            System.out.println("EdgeName: " + edgeName);
-
-            // drück jede Zeile nach dem Sortieren aus
-
-            System.out.println(graph.getEdgeCount());
+            // drück jede Zeile in verschiedenen Gruppen nach dem Sortieren aus
+            System.out.println("Zeile Nr: " + graph.getEdgeCount());
             System.out.println("----------------------------");
             for (int i = 0; i <= matcher.groupCount(); i++) {
                 System.out.println("Group " + i + ": " + matcher.group(i));
             }
-            System.out.println(edgeID());
-          //  System.out.println("Die ID-Kante: " + edgeID());
-            //System.out.println(matcher.groupCount());
+
+            //System.out.println(edgeID());
+
+              System.out.println("Die ID-Kante: " + edgeID());
+
             // Knoten 1 hinzufügen, wenn:
             // - es nicht null ist
             // - es kein Leerstring ist
@@ -124,14 +124,12 @@ public class ReadFile {
                     graph.getNode(node2) == null) {
                 graph.addNode(node2);
 
+
             }
-
-
             // Kante hinzufügen, wenn:
             // - es nicht null ist
             // - es kein Leerstring ist
-            // - die Kante nicht schon in dem Graphen ist
-            // - die Kante nicht schon in dem Graphen ist, aber rückwärts gerichtet
+            // - die EdgeID nicht vorhanden ist
             // - der zweite Knoten nicht null ist
             if (edge != null &&
                     !"".equals(edge) &&
@@ -154,39 +152,44 @@ public class ReadFile {
                 if (weight != null &&
                         !"".equals(weight)) {
                     graph.getEdge(idEdge).addAttribute("ui.label", weight);
+                    //graph.addAttribute("ui.label", graph.getEdge(idEdge));
                 }
 
+                // Name hinzufügen, wenn:
+                // - es nicht null ist
+                // - es kein Leerstring ist
                 if (edgeName != null &&
                         !"".equals(edgeName)) {
-                    graph.getEdge(idEdge).addAttribute("ui.label", edgeName);
+                    graph.getEdge(idEdge).addAttribute("name", edgeName);
                 }
 
 
             }
+
+            //Anzahl der Knoten
+            System.out.println("Anzahl der Knoten: " + graph.getNodeCount());
+
+            // Anzahl der Kanaten
+            System.out.println("Anzahl der Kanten: " + graph.getEdgeCount());
 
 
         }
         //Node Namen
         graph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
 
+
+
+        // Viewer für die Graphen
         graph.addAttribute("ui.stylesheet", styleSheet);
         //graph.addAttribute("ui.stylesheet", "graph { fill-color: yellow; }");
-      //  graph.addAttribute("ui.quality");
-       // graph.addAttribute("ui.antialias");
-       // graph.addAttribute("ui.screenshot", "heart.jpg");
+        graph.addAttribute("ui.quality");
+
+        graph.addAttribute("ui.antialias");
+       // graph.addAttribute("weight", "edge.marked { text-color: yellow; }" );
+        // graph.addAttribute("ui.screenshot", "heart.jpg");
 
 
     }
-
-//    private static void showGroups(Matcher matcher) {
-//
-//        while (matcher.find()) {
-//            System.out.println("----------------------------");
-//            for (int i = 1; i < matcher.groupCount(); i++) {
-//                System.out.println("Group " + i + ": " + matcher.group(i));
-//            }
-//        }
-//    }
 
     //erstellt EdgeID
     public static String edgeID() {
@@ -194,56 +197,42 @@ public class ReadFile {
     }
 
 
-
+    // Aussehen für die Graphen
     protected static String styleSheet =
             "graph {" +
                     "   fill-color: black;"+
                     "}" +
 
-            "node {" +
-                    "text-color: red;" +
+                    "node {" +
+                    "   text-color: yellow;" +
                     "   shape: line;" +
-                    "   text-size: 30px;" +
+                    "   text-size: 25px;" +
                     "   shape: circle;" +
                     "   fill-color: green;" +
                     "   size: 20px;" +
-                    "   text-alignment: center;" +
-                    "   fill-mode: gradient-radial;" +
-                    "   stroke-color: yellow;" +
+                  //  "   text-alignment: center;" +
+                  //  "   fill-mode: gradient-radial;" +
+                   // "   stroke-color: yellow;" +
 
                     "}" +
                     "node.marked {" +
-                    "	fill-color: red;" +
+                    "	fill-color: green;" +
                     "}" +
 
-   " edge {" +
-        "shape: angle;" +
-       " stroke-mode: plain;"+
-        "text-color: white;"+
-        "text-size: 15;"+
-        "fill-color: blue;"+
-        "text-background-mode: rounded-box;"+
-        "text-background-color: red;"+
-    "}"+
+                    " edge {" +
+                    "shape: angle;" +
+                    " stroke-mode: plain;"+
+                    "text-color: white;"+
+                    "text-size: 15px;"+
+                    "fill-color: blue;"+
+                    "text-background-mode: rounded-box;"+
+                    "text-background-color: red;"+
+                    "}"+
 
-    "edge.marked {"+
-       " fill-color: red;"+
-    "}";
+                    "edge.marked {"+
+                    " fill-color: red;"+
+                    " text-color: red;"+
+                    "}";
 
-//    protected static String styleSheet =
-//            "node {" +
-//                    "	fill-color: black;" +
-//                    "text-size: 20px;" +
-//                    "shape: circle;" +
-//                    "fill-color: red;"+
-//                    "size: 20px;" +
-//
-//                    "}" +
-//                    "node.marked {" +
-//                    "	text-size: 20px;" +
-//                    "	text-alignment: along;" +
-//                    "	text-background-mode: rounded-box;" +
-//                    "	stroke-mode: plain;" +
-//                    "}";
 
 }

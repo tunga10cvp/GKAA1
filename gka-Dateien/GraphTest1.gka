@@ -1,17 +1,1 @@
- a ->  c  (1       23);
- a      -> b  (Tokyo);
-a -- b ;
-c       -- a;
-a -> d ;
-a -> d     (New      York);
-a  -> d     (Hamburg) : 56;
-     d -- a;
-x  ;
-a    -> e : 5;
-      e -> e;
-e     -> e : 34;
-e;
-     f ->      a :   6;
-a ->   g;
-x;
-z;
+Tung -> VanAnh (AnhYeuEm);

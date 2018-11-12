@@ -92,7 +92,7 @@ public class GraphIOSaveTest {
         Graph saveGraph = ReadFile.readFile("save-Dateien/savegraph6.gka");
 
         assertFalse(saveGraph == null);
-        assertTrue(saveGraph.getNodeCount() == 11);
+        assertTrue(saveGraph.getNodeCount() == 12);
         assertTrue(saveGraph.getEdgeCount() == 15);
         assertTrue(saveGraph.getNode("1") != null);
 

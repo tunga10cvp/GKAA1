@@ -4,6 +4,7 @@ import java.io.*;
 import java.io.IOException;
 
 import org.graphstream.graph.*;
+import Graph.ReadFile;
 
 public class GraphIOSave {
 
@@ -46,11 +47,11 @@ public class GraphIOSave {
                 }
                 //If there is a name for the edge in GraphStream, add that
                 if(currentEdge.hasAttribute("name"))
-                componentString += " (" + currentEdge.getAttribute("name") + ")";
+                    componentString += " (" + currentEdge.getAttribute("name") + ")";
 
                 //weight is an extra attribute in Graphstream, so check for that and add it
-                if(currentEdge.hasAttribute("weight"))
-                    componentString += ": " + currentEdge.getAttribute("weight");
+                if(currentEdge.hasAttribute("ui.label"))
+                    componentString += " : " + currentEdge.getAttribute("ui.label");
 
                 componentString += ";\n";
                 writer.write(componentString);
@@ -62,13 +63,17 @@ public class GraphIOSave {
                 componentString = "";
 
                 if(currentNode.getDegree() == 0){
+
                     //Node-name = ID
                     componentString += currentNode;
+                    if(currentNode.hasAttribute("name"))
+                        componentString += " (" + currentNode.getAttribute("name") + ")";
                     componentString += ";\n";
                 }
 
                 writer.write(componentString);
             }
+
         }
 
     }

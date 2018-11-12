@@ -1,0 +1,20 @@
+public String getPersonName(String personalNummer){
+
+//.... Hole anhand der Personalnummer den Namen der Person
+
+
+return "PersonenName";
+}
+
+
+getPersonName("123");
+  String name =  "PersonenName"
+
+
+public void setPersonenName(){
+//KEINE RÜCKGABE
+}
+
+
+String name = setPersonenName();
+
