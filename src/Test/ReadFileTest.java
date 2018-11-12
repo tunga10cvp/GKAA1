@@ -18,6 +18,8 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 10);
         assertTrue(graph.getEdgeCount() == 23);
         assertTrue(graph.getNode("v3") != null);
+        assertTrue(graph.getAttribute("name") == null);
+
     }
 
     @Test
@@ -27,7 +29,8 @@ public class ReadFileTest{
         assertFalse(graph == null);
         assertTrue(graph.getNodeCount() == 11);
         assertTrue(graph.getEdgeCount() == 38);
-        assertTrue(graph.getNode("a") != null);
+        assertTrue(graph.getNode("q3") == null);
+        assertTrue(graph.getAttribute("ui.label") == null );
     }
 
     @Test
@@ -39,6 +42,7 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 22);
         assertTrue(graph.getEdgeCount() == 40);
         assertTrue(graph.getNode("Hamburg") != null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 
     @Test
@@ -49,6 +53,7 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 10);
         assertTrue(graph.getEdgeCount() == 23);
         assertTrue(graph.getNode("q") != null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 
     @Test
@@ -58,7 +63,8 @@ public class ReadFileTest{
         assertFalse(graph == null);
         assertTrue(graph.getNodeCount() == 7);
         assertTrue(graph.getEdgeCount() == 20);
-        assertTrue(graph.getNode("v1") != null);
+        assertTrue(graph.getNode("a") == null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 
     @Test
@@ -69,6 +75,7 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 12);
         assertTrue(graph.getEdgeCount() == 15);
         assertTrue(graph.getNode("1") != null);
+        assertTrue(graph.getAttribute("ui.label") == null );
     }
 
     @Test
@@ -79,6 +86,7 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 10);
         assertTrue(graph.getEdgeCount() == 23);
         assertTrue(graph.getNode("v1") != null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 
     @Test
@@ -89,6 +97,7 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 16);
         assertTrue(graph.getEdgeCount() == 15);
         assertTrue(graph.getNode("v8") != null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 
     @Test
@@ -99,6 +108,8 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 12);
         assertTrue(graph.getEdgeCount() == 36);
         assertTrue(graph.getNode("a") != null);
+        assertFalse(graph.getAttribute("name") != null );
+        assertFalse(graph.getAttribute("ui.label") != null );
     }
 
     @Test
@@ -109,6 +120,7 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 12);
         assertTrue(graph.getEdgeCount() == 26);
         assertTrue(graph.getNode("v1") != null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 
     @Test
@@ -119,5 +131,6 @@ public class ReadFileTest{
         assertTrue(graph.getNodeCount() == 10);
         assertTrue(graph.getEdgeCount() == 23);
         assertTrue(graph.getNode("v4") != null);
+        assertFalse(graph.getAttribute("name") != null );
     }
 }
