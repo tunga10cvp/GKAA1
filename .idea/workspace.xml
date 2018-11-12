@@ -2,32 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae95200c-db5f-4929-a58f-274beda15a6a" name="Default Changelist" comment="Kommentar hinzugefügt, Schönheit für Graphen implementiert">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gs_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodepad" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Graph/styleSheet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text.gka" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Aufgabe1GKA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Aufgabe1GKA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gka-Dateien/GraphTest1.gka" beforeDir="false" afterPath="$PROJECT_DIR$/gka-Dateien/GraphTest1.gka" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph01.gka" beforeDir="false" afterPath="$PROJECT_DIR$/graph01.gka" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regex.text" beforeDir="false" afterPath="$PROJECT_DIR$/regex.text" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph1.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph1.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph10.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph10.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph11.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph11.gka" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph2.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph2.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph3.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph3.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph4.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph4.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph5.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph5.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph6.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph6.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph7.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph7.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph8.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph8.gka" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save-Dateien/savegraph9.gka" beforeDir="false" afterPath="$PROJECT_DIR$/save-Dateien/savegraph9.gka" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graph/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/GraphAlgorithms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph/GraphIOSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/GraphIOSave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph/GraphStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/GraphStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph/package-info.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/GraphIOSaveTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/GraphIOSaveTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/ReadFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/ReadFileTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -160,14 +150,36 @@
       <usages-collector id="statistics.spring.boot.run.usages" />
       <usages-collector id="statistics.spring.boot.mvc.usages" />
     </session>
+    <session id="-1848963970">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="357" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="357" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graph/ReadFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+            <state relative-caret-position="3740">
+              <caret line="236" selection-start-line="236" selection-end-line="236" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,19 +188,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph01.gka">
+        <entry file="file://$PROJECT_DIR$/regex.text">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="34">
+              <caret line="2" column="68" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/GraphIOSave.java">
+        <entry file="file://$PROJECT_DIR$/src/Graph/GraphAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="69" column="88" selection-start-line="69" selection-start-column="88" selection-end-line="69" selection-end-column="88" />
+            <state relative-caret-position="164">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="38" column="50" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -199,8 +223,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test/GraphIOSaveTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
+            <state relative-caret-position="130">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,19 +233,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/save-Dateien/savegraph6.gka">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Test/ReadFileTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-344">
-              <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+            <state relative-caret-position="153">
+              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -230,10 +245,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph06.gka">
+        <entry file="file://$PROJECT_DIR$/src/Graph/GraphIOSave.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="714">
+              <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph01.gka">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph02.gka">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gka-Dateien/graph03.gka">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -309,15 +347,15 @@
         <option value="$PROJECT_DIR$/gka-Dateien/graph01.gka" />
         <option value="$PROJECT_DIR$/src/Graph/Graph1.java" />
         <option value="$PROJECT_DIR$/gka-Dateien/GraphTest1.gka" />
-        <option value="$PROJECT_DIR$/src/Graph/GraphAlgorithms.java" />
-        <option value="$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java" />
         <option value="$PROJECT_DIR$/speichern1.gka" />
         <option value="$PROJECT_DIR$/src/Graph/GraphStream.java" />
         <option value="$PROJECT_DIR$/save-Dateien/savegraph6.gka" />
         <option value="$PROJECT_DIR$/src/Test/ReadFileTest.java" />
-        <option value="$PROJECT_DIR$/src/Test/GraphIOSaveTest.java" />
         <option value="$PROJECT_DIR$/src/Graph/ReadFile.java" />
         <option value="$PROJECT_DIR$/src/Graph/GraphIOSave.java" />
+        <option value="$PROJECT_DIR$/src/Test/GraphIOSaveTest.java" />
+        <option value="$PROJECT_DIR$/src/Graph/GraphAlgorithms.java" />
+        <option value="$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java" />
       </list>
     </option>
   </component>
@@ -349,8 +387,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -362,11 +400,6 @@
               <item name="GKAA1" type="b2602c69:ProjectViewProjectNode" />
               <item name="GKAA1" type="462c0819:PsiDirectoryNode" />
               <item name="gka-Dateien" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GKAA1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GKAA1" type="462c0819:PsiDirectoryNode" />
-              <item name="save-Dateien" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GKAA1" type="b2602c69:ProjectViewProjectNode" />
@@ -385,6 +418,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GKAA1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -392,12 +429,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542016371971" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542018698905" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -405,9 +442,9 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -444,21 +481,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GraphIOSaveTest.saveTestGka06">
-    <configuration name="ReadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Graph.ReadFile" />
-      <module name="Aufgabe1GKA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Graph.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GraphIOSaveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GraphAlgorithmsTest">
+    <configuration name="GraphAlgorithmsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Aufgabe1GKA" />
       <extension name="coverage">
         <pattern>
@@ -467,12 +491,12 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.GraphIOSaveTest" />
+      <option name="MAIN_CLASS_NAME" value="Test.GraphAlgorithmsTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphIOSaveTest.saveTestGka06" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphAlgorithmsTest.traverseWithBFS_SingleNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Aufgabe1GKA" />
       <extension name="coverage">
         <pattern>
@@ -481,8 +505,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.GraphIOSaveTest" />
-      <option name="METHOD_NAME" value="saveTestGka06" />
+      <option name="MAIN_CLASS_NAME" value="Test.GraphAlgorithmsTest" />
+      <option name="METHOD_NAME" value="traverseWithBFS_SingleNodeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphAlgorithmsTest.traverseWithBFS_UnconnectedNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aufgabe1GKA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.GraphAlgorithmsTest" />
+      <option name="METHOD_NAME" value="traverseWithBFS_UnconnectedNodeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphAlgorithmsTest.traverseWithBFSz_MultiNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aufgabe1GKA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.GraphAlgorithmsTest" />
+      <option name="METHOD_NAME" value="traverseWithBFSz_MultiNodeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -502,36 +558,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadFileTest.readTestGka06" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Aufgabe1GKA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.ReadFileTest" />
-      <option name="METHOD_NAME" value="readTestGka06" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.ReadFile" />
-      <item itemvalue="JUnit.GraphIOSaveTest" />
-      <item itemvalue="JUnit.GraphIOSaveTest.saveTestGka06" />
       <item itemvalue="JUnit.ReadFileTest" />
-      <item itemvalue="JUnit.ReadFileTest.readTestGka06" />
+      <item itemvalue="JUnit.GraphAlgorithmsTest.traverseWithBFSz_MultiNodeTest" />
+      <item itemvalue="JUnit.GraphAlgorithmsTest.traverseWithBFS_UnconnectedNodeTest" />
+      <item itemvalue="JUnit.GraphAlgorithmsTest.traverseWithBFS_SingleNodeTest" />
+      <item itemvalue="JUnit.GraphAlgorithmsTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GraphIOSaveTest.saveTestGka06" />
-        <item itemvalue="Application.ReadFile" />
-        <item itemvalue="JUnit.GraphIOSaveTest" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest.traverseWithBFS_SingleNodeTest" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest.traverseWithBFS_UnconnectedNodeTest" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest.traverseWithBFSz_MultiNodeTest" />
         <item itemvalue="JUnit.ReadFileTest" />
-        <item itemvalue="JUnit.ReadFileTest.readTestGka06" />
       </list>
     </recent_temporary>
   </component>
@@ -747,27 +787,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ReadFileTest - 2018.11.12 at 10h 39m 16s.xml">
-      <configuration name="ReadFileTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ReadFileTest - 2018.11.12 at 10h 41m 45s.xml">
-      <configuration name="ReadFileTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ReadFileTest - 2018.11.12 at 10h 44m 22s.xml">
-      <configuration name="ReadFileTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ReadFileTest_readTestGka06 - 2018.11.12 at 10h 44m 29s.xml">
-      <configuration name="ReadFileTest.readTestGka06" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ReadFileTest_readTestGka06 - 2018.11.12 at 10h 44m 38s.xml">
-      <configuration name="ReadFileTest.readTestGka06" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ReadFileTest - 2018.11.12 at 10h 44m 43s.xml">
-      <configuration name="ReadFileTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphIOSaveTest - 2018.11.12 at 10h 44m 53s.xml">
-      <configuration name="GraphIOSaveTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GraphIOSaveTest_saveTestGka06 - 2018.11.12 at 10h 45m 02s.xml">
       <configuration name="GraphIOSaveTest.saveTestGka06" configurationId="JUnit" />
     </history-entry>
@@ -777,15 +796,36 @@
     <history-entry file="GraphIOSaveTest_saveTestGka06 - 2018.11.12 at 10h 50m 26s.xml">
       <configuration name="GraphIOSaveTest.saveTestGka06" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GraphIOSaveTest_saveTestGka06 - 2018.11.12 at 11h 18m 17s.xml">
+      <configuration name="GraphIOSaveTest.saveTestGka06" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_traverseWithBFSz_SingleNodeTest - 2018.11.12 at 11h 18m 42s.xml">
+      <configuration name="GraphAlgorithmsTest.traverseWithBFSz_SingleNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_traverseWithBFSz_SingleNodeTest - 2018.11.12 at 11h 19m 49s.xml">
+      <configuration name="GraphAlgorithmsTest.traverseWithBFSz_SingleNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphIOSaveTest - 2018.11.12 at 11h 24m 56s.xml">
+      <configuration name="GraphIOSaveTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ReadFileTest_readTestGka08 - 2018.11.12 at 11h 25m 05s.xml">
+      <configuration name="ReadFileTest.readTestGka08" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ReadFileTest - 2018.11.12 at 11h 25m 22s.xml">
+      <configuration name="ReadFileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_traverseWithBFSz_MultiNodeTest - 2018.11.12 at 11h 27m 45s.xml">
+      <configuration name="GraphAlgorithmsTest.traverseWithBFSz_MultiNodeTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168508000" />
+    <option name="totallyTimeSpent" value="169775000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="94" y="23" width="1315" height="803" extended-state="0" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46300715" visible="true" weight="0.18931657" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46300715" visible="true" weight="0.16477703" />
       <window_info id="Structure" order="1" sideWeight="0.53699285" side_tool="true" visible="true" weight="0.18931657" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -795,7 +835,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.32630098" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41068918" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2781457" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994374" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -804,7 +844,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.22925457" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.32819074" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.30520394" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.30463576" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.022780832" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -854,13 +894,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/io/FileInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2910">
-          <caret line="219" selection-start-line="219" selection-end-line="219" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/io/FileInputStream.java" />
     <entry file="file://$PROJECT_DIR$/gka-Dateien/GraphTest1">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -875,20 +909,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="563" selection-start-line="563" selection-end-line="563" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java" />
     <entry file="jar://$PROJECT_DIR$/graphstream/gs-core-1.3.jar!/org/graphstream/graph/Element.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -896,38 +918,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="117" column="10" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Iterable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Structure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="113" column="43" selection-start-line="113" selection-start-column="43" selection-end-line="113" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Element.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Iterable.java" />
+    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Structure.java" />
     <entry file="file://$PROJECT_DIR$/src/Graph/Graph1.java" />
-    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6358">
-          <caret line="374" column="33" selection-start-line="374" selection-start-column="33" selection-end-line="374" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Node.java" />
     <entry file="file://$PROJECT_DIR$/gka-Dateien/GraphTest1.gka">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -939,19 +934,11 @@
     <entry file="file://$PROJECT_DIR$/gka-Dateien/graph07.gka">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/styleSheet">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph/styleSheet" />
     <entry file="file://$PROJECT_DIR$/Aufgabe1GKA.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/heart.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/heart.jpg" />
     <entry file="file://$PROJECT_DIR$/nodepad">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -965,41 +952,13 @@
     <entry file="file://$PROJECT_DIR$/TestRegex" />
     <entry file="file://$PROJECT_DIR$/regex.text">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="84" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="84" />
+        <state relative-caret-position="34">
+          <caret line="2" column="68" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/implementations/AbstractElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="530" selection-start-line="530" selection-end-line="530" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="41" lean-forward="true" selection-end-line="41" />
-          <folding>
-            <element signature="e#0#809#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speichern1.gka">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/GraphAlgorithms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/implementations/AbstractElement.java" />
+    <entry file="file://$PROJECT_DIR$/speichern1.gka" />
     <entry file="file://$PROJECT_DIR$/src/Graph/GraphStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1038,16 +997,12 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/gka-Dateien/graph02.gka">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/gka-Dateien/graph03.gka">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        <state relative-caret-position="663">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1072,8 +1027,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gka-Dateien/graph01.gka">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state relative-caret-position="85">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1085,8 +1040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        <state relative-caret-position="3740">
+          <caret line="236" selection-start-line="236" selection-end-line="236" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1095,11 +1050,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph/GraphIOSave.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="69" column="88" selection-start-line="69" selection-start-column="88" selection-end-line="69" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="714">
+          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1110,16 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/GraphIOSaveTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/save-Dateien/savegraph6.gka">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1127,10 +1069,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph/GraphAlgorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/GraphIOSaveTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/ReadFileTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-344">
-          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+        <state relative-caret-position="153">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/GraphAlgorithmsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="38" column="50" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1214,7 +1186,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>gs-core-1.3</last-edited>
+          <last-edited>junit:junit:4.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

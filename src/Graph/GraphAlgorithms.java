@@ -101,13 +101,24 @@ public class GraphAlgorithms {
         return nodeList;
     }*/
 
+    /**
+     * Method to traverse a graph and find the shortest path between a
+     * first node and a second. If a Path is found, it is returned.
+     * If not, null is returned with a message over console.
+     *
+     * @param graph         the graph to traverse
+     * @param sourceNode    node to start searching from
+     * @param targetNode    node to find path to
+     * @return              returns a LinkedList<Node> with the path.
+     *                      if no path found, returns null plus message
+     */
     public static List<Node> traverseWithBFS(Graph graph, Node sourceNode, Node targetNode){
         List<Node> nodeList = new LinkedList<>();
         Node currentNode;
 
         //Add sourceNode to the queue and mark as visited
         ((LinkedList<Node>) nodeList).addLast(sourceNode);
-        sourceNode.addAttribute("visited", null);
+        sourceNode.addAttribute("visited", sourceNode);
 
 
         while(!nodeList.isEmpty()){
@@ -131,10 +142,17 @@ public class GraphAlgorithms {
         }
 
         //if the list is empty, there is no path
-        System.out.println("Kein Weg gefunden!");
+        System.out.println("no path found!");
         return null;
     }
 
+    /**
+     * Helper method to return a list with a path
+     *
+     * @param sourceNode    node to get back to
+     * @param targetNode    node from which to iterate back over precursora
+     * @return              a List with the path
+     */
     private static List<Node> pathAsList(Node sourceNode, Node targetNode){
         List<Node> path = new LinkedList<>();
         Node currentNode;
