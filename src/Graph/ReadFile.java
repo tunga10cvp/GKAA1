@@ -32,7 +32,7 @@ import static Graph.GraphAlgorithms.traverseWithBFS;
 public class ReadFile {
 
     public static void main(final String[] args) {
-        String filename = "gka-Dateien/graph06.gka";
+        String filename = "gka-Dateien/graph03.gka";
         Graph graph = readFile(filename);
         graph.display();
 

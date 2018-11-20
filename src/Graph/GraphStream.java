@@ -1,3 +1,5 @@
+package Graph;
+
 import java.io.IOException;
 import java.util.Iterator;
 import org.graphstream.graph.*;
@@ -25,7 +27,7 @@ public class GraphStream {
 //        s.detach();
 
 
-        graph.addAttribute("ui.stylesheet", styleSheet);
+/*        graph.addAttribute("ui.stylesheet", styleSheet);
         graph.setAutoCreate(true);
         graph.setStrict(false);
         graph.display();
@@ -49,7 +51,10 @@ public class GraphStream {
             node.addAttribute("ui.label", node.getId());
         }
 
-        explore(graph.getNode("A"));
+        explore(graph.getNode("A"));*/
+
+        Graph newGraph = GraphGenerator.generateGraph("test1", 100, 3500, 10);
+        newGraph.display();
     }
 
     public void explore(Node source) {
