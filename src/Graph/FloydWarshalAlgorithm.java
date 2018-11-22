@@ -9,6 +9,17 @@ import java.util.List;
 
 public class FloydWarshalAlgorithm {
 
+    public static long accessCounter = 0;
+
+    /**
+     * Calculates the shortest path from one node to another on a given graph using the Floyd Warshal algorithm and a transit-matrix
+     * for backtracking of the respective path
+     *
+     * @param graph         graph to find path on
+     * @param sourceNode    node to start a path from
+     * @param targetNode    target node
+     * @return              a path as a list of nodes
+     */
     public static List<Node> shortestPathsWithFloydWarshal(Graph graph, Node sourceNode, Node targetNode) {
         int numberOfNodes = graph.getNodeCount();
         List<Node> nodes = new ArrayList<>();
@@ -19,6 +30,7 @@ public class FloydWarshalAlgorithm {
         //get all Nodes in a list
         for (Node node : graph.getEachNode()) {
             nodes.add(node);
+            accessCounter++;
         }
 
         //fill distance matrix initially
@@ -33,6 +45,8 @@ public class FloydWarshalAlgorithm {
 
                 //set transit matrix entry to -1 as transit end point
                 transitMatrix[i][j] = -1;
+
+                accessCounter++;
             }
         }
 
@@ -46,25 +60,38 @@ public class FloydWarshalAlgorithm {
                             transitMatrix[i][k] = j;
                         }
                     }
+                    accessCounter++;
                 }
             }
         }
 
-        //calculate the path from source to target
+        //calculate the path from sourceNode to node before targetNode
         for (Integer indexInNodes : getPathFromTransit(nodes, transitMatrix, sourceNode, targetNode)) {
             path.add(nodes.get(indexInNodes));
         }
-        if (path.size() > 1)
+        //target node needs to be added manually because of recursion, but only if sourceNode != targetNode,
+        //then getPathFromTransit returns only that node
+        if (path.size() > 0 && sourceNode != targetNode)
             path.add(targetNode);
 
         return path;
     }
 
+    /**
+     * helper method for recursive calculation of the path
+     *
+     * @param nodes         all nodes in the graph
+     * @param transitMatrix the calculated transit matrix from shortestPathsWithFloydWarshal
+     * @param source        current source node
+     * @param target        current target node
+     * @return              path as list of nodes minus the target node
+     */
     private static List<Integer> getPathFromTransit(List<Node> nodes, int[][] transitMatrix, Node source, Node target) {
         List<Integer> path = new LinkedList<>();
         if (transitMatrix[nodes.indexOf(source)][nodes.indexOf(target)] == -1) {
-            if(source == target || source.hasEdgeToward(target))
+            if(source.hasEdgeToward(target))
                 ((LinkedList<Integer>) path).add(nodes.indexOf(source));
+            else if(source == target);
             else
                 System.out.println("Kein Weg gefunden!");
         }
