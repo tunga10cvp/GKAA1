@@ -27,7 +27,7 @@ public class FloydWarshalAlgorithm {
                 if (nodes.get(i).equals(nodes.get(j)))
                     distanceMatrix[i][j] = 0.0;
                 else if (nodes.get(i).hasEdgeToward(nodes.get(j)))
-                    distanceMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("weight");
+                    distanceMatrix[i][j] = Double.valueOf(nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label"));
                 else
                     distanceMatrix[i][j] = Double.POSITIVE_INFINITY;
 
@@ -57,6 +57,7 @@ public class FloydWarshalAlgorithm {
         if (path.size() > 1)
             path.add(targetNode);
 
+        System.out.println();
         return path;
     }
 

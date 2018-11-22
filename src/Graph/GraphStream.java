@@ -1,12 +1,10 @@
 package Graph;
 
-import java.io.IOException;
-import java.util.Iterator;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
-import org.graphstream.ui.spriteManager.*;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
 
-import Graph.*;
+import java.util.Iterator;
 
 public class GraphStream {
     public static void main(String args[]) {
@@ -53,7 +51,13 @@ public class GraphStream {
 
         explore(graph.getNode("A"));*/
 
-        Graph newGraph = GraphGenerator.generateGraph("test1", 10, 15, 10);
+        Graph newGraph = null;
+        try {
+           newGraph = GraphGenerator.generateGraph("test1", 8, 15, 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        newGraph.addAttribute("ui.stylesheet", styleSheet);
         newGraph.display();
         System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
     }
@@ -74,11 +78,40 @@ public class GraphStream {
     }
 
 
-    protected String styleSheet =
-            "node {" +
-                    "	fill-color: black;" +
+    // Aussehen für die Graphen
+    protected static String styleSheet =
+            "graph {" +
+                    "   fill-color: black;"+
+                    "}" +
+
+                    "node {" +
+                    "   text-color: yellow;" +
+                    "   shape: line;" +
+                    "   text-size: 25px;" +
+                    "   shape: circle;" +
+                    "   fill-color: green;" +
+                    "   size: 20px;" +
+                    //  "   text-alignment: center;" +
+                    //  "   fill-mode: gradient-radial;" +
+                    // "   stroke-color: yellow;" +
+
                     "}" +
                     "node.marked {" +
-                    "	fill-color: red;" +
+                    "	fill-color: green;" +
+                    "}" +
+
+                    " edge {" +
+                    "shape: angle;" +
+                    " stroke-mode: plain;"+
+                    "text-color: white;"+
+                    "text-size: 15px;"+
+                    "fill-color: blue;"+
+                    "text-background-mode: rounded-box;"+
+                    "text-background-color: red;"+
+                    "}"+
+
+                    "edge.marked {"+
+                    " fill-color: red;"+
+                    " text-color: red;"+
                     "}";
 }

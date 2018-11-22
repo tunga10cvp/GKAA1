@@ -3,18 +3,12 @@ package Graph;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
-import org.graphstream.graph.implementations.SingleGraph;
 
 import java.io.*;
-
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-
-import static Graph.GraphAlgorithms.traverseWithBFS;
 
 /**
  * Klasse ReadFile fürs Einlesen einer Datei und zeichne den Graphen
@@ -34,8 +28,36 @@ public class ReadFile {
     public static void main(final String[] args) {
         String filename = "gka-Dateien/graph03.gka";
         Graph graph = readFile(filename);
-        graph.display();
 
+
+//        List<Node> bfsReturn = traverseWithBFS(graph, graph.getNode("Kiel"), graph.getNode("Husum"));
+//
+//        for (Node node : bfsReturn){
+//            node.addAttribute("ui.style", " fill-color: red;");
+//            //testGraph.addAttribute("ui.stylesheet", "edge { fill-color: red; }");
+//        }
+//
+//        for(int i = 0; i < bfsReturn.size() - 1; i++){
+//            // System.out.println(bfsReturn.get(i)+bfsReturn.get(i+1));
+//            String node1 = String.valueOf(bfsReturn.get(i));
+//            String node2 = String.valueOf(bfsReturn.get(i+1));
+//            String edgeId = String.valueOf(i);
+//
+//            System.out.println(node1);
+//            System.out.println(node2);
+//
+//
+//        }
+//
+//        System.out.println(bfsReturn);
+        List<Node> floyd = FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, graph.getNode("Hannover"), graph.getNode("Hamburg"));
+        System.out.println(floyd);
+
+         graph.display();
+
+         for (Node node : floyd){
+             node.addAttribute("ui.style", " fill-color: red;");
+         }
     }
 
     /**
@@ -95,15 +117,15 @@ public class ReadFile {
             // ID für jede Kante mit Random in String
             String idEdge = edgeID();
             // drück jede Zeile in verschiedenen Gruppen nach dem Sortieren aus
-            System.out.println("Zeile Nr: " + graph.getEdgeCount());
-            System.out.println("----------------------------");
-            for (int i = 0; i <= matcher.groupCount(); i++) {
-                System.out.println("Group " + i + ": " + matcher.group(i));
-            }
+//            System.out.println("Zeile Nr: " + graph.getEdgeCount());
+//            System.out.println("----------------------------");
+//            for (int i = 0; i <= matcher.groupCount(); i++) {
+//                System.out.println("Group " + i + ": " + matcher.group(i));
+//            }
 
             //System.out.println(edgeID());
 
-              System.out.println("Die ID-Kante: " + edgeID());
+             // System.out.println("Die ID-Kante: " + edgeID());
 
             // Knoten 1 hinzufügen, wenn:
             // - es nicht null ist
@@ -167,10 +189,10 @@ public class ReadFile {
             }
 
             //Anzahl der Knoten
-            System.out.println("Anzahl der Knoten: " + graph.getNodeCount());
+          //  System.out.println("Anzahl der Knoten: " + graph.getNodeCount());
 
             // Anzahl der Kanaten
-            System.out.println("Anzahl der Kanten: " + graph.getEdgeCount());
+           //  System.out.println("Anzahl der Kanten: " + graph.getEdgeCount());
 
 
         }
