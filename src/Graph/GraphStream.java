@@ -53,8 +53,9 @@ public class GraphStream {
 
         explore(graph.getNode("A"));*/
 
-        Graph newGraph = GraphGenerator.generateGraph("test1", 100, 3500, 10);
+        Graph newGraph = GraphGenerator.generateGraph("test1", 10, 15, 10);
         newGraph.display();
+        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
     }
 
     public void explore(Node source) {
