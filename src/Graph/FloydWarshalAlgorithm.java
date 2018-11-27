@@ -18,7 +18,7 @@ public class FloydWarshalAlgorithm {
      * @param graph         graph to find path on
      * @param sourceNode    node to start a path from
      * @param targetNode    target node
-     * @return              a path as a list of nodes
+     * @return              a path as a list of nodes, OR null if path is circle with negative length
      */
     public static List<Node> shortestPathsWithFloydWarshal(Graph graph, Node sourceNode, Node targetNode) {
         int numberOfNodes = graph.getNodeCount();
@@ -41,6 +41,7 @@ public class FloydWarshalAlgorithm {
         //fill distance matrix initially
         for (int i = 0; i < numberOfNodes; i++) {
             for (int j = 0; j < numberOfNodes; j++) {
+                accessCounter++;
                 if (nodes.get(i).equals(nodes.get(j)))
 
                     distanceMatrix[i][j] = 0.0;
@@ -52,9 +53,6 @@ public class FloydWarshalAlgorithm {
 
                 //set transit matrix entry to -1 as transit end point
                 transitMatrix[i][j] = -1;
-
-                accessCounter++;
-                System.out.println(distanceMatrix[i][j]);
             }
         }
 
@@ -62,13 +60,17 @@ public class FloydWarshalAlgorithm {
         for (int j = 0; j < numberOfNodes; j++) {
             for (int i = 0; i < numberOfNodes; i++) {
                 for (int k = 0; k < numberOfNodes; k++) {
+                    accessCounter++;
                     if (i != j && k != j) {
                         if (distanceMatrix[i][j] + distanceMatrix[j][k] < distanceMatrix[i][k]) {
                             distanceMatrix[i][k] = Math.min(distanceMatrix[i][k], distanceMatrix[i][j] + distanceMatrix[j][k]);
                             transitMatrix[i][k] = j;
                         }
                     }
-                    accessCounter++;
+                    if(i == k && distanceMatrix[i][k] < 0) {
+                        System.out.println("Kreis negativer Länge gefunden!");
+                        return null;
+                    }
                 }
             }
         }
