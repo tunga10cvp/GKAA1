@@ -14,7 +14,7 @@ public class FloydWarshalAlgorithmTest {
 
     //leer Graph
     @Test
-    public void floydWarshalAlgrithmTest1() {
+    public void leerGraph() {
 
         Graph graph = readFile("gka-Dateien/leerGraph.gka");
 
@@ -25,7 +25,7 @@ public class FloydWarshalAlgorithmTest {
 
     //Ein Knoten, gleichzeitig Source und Target
     @Test
-    public void floydWarshalAlgrithmTest2() {
+    public void startKnoteIstZielKnoten() {
 
         Graph graph = readFile("gka-Dateien/graph03.gka");
 
@@ -42,7 +42,7 @@ public class FloydWarshalAlgorithmTest {
 
 
     @Test
-    public void floydWarshalAlgrithmTest3() {
+    public void graph03Test() {
 
         Graph graph = readFile("gka-Dateien/graph03.gka");
 
@@ -64,8 +64,15 @@ public class FloydWarshalAlgorithmTest {
     }
 
 
+    @Test
+    public void kreisMitNegativerLänger(){
+        Graph graph = readFile("gka-Dateien/negativeGraph03.gka");
+
+        List<Node> floyd = shortestPathsWithFloydWarshal(graph, graph.getNode("Kiel"), graph.getNode("Lübeck"));
+
+        assertTrue(floyd == null);
 
 
-
+    }
 
 }
