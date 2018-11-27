@@ -14,6 +14,9 @@ public class Main {
         String filename = "gka-Dateien/graph03.gka";
         Graph graph = readFile(filename);
 
+        /**
+         * BFS Algorithms aufrufen
+         */
 
 //        List<Node> bfsReturn = traverseWithBFS(graph, graph.getNode("Kiel"), graph.getNode("Husum"));
 //
@@ -36,16 +39,68 @@ public class Main {
 //
 //        System.out.println(bfsReturn);
 
-        Node source = graph.getNode("Kiel");
-        Node target = graph.getNode("Lübeck");
+        /**
+         * Graph Generator aufrufen
+         */
+        Graph newGraph = null;
+        try {
+            newGraph = GraphGenerator.generateGraph("test1", 20, 50, 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        newGraph.addAttribute("ui.stylesheet", styleSheet);
+        newGraph.display();
+        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
 
 
-        FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
-
-        graph.display();
-
-
+        /**
+         *  FloydWarshalAlgorithm aufrufen
+         */
+//        Node source = graph.getNode("Kiel");
+//        Node target = graph.getNode("Lübeck");
+//
+//
+//        FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
+//
+//        graph.display();
 
     }
+
+    // Aussehen für die Graphen
+    protected static String styleSheet =
+            "graph {" +
+                    "   fill-color: black;"+
+                    "}" +
+
+                    "node {" +
+                    "   text-color: yellow;" +
+                    "   shape: line;" +
+                    "   text-size: 25px;" +
+                    "   shape: circle;" +
+                    "   fill-color: green;" +
+                    "   size: 20px;" +
+                    //  "   text-alignment: center;" +
+                    //  "   fill-mode: gradient-radial;" +
+                    // "   stroke-color: yellow;" +
+
+                    "}" +
+                    "node.marked {" +
+                    "	fill-color: green;" +
+                    "}" +
+
+                    " edge {" +
+                    "shape: angle;" +
+                    " stroke-mode: plain;"+
+                    "text-color: white;"+
+                    "text-size: 15px;"+
+                    "fill-color: blue;"+
+                    "text-background-mode: rounded-box;"+
+                    "text-background-color: red;"+
+                    "}"+
+
+                    "edge.marked {"+
+                    " fill-color: red;"+
+                    " text-color: red;"+
+                    "}";
 
 }
