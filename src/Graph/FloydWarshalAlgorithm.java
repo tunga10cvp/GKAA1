@@ -27,7 +27,7 @@ public class FloydWarshalAlgorithm {
         double[][] distanceMatrix = new double[numberOfNodes][numberOfNodes];
         int[][] transitMatrix = new int[numberOfNodes][numberOfNodes];
 
-        List<Double> distance = new ArrayList<>();
+
 
         // source = target
         if (sourceNode == targetNode) {
@@ -86,41 +86,12 @@ public class FloydWarshalAlgorithm {
         if (path.size() > 0 && sourceNode != targetNode)
             path.add(targetNode);
 
-        /**
-         Knoten und Kanten bei den Graphen sowei den kürzesten Weg anzeigen
-         **/
-        if (!path.isEmpty()) {
-            for (int i = 0; i < path.size(); i++) {
-                path.get(i).addAttribute("ui.style", " fill-color: red;");
-            }
-            for (int i = 0; i < path.size() - 1; i++) {
-                path.get(i).getEdgeToward(path.get(i + 1)).addAttribute("ui.style", " fill-color: red;");
-            }
-
-
-            System.out.println("Unser Weg: " + sourceNode + " als Startknote und " + targetNode + " als Zielknote");
-            System.out.println("----------------------------------------------------------");
-
-            for (int i = 0; i < path.size() - 1; i++) {
-                distance.add(path.get(i).getEdgeToward(path.get(i + 1)).getAttribute("ui.label"));
-                System.out.println("Von " + path.get(i) + " nach " + path.get(i + 1) + " mit dem Abstand: " + path.get(i).getEdgeToward(path.get(i + 1)).getAttribute("ui.label"));
-            }
-
-            Double summe = 0.0;
-            for (Double dis : distance) {
-                summe += dis;
-            }
-
-
-            System.out.println("----------------------------------------------------------");
-            System.out.println("Die Entfernung zwischen Startknote und ZielKnote: " + summe);
-            System.out.println("----------------------------------------------------------");
-            System.out.println("Anzahl der Zugriffe auf den Graphen: " + accessCounter);
-        }
-
-
         System.out.println();
+
+        uiForFloyd(path);
+
         return path;
+
     }
 
     /**
@@ -147,6 +118,48 @@ public class FloydWarshalAlgorithm {
         }
 
         return path;
+    }
+
+    /**
+     Knoten und Kanten bei den Graphen sowei den kürzesten Weg anzeigen
+     **/
+
+    public static void uiForFloyd(List<Node> path){
+
+        List<Double> distance = new ArrayList<>();
+
+        if (!path.isEmpty()) {
+            for (int i = 0; i < path.size(); i++) {
+                path.get(i).addAttribute("ui.style", " fill-color: red;");
+            }
+            for (int i = 0; i < path.size() - 1; i++) {
+                path.get(i).getEdgeToward(path.get(i + 1)).addAttribute("ui.style", " fill-color: red;");
+            }
+
+
+            System.out.println("Unser Weg: " + path.get(0) + " als Startknote und " + path.get(path.size() - 1) + " als Zielknote");
+            System.out.println("----------------------------------------------------------");
+
+            for (int i = 0; i < path.size() - 1; i++) {
+                distance.add(path.get(i).getEdgeToward(path.get(i + 1)).getAttribute("ui.label"));
+                System.out.println("Von " + path.get(i) + " nach " + path.get(i + 1) + " mit dem Abstand: " + path.get(i).getEdgeToward(path.get(i + 1)).getAttribute("ui.label"));
+            }
+
+            Double summe = 0.0;
+            for (Double dis : distance) {
+                summe += dis;
+            }
+
+
+            System.out.println("----------------------------------------------------------");
+            System.out.println("Die Entfernung zwischen Startknote und ZielKnote: " + summe);
+            System.out.println("----------------------------------------------------------");
+
+        }
+        else {
+            System.out.println("Kein Path gefunden");
+        }
+
     }
 
 

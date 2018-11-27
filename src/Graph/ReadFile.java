@@ -5,11 +5,11 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
 
 import java.io.*;
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static Graph.FloydWarshalAlgorithm.accessCounter;
 
 /**
  * Klasse ReadFile fürs Einlesen einer Datei und zeichne den Graphen
@@ -25,94 +25,6 @@ import static Graph.FloydWarshalAlgorithm.accessCounter;
  *
  */
 public class ReadFile {
-
-    public static void main(final String[] args) throws InterruptedException {
-        String filename = "gka-Dateien/graph03.gka";
-        Graph graph = readFile(filename);
-
-
-//        List<Node> bfsReturn = traverseWithBFS(graph, graph.getNode("Kiel"), graph.getNode("Husum"));
-//
-//        for (Node node : bfsReturn){
-//            node.addAttribute("ui.style", " fill-color: red;");
-//            //testGraph.addAttribute("ui.stylesheet", "edge { fill-color: red; }");
-//        }
-//
-//        for(int i = 0; i < bfsReturn.size() - 1; i++){
-//            // System.out.println(bfsReturn.get(i)+bfsReturn.get(i+1));
-//            String node1 = String.valueOf(bfsReturn.get(i));
-//            String node2 = String.valueOf(bfsReturn.get(i+1));
-//            String edgeId = String.valueOf(i);
-//
-//            System.out.println(node1);
-//            System.out.println(node2);
-//
-//
-//        }
-//
-//        System.out.println(bfsReturn);
-
-        Node source = graph.getNode("Kiel");
-        Node target = graph.getNode("Lübeck");
-        List<Double> distance = new ArrayList<>();
-
-        List<Node> floyd = FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
-
-        //Knoten und Kanten des Path zeigen
-        for (int i = 0; i < floyd.size() - 1; i++) {
-        //    floyd.get(i).addAttribute("ui.style", " fill-color: red;");
-            floyd.get(i).getEdgeToward(floyd.get(i + 1)).addAttribute("ui.style", " fill-color: red;");
-        }
-
-        for (int i = 0; i < floyd.size() ; i++){
-            floyd.get(i).addAttribute("ui.style", " fill-color: red;");
-
-        }
-
-//        List<Node> nodes = new ArrayList<>();
-//        for (Node node : graph.getEachNode()) {
-//            nodes.add(node);
-//        }
-//
-//        int count = graph.getNodeCount();
-//        double[][] distanceMatrix = new double[count][count];
-//        for (int i = 0; i < count; i++) {
-//            for (int j = 0; j < count; j++) {
-//                distanceMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
-//                System.out.println(distanceMatrix[i][j]);
-//            }
-//        }
-
-        System.out.println("Unser Weg: " + source + " als Startknote und " + target + " als Zielknote");
-        System.out.println("----------------------------------------------------------");
-
-
-        for (int i = 0; i < floyd.size() - 1; i++) {
-            distance.add(floyd.get(i).getEdgeToward(floyd.get(i + 1)).getAttribute("ui.label"));
-            System.out.println("Von " + floyd.get(i) + " nach " + floyd.get(i + 1) + " mit dem Abstand: " + floyd.get(i).getEdgeToward(floyd.get(i + 1)).getAttribute("ui.label"));
-        }
-
-        Double summe = 0.0;
-        for (Double dis : distance){
-            summe += dis;
-        }
-
-
-        System.out.println("----------------------------------------------------------");
-        System.out.println("Die Entfernung zwischen Startknote und ZielKnote: " + summe);
-        System.out.println("----------------------------------------------------------");
-        System.out.println("Anzahl der Zugriffe auf den Graphen: " + accessCounter);
-
-        graph.display();
-
-//        for (int i = 0; i < floyd.size(); i++){
-//            Node node = floyd.get(0);
-//            node.addAttribute("ui.style","fill-color: red");
-//            sleep();
-//        }
-
-
-    }
 
     /**
      Liest jeder Zeile der Datei mit Hilfe der Regulär Ausdrücke
@@ -135,7 +47,7 @@ public class ReadFile {
 
                 //regex formatiert jeder Zeile
                 String regex =
-                        "^([\\wÄäÖöÜüß]+)(?:\\s*(->|--)\\s*([\\wÄäÖöÜüß]+)\\s*(?::\\s*(\\d+)\\s*)?)?\\s*(?:\\(\\s*([\\wÄäÖöÜüß]+)\\s*\\)\\s*)?;";
+                        "^([\\wÄäÖöÜüß]+)(?:\\s*(->|--)\\s*([\\wÄäÖöÜüß]+)\\s*(?::\\s*((?:-)*\\d+)\\s*)?)?\\s*(?:\\(\\s*([\\wÄäÖöÜüß]+)\\s*\\)\\s*)?;";
                 Pattern pattern = Pattern.compile(regex);
                 Matcher matcher = pattern.matcher(line);
 
