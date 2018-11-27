@@ -1,12 +1,10 @@
 package Test;
 
+import Graph.GraphGenerator;
 import org.graphstream.graph.Graph;
 import org.junit.Test;
 
-import org.junit.jupiter.api.Assertions;
-
-import Graph.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class GraphGeneratorTest {
 

@@ -5,10 +5,11 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
 
 import java.io.*;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static Graph.FloydWarshalAlgorithm.accessCounter;
 
 /**
  * Klasse ReadFile fürs Einlesen einer Datei und zeichne den Graphen
@@ -25,7 +26,7 @@ import java.util.regex.Pattern;
  */
 public class ReadFile {
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws InterruptedException {
         String filename = "gka-Dateien/graph03.gka";
         Graph graph = readFile(filename);
 
@@ -50,14 +51,67 @@ public class ReadFile {
 //        }
 //
 //        System.out.println(bfsReturn);
-        List<Node> floyd = FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, graph.getNode("Hannover"), graph.getNode("Hamburg"));
-        System.out.println(floyd);
 
-         graph.display();
+        Node source = graph.getNode("Kiel");
+        Node target = graph.getNode("Lübeck");
+        List<Double> distance = new ArrayList<>();
 
-         for (Node node : floyd){
-             node.addAttribute("ui.style", " fill-color: red;");
-         }
+        List<Node> floyd = FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
+
+        //Knoten und Kanten des Path zeigen
+        for (int i = 0; i < floyd.size() - 1; i++) {
+        //    floyd.get(i).addAttribute("ui.style", " fill-color: red;");
+            floyd.get(i).getEdgeToward(floyd.get(i + 1)).addAttribute("ui.style", " fill-color: red;");
+        }
+
+        for (int i = 0; i < floyd.size() ; i++){
+            floyd.get(i).addAttribute("ui.style", " fill-color: red;");
+
+        }
+
+//        List<Node> nodes = new ArrayList<>();
+//        for (Node node : graph.getEachNode()) {
+//            nodes.add(node);
+//        }
+//
+//        int count = graph.getNodeCount();
+//        double[][] distanceMatrix = new double[count][count];
+//        for (int i = 0; i < count; i++) {
+//            for (int j = 0; j < count; j++) {
+//                distanceMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
+//                System.out.println(distanceMatrix[i][j]);
+//            }
+//        }
+
+        System.out.println("Unser Weg: " + source + " als Startknote und " + target + " als Zielknote");
+        System.out.println("----------------------------------------------------------");
+
+
+        for (int i = 0; i < floyd.size() - 1; i++) {
+            distance.add(floyd.get(i).getEdgeToward(floyd.get(i + 1)).getAttribute("ui.label"));
+            System.out.println("Von " + floyd.get(i) + " nach " + floyd.get(i + 1) + " mit dem Abstand: " + floyd.get(i).getEdgeToward(floyd.get(i + 1)).getAttribute("ui.label"));
+        }
+
+        Double summe = 0.0;
+        for (Double dis : distance){
+            summe += dis;
+        }
+
+
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Die Entfernung zwischen Startknote und ZielKnote: " + summe);
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Anzahl der Zugriffe auf den Graphen: " + accessCounter);
+
+        graph.display();
+
+//        for (int i = 0; i < floyd.size(); i++){
+//            Node node = floyd.get(0);
+//            node.addAttribute("ui.style","fill-color: red");
+//            sleep();
+//        }
+
+
     }
 
     /**
@@ -106,6 +160,8 @@ public class ReadFile {
      */
     private static void showGraph(Graph graph, Matcher matcher) {
         //suche alle Teile of Dateien
+
+
         while (matcher.find()) {
             //Auslesen der einzelnen Gruppen
             final String node1 = matcher.group(1);
@@ -173,7 +229,7 @@ public class ReadFile {
                 // - es kein Leerstring ist
                 if (weight != null &&
                         !"".equals(weight)) {
-                    graph.getEdge(idEdge).addAttribute("ui.label", weight);
+                    graph.getEdge(idEdge).addAttribute("ui.label", Double.valueOf(weight));
                     //graph.addAttribute("ui.label", graph.getEdge(idEdge));
                 }
 
@@ -216,6 +272,20 @@ public class ReadFile {
     //erstellt EdgeID
     public static String edgeID() {
         return UUID.randomUUID().toString();
+    }
+
+    public static void explore(Node source) {
+        Iterator<? extends Node> k = source.getBreadthFirstIterator();
+
+        while (k.hasNext()) {
+            Node next = k.next();
+            next.setAttribute("ui.class", "marked");
+            sleep(100);
+        }
+    }
+
+    protected static void sleep(int i) {
+        try { Thread.sleep(1000); } catch (Exception e) {}
     }
 
 

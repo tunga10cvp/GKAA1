@@ -27,6 +27,11 @@ public class FloydWarshalAlgorithm {
         double[][] distanceMatrix = new double[numberOfNodes][numberOfNodes];
         int[][] transitMatrix = new int[numberOfNodes][numberOfNodes];
 
+        // source = target
+        if (sourceNode == targetNode){
+            path.add(sourceNode);
+        }
+
         //get all Nodes in a list
         for (Node node : graph.getEachNode()) {
             nodes.add(node);
@@ -37,9 +42,11 @@ public class FloydWarshalAlgorithm {
         for (int i = 0; i < numberOfNodes; i++) {
             for (int j = 0; j < numberOfNodes; j++) {
                 if (nodes.get(i).equals(nodes.get(j)))
+
                     distanceMatrix[i][j] = 0.0;
+
                 else if (nodes.get(i).hasEdgeToward(nodes.get(j)))
-                    distanceMatrix[i][j] = Double.valueOf(nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label"));
+                    distanceMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
                 else
                     distanceMatrix[i][j] = Double.POSITIVE_INFINITY;
 
@@ -47,6 +54,7 @@ public class FloydWarshalAlgorithm {
                 transitMatrix[i][j] = -1;
 
                 accessCounter++;
+                System.out.println(distanceMatrix[i][j]);
             }
         }
 

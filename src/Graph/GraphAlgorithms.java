@@ -1,12 +1,13 @@
 package Graph;
 
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
+import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.MultiGraph;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+
 
 public class GraphAlgorithms {
 
@@ -16,7 +17,7 @@ public class GraphAlgorithms {
         testGraph.addNode("B");
         testGraph.addNode("C");
         testGraph.addNode("D");
-        testGraph.addNode("E");
+       // testGraph.addNode("E");
         testGraph.addNode("F");
         testGraph.addNode("G");
 
@@ -44,9 +45,31 @@ public class GraphAlgorithms {
         testGraph.addEdge("GD","G", "D", true);
         testGraph.getEdge("GD").setAttribute("weight", 1);
 
-        List<Node> bfsReturn = traverseWithBFS(testGraph, testGraph.getNode("A"), testGraph.getNode("D"));
+        testGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
 
-        System.out.println(bfsReturn);
+        List<Node> bfsReturn = traverseWithBFS(testGraph, testGraph.getNode("A"), testGraph.getNode("G"));
+        for (Node node : bfsReturn){
+            node.addAttribute("ui.style", " fill-color: red;");
+            //testGraph.addAttribute("ui.stylesheet", "edge { fill-color: red; }");
+
+
+        }
+
+        for(int i = 0; i < bfsReturn.size() - 1; i++){
+            // System.out.println(bfsReturn.get(i)+bfsReturn.get(i+1));
+            String node1 = String.valueOf(bfsReturn.get(i));
+            String node2 = String.valueOf(bfsReturn.get(i+1));
+            String edgeId = String.valueOf(i);
+
+            testGraph.getEdge(node1 + node2).addAttribute("ui.style", " fill-color: red;");
+
+        }
+        //testGraph.getEdge().addAttribute("ui.style", " fill-color: red;");
+
+        testGraph.display();
+
+        //System.out.println(bfsReturn);
+        //System.out.println(bfsReturn.get(0));
     }
 
     /*public static List<Node> traverseWithBFS(Graph graph, Node sourceNode, Node targetNode){
@@ -131,16 +154,20 @@ public class GraphAlgorithms {
 
             //Save the current node as their precursor if adjacentNode was not visited before
             for(Edge leavingEdge : currentNode.getEachLeavingEdge()){
+
                 Node adjacentNode = leavingEdge.getNode1();
 
                 if(!adjacentNode.hasAttribute("visited")) {
+
                     adjacentNode.setAttribute("visited", currentNode);
                     ((LinkedList<Node>) nodeList).addLast(adjacentNode);
                 }
 
             }
-        }
 
+
+
+        }
         //if the list is empty, there is no path
         System.out.println("no path found!");
         return null;
