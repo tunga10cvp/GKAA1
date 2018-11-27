@@ -27,8 +27,10 @@ public class FloydWarshalAlgorithm {
         double[][] distanceMatrix = new double[numberOfNodes][numberOfNodes];
         int[][] transitMatrix = new int[numberOfNodes][numberOfNodes];
 
+        List<Double> distance = new ArrayList<>();
+
         // source = target
-        if (sourceNode == targetNode){
+        if (sourceNode == targetNode) {
             path.add(sourceNode);
         }
 
@@ -67,7 +69,7 @@ public class FloydWarshalAlgorithm {
                             transitMatrix[i][k] = j;
                         }
                     }
-                    if(i == k && distanceMatrix[i][k] < 0) {
+                    if (i == k && distanceMatrix[i][k] < 0) {
                         System.out.println("Kreis negativer Länge gefunden!");
                         return null;
                     }
@@ -83,6 +85,39 @@ public class FloydWarshalAlgorithm {
         //then getPathFromTransit returns only that node
         if (path.size() > 0 && sourceNode != targetNode)
             path.add(targetNode);
+
+        /**
+         Knoten und Kanten bei den Graphen sowei den kürzesten Weg anzeigen
+         **/
+        if (!path.isEmpty()) {
+            for (int i = 0; i < path.size(); i++) {
+                path.get(i).addAttribute("ui.style", " fill-color: red;");
+            }
+            for (int i = 0; i < path.size() - 1; i++) {
+                path.get(i).getEdgeToward(path.get(i + 1)).addAttribute("ui.style", " fill-color: red;");
+            }
+
+
+            System.out.println("Unser Weg: " + sourceNode + " als Startknote und " + targetNode + " als Zielknote");
+            System.out.println("----------------------------------------------------------");
+
+            for (int i = 0; i < path.size() - 1; i++) {
+                distance.add(path.get(i).getEdgeToward(path.get(i + 1)).getAttribute("ui.label"));
+                System.out.println("Von " + path.get(i) + " nach " + path.get(i + 1) + " mit dem Abstand: " + path.get(i).getEdgeToward(path.get(i + 1)).getAttribute("ui.label"));
+            }
+
+            Double summe = 0.0;
+            for (Double dis : distance) {
+                summe += dis;
+            }
+
+
+            System.out.println("----------------------------------------------------------");
+            System.out.println("Die Entfernung zwischen Startknote und ZielKnote: " + summe);
+            System.out.println("----------------------------------------------------------");
+            System.out.println("Anzahl der Zugriffe auf den Graphen: " + accessCounter);
+
+        }
 
         System.out.println();
         return path;
