@@ -2,7 +2,7 @@ package Graph;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.MultiGraph;
 
-public class GraphGenerator {
+public class    GraphGenerator {
 
     /**
      * Erstellt eine allgemeine Konstruktion eines gerichteten Graphen für eine vorgegebene Anzahl von Knoten und
@@ -18,7 +18,7 @@ public class GraphGenerator {
 
         // negative Anzahl
         if (nodeNum < 0 || edgeNum < 0){
-            System.out.println("Kein Graph!!!");
+            throw new IllegalArgumentException( "Keine negative Anzahl wurde akzeptiert");
         }
 
         //keine Knoten aber trotzdem Kanten eingeben
