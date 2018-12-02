@@ -6,17 +6,13 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static Graph.DijkstraAlgorithm.shortestPathsWithDijkstra;
 import static Graph.FloydWarshalAlgorithm.shortestPathsWithFloydWarshal;
 import static Graph.ReadFile.readFile;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
-//import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
-public class FloydWarshalAlgorithmTest {
-
-        //leer Graph
+public class DijkstraAlgorithmTest {
     @Test
     public void leerGraph() {
 
@@ -27,7 +23,7 @@ public class FloydWarshalAlgorithmTest {
             Node source = graph.getNode(0);
             Node target = graph.getNode(graph.getNodeCount());
 
-            List<Node> floyd = shortestPathsWithFloydWarshal(graph, source, target);
+            List<Node> floyd = shortestPathsWithDijkstra(graph, source, target);
 
             fail("This should have thrown an exception");
 
@@ -43,10 +39,10 @@ public class FloydWarshalAlgorithmTest {
         Graph graph = readFile("gka-Dateien/graph03.gka");
 
 
-        Node node1 = graph.getNode("Kiel");
+        Node node1 = graph.getNode("Hamburg");
 
 
-        List<Node> floyd = shortestPathsWithFloydWarshal(graph, graph.getNode("Kiel"), graph.getNode("Kiel"));
+        List<Node> floyd = shortestPathsWithDijkstra(graph, graph.getNode("Hamburg"), graph.getNode("Hamburg"));
 
         assertTrue(floyd.size() == 1);
         assertTrue(floyd.get(0).equals(node1));
@@ -65,7 +61,7 @@ public class FloydWarshalAlgorithmTest {
         Node node4 = graph.getNode("Buxtehude");
         Node node5 = graph.getNode("Hamburg");
 
-        List<Node> floyd = shortestPathsWithFloydWarshal(graph, graph.getNode("Hannover"), graph.getNode("Hamburg"));
+        List<Node> floyd = shortestPathsWithDijkstra(graph, graph.getNode("Hannover"), graph.getNode("Hamburg"));
 
         assertTrue(floyd.size() == 5);
         assertTrue(floyd.get(0).equals(node1));
@@ -80,7 +76,7 @@ public class FloydWarshalAlgorithmTest {
     public void kreisMitNegativerLänger(){
         Graph graph = readFile("gka-Dateien/negativeGraph03.gka");
 
-        List<Node> floyd = shortestPathsWithFloydWarshal(graph, graph.getNode("Kiel"), graph.getNode("Lübeck"));
+        List<Node> floyd = shortestPathsWithDijkstra(graph, graph.getNode("Kiel"), graph.getNode("Lübeck"));
 
         assertTrue(floyd == null);
 
