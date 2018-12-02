@@ -1,5 +1,6 @@
 package Graph;
 
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
@@ -25,6 +26,13 @@ import java.util.regex.Pattern;
  *
  */
 public class ReadFile {
+
+    public static void main(final String[] args) {
+        String filename = "gka-Dateien/graph03.gka";
+        Graph graph = readFile(filename);
+        graph.display();
+
+    }
 
     /**
      Liest jeder Zeile der Datei mit Hilfe der Regulär Ausdrücke
@@ -166,6 +174,10 @@ public class ReadFile {
         }
         //Node Namen
         graph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
+
+//        for (Edge edge : graph.getEachEdge()){
+//            System.out.println(edge.getSourceNode() + edge.getAttribute("ui.label").toString());
+//        }
 
 
 

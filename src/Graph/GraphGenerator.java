@@ -18,7 +18,7 @@ public class    GraphGenerator {
 
         // negative Anzahl
         if (nodeNum < 0 || edgeNum < 0){
-            throw new IllegalArgumentException( "Keine negative Anzahl wurde akzeptiert");
+            throw new IllegalArgumentException("Keine negative Anzahl wurde akzeptiert");
         }
 
         //keine Knoten aber trotzdem Kanten eingeben

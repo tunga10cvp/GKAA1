@@ -28,6 +28,9 @@ public class FloydWarshalAlgorithm {
         int[][] transitMatrix = new int[numberOfNodes][numberOfNodes];
 
 
+        if (path == null){
+            throw new IllegalArgumentException("Der Graph darf nicht leer sein!!!");
+        }
 
         // source = target
         if (sourceNode == targetNode) {
@@ -105,7 +108,12 @@ public class FloydWarshalAlgorithm {
      */
     private static List<Integer> getPathFromTransit(List<Node> nodes, int[][] transitMatrix, Node source, Node target) {
         List<Integer> path = new LinkedList<>();
-        if (transitMatrix[nodes.indexOf(source)][nodes.indexOf(target)] == -1) {
+
+        if (source == null){
+            throw new IllegalArgumentException("SourceNode darf nicht null sein");
+        }
+
+        else if (transitMatrix[nodes.indexOf(source)][nodes.indexOf(target)] == -1) {
             if(source.hasEdgeToward(target))
                 ((LinkedList<Integer>) path).add(nodes.indexOf(source));
             else if(source == target);
@@ -116,6 +124,7 @@ public class FloydWarshalAlgorithm {
             ((LinkedList<Integer>) path).addAll(getPathFromTransit(nodes, transitMatrix, source, nodes.get(transitMatrix[nodes.indexOf(source)][nodes.indexOf(target)])));
             ((LinkedList<Integer>) path).addAll(getPathFromTransit(nodes, transitMatrix, nodes.get(transitMatrix[nodes.indexOf(source)][nodes.indexOf(target)]), target));
         }
+
 
         return path;
     }
