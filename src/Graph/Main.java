@@ -72,8 +72,8 @@ public class Main {
          *  DijkstraAlgorithm aufrufen
          */
 
-        Node source = graph.getNode("Kiel");
-        Node target = graph.getNode("Lübeck");
+        Node source = graph.getNode("Hamburg");
+        Node target = graph.getNode("Husum");
 
         //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
 

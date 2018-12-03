@@ -77,16 +77,16 @@ public class DijkstraAlgorithm {
             Iterator<Node> neighbors = aktuell.getNeighborNodeIterator();
 
             while (neighbors.hasNext()) {
-                Node node = neighbors.next();
+                Node neighbor = neighbors.next();
 
                 Double distance;
 
                 Double newDistance;
                 // noch nicht besucht und hat Verbindung mit aktuellKnote
-                if (!visited.contains(node) && aktuell.hasEdgeToward(node)) {
+                if (!visited.contains(neighbor) && aktuell.hasEdgeToward(neighbor)) {
 
                     // Kosten zwischen dem aktuellen Knoten und seinem Nachbarn
-                     distance = getShortestDistance(aktuell, node);
+                     distance = getShortestDistance(aktuell, neighbor);
 
                      if (distance < 0){
                          System.out.println("Kreis negativer Länge gefunden!");
@@ -97,17 +97,19 @@ public class DijkstraAlgorithm {
                      newDistance = cost.get(aktuell) + distance;
 
                     // Gesamtkosten und vorherigen Knoten aktualisieren, wenn der Pfad besser ist
-                    if (newDistance < cost.get(node)) {
+                    if (newDistance < cost.get(neighbor)) {
                         accessCounter++;
-                        if (queue.contains(node)) {
-                            queue.remove(node);
+
+                        // löscht neightbor mit dem alten Cost, Vorgänger
+                        if (queue.contains(neighbor)) {
+                            queue.remove(neighbor);
                         }
 
-                        node.addAttribute("distance", newDistance);
-                        queue.add(node);
-                        cost.put(node, newDistance);
+                        neighbor.addAttribute("distance", newDistance);
+                        queue.add(neighbor);
+                        cost.put(neighbor, newDistance);
 
-                        prev.put(node, aktuell);
+                        prev.put(neighbor, aktuell);
                     }
                 }
 
