@@ -89,6 +89,7 @@ public class FloydWarshalAlgorithm {
         if (path.size() > 0 && sourceNode != targetNode)
             path.add(targetNode);
 
+        targetNode.addAttribute("distance", distanceMatrix[nodes.indexOf(sourceNode)][nodes.indexOf(targetNode)]);
         System.out.println();
 
         uiForFloyd(path);
