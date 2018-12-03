@@ -42,7 +42,7 @@ public class DijkstraVsFloydTest {
         List<Node> dijkstra = shortestPathsWithDijkstra(graph, source, target);
 
 
-       // assertTrue(summeFloyd.equals(summeDijkstra));
+        //assertTrue(summeFloyd.equals(summeDijkstra));
 
         Double dijkstracost = dijkstra.get(dijkstra.size()-1).getAttribute("distance");
         Double floydCost = floyd.get(floyd.size()-1).getAttribute("distance");

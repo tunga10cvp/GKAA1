@@ -131,7 +131,7 @@ public class DijkstraAlgorithm {
             return null;
         }
 
-        System.out.println("Anzahl der Zugriffe" + accessCounter);
+        System.out.println("Anzahl der Zugriffe: " + accessCounter);
         //System.out.println(path);
         uiForDijkstra(path);
         //cost.get(target).intValue();

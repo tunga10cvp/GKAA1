@@ -23,7 +23,7 @@ public class DijkstraAlgorithmTest {
             Node source = graph.getNode(0);
             Node target = graph.getNode(graph.getNodeCount());
 
-            List<Node> floyd = shortestPathsWithDijkstra(graph, source, target);
+            List<Node> dijkstra = shortestPathsWithDijkstra(graph, source, target);
 
         } catch (IllegalArgumentException e) {
             assertTrue(e.getMessage().equals("SourceNode darf nicht null sein"));
@@ -40,10 +40,10 @@ public class DijkstraAlgorithmTest {
         Node node1 = graph.getNode("Hamburg");
 
 
-        List<Node> floyd = shortestPathsWithDijkstra(graph, graph.getNode("Hamburg"), graph.getNode("Hamburg"));
+        List<Node> dijkstra = shortestPathsWithDijkstra(graph, graph.getNode("Hamburg"), graph.getNode("Hamburg"));
 
-        assertTrue(floyd.size() == 1);
-        assertTrue(floyd.get(0).equals(node1));
+        assertTrue(dijkstra.size() == 1);
+        assertTrue(dijkstra.get(0).equals(node1));
 
     }
 
@@ -59,14 +59,14 @@ public class DijkstraAlgorithmTest {
         Node node4 = graph.getNode("Buxtehude");
         Node node5 = graph.getNode("Hamburg");
 
-        List<Node> floyd = shortestPathsWithDijkstra(graph, graph.getNode("Hannover"), graph.getNode("Hamburg"));
+        List<Node> dijkstra = shortestPathsWithDijkstra(graph, graph.getNode("Hannover"), graph.getNode("Hamburg"));
 
-        assertTrue(floyd.size() == 5);
-        assertTrue(floyd.get(0).equals(node1));
-        assertTrue(floyd.get(1).equals(node2));
-        assertTrue(floyd.get(2).equals(node3));
-        assertTrue(floyd.get(3).equals(node4));
-        assertTrue(floyd.get(4).equals(node5));
+        assertTrue(dijkstra.size() == 5);
+        assertTrue(dijkstra.get(0).equals(node1));
+        assertTrue(dijkstra.get(1).equals(node2));
+        assertTrue(dijkstra.get(2).equals(node3));
+        assertTrue(dijkstra.get(3).equals(node4));
+        assertTrue(dijkstra.get(4).equals(node5));
     }
 
 
@@ -74,9 +74,9 @@ public class DijkstraAlgorithmTest {
     public void kreisMitNegativerLänger(){
         Graph graph = readFile("gka-Dateien/negativeGraph03.gka");
 
-        List<Node> floyd = shortestPathsWithDijkstra(graph, graph.getNode("Kiel"), graph.getNode("Lübeck"));
+        List<Node> dijkstra = shortestPathsWithDijkstra(graph, graph.getNode("Kiel"), graph.getNode("Lübeck"));
 
-        assertTrue(floyd == null);
+        assertTrue(dijkstra == null);
 
 
     }
