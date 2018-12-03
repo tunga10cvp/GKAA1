@@ -32,36 +32,22 @@ public class DijkstraVsFloydTest {
 
     @Test
     public void generateGraphTest() throws Exception{
-        Graph graph = GraphGenerator.generateGraph("test5",100,3500,10);
+        Graph graph = GraphGenerator.generateGraph("test5",20,50,10);
 
         Node source = graph.getNode(0);
-        Node target = graph.getNode(20);
+        Node target = graph.getNode(19);
 
         List<Node> floyd = shortestPathsWithFloydWarshal(graph, source, target);
 
-        List<Node> dijkstra = shortestPathsWithDijkstra(graph,source,target);
+        List<Node> dijkstra = shortestPathsWithDijkstra(graph, source, target);
 
-        List<Double> distanceFloyd = new ArrayList<>();
-        for (int i = 0; i < floyd.size() - 1; i++) {
-            distanceFloyd.add(floyd.get(i).getEdgeToward(floyd.get(i + 1)).getAttribute("ui.label"));
-        }
 
-        Double summeFloyd = 0.0;
-        for (Double disFloyd : distanceFloyd) {
-            summeFloyd += disFloyd;
-        }
+       // assertTrue(summeFloyd.equals(summeDijkstra));
 
-        List<Double> distanceDijkstra = new ArrayList<>();
-        for (int i = 0; i < dijkstra.size() - 1; i++) {
-            distanceDijkstra.add(floyd.get(i).getEdgeToward(floyd.get(i + 1)).getAttribute("ui.label"));
-        }
+        Double dijkstracost = dijkstra.get(dijkstra.size()-1).getAttribute("distance");
+        Double floydCost = floyd.get(floyd.size()-1).getAttribute("distance");
 
-        Double summeDijkstra = 0.0;
-        for (Double disDijkstra : distanceDijkstra) {
-            summeDijkstra += disDijkstra;
-        }
-
-        assertTrue(summeDijkstra == summeDijkstra);
+        assertTrue(dijkstracost.equals(floydCost));
 
     }
 }

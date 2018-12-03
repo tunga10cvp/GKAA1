@@ -55,12 +55,12 @@ public class Main {
         /**
          *  FloydWarshalAlgorithm aufrufen
          */
-//        Node source = graph.getNode("Kiel");
-//        Node target = graph.getNode("Lübeck");
-//
-//
-//
-//        FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
+        Node source = graph.getNode("Kiel");
+        Node target = graph.getNode("Lübeck");
+
+
+
+        FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
 //
 //
 //
@@ -72,14 +72,14 @@ public class Main {
          *  DijkstraAlgorithm aufrufen
          */
 
-        Node source = graph.getNode("Hamburg");
-        Node target = graph.getNode("Husum");
+//        Node source = graph.getNode("Hamburg");
+//        Node target = graph.getNode("Husum");
+//
+//        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+//
+//        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(graph, source, target));
 
-        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
-
-        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(graph, source, target));
-
-        graph.display();
+       // graph.display();
 
 
     }

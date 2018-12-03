@@ -90,6 +90,9 @@ public class FloydWarshalAlgorithm {
             path.add(targetNode);
 
         targetNode.addAttribute("distance", distanceMatrix[nodes.indexOf(sourceNode)][nodes.indexOf(targetNode)]);
+
+       // Double targetCost = targetNode.getAttribute("distance");
+       // System.out.println(targetCost);
         System.out.println();
 
         uiForFloyd(path);

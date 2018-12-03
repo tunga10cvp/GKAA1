@@ -76,6 +76,7 @@ public class DijkstraAlgorithm {
             // nicht besuchte Nachbarn
             Iterator<Node> neighbors = aktuell.getNeighborNodeIterator();
 
+
             while (neighbors.hasNext()) {
                 Node neighbor = neighbors.next();
 
@@ -133,6 +134,7 @@ public class DijkstraAlgorithm {
         System.out.println("Anzahl der Zugriffe" + accessCounter);
         //System.out.println(path);
         uiForDijkstra(path);
+        //cost.get(target).intValue();
         return path;
 
 
