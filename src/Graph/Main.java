@@ -39,24 +39,24 @@ public class Main {
         /**
          * Graph Generator aufrufen
          */
-        Graph newGraph = null;
-        try {
-            newGraph = GraphGenerator.generateGraph("test1", 100, 3500, 10);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        newGraph.addAttribute("ui.stylesheet", styleSheet);
-        newGraph.display();
-
-        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
-        System.out.println(traverseWithBFS(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
+//        Graph newGraph = null;
+//        try {
+//            newGraph = GraphGenerator.generateGraph("test1", 100, 3500, 10);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        newGraph.addAttribute("ui.stylesheet", styleSheet);
+//        newGraph.display();
+//
+//        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
+//        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
 
 
         /**
          *  FloydWarshalAlgorithm aufrufen
          */
-//        Node source = graph.getNode("Hamburg");
-//        Node target = graph.getNode("Husum");
+//        Node source = graph.getNode("Kiel");
+//        Node target = graph.getNode("Lübeck");
 //
 //
 //
@@ -72,14 +72,14 @@ public class Main {
          *  DijkstraAlgorithm aufrufen
          */
 
-//        Node source = graph.getNode("Hamburg");
-//        Node target = graph.getNode("Husum");
-//
-//        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
-//
-//        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(graph, source, target));
-//
-//        graph.display();
+        Node source = graph.getNode("Kiel");
+        Node target = graph.getNode("Lübeck");
+
+        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+
+        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(graph, source, target));
+
+        graph.display();
 
 
     }

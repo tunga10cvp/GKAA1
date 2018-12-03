@@ -14,42 +14,59 @@ public class DijkstraAlgorithm {
 
     public static long accessCounter = 0;
 
+    /**
+     *
+     * @param graph mit dem wir arbeiten
+     * @param source Startknote
+     * @param target ZielKnote
+     * @return List von Knoten, welche den kürzesten Weg zwischen Start und Zielknote zeigt
+     */
+
     public static List<Node> shortestPathsWithDijkstra(Graph graph, Node source, Node target) {
 
         // Hashmap für Node und sein cost
-        Map<Node, Double> costs = new HashMap<>();
+        Map<Node, Double> cost = new HashMap<>();
 
-        // Hashmap zwischen Node und Vorgänger
+        // Hashmap für Node und sein Vorgänger
         Map<Node, Node> prev = new HashMap<>();
 
+        // Set visited
         Set<Node> visited = new HashSet<>();
 
         //check ob es StartKnote gibt
         if (source == null){
             throw new IllegalArgumentException("SourceNode darf nicht null sein");
         }
-        //Todo Comparator für die Queue
-        NodeComparator codeComparator = new NodeComparator(costs);
 
-        //Erstellen Sie eine Warteschlange mit minimaler Priorität, die nach den Kosten für den Startknoten geordnet ist
+        if (target == null){
+            throw new IllegalArgumentException("TargetNode darf nicht null sein");
+        }
+
+        NodeComparator codeComparator = new NodeComparator(cost);
+
+        //Erstellen Sie eine Warteschlange, die nach den Kosten für den Startknoten geordnet ist
         PriorityQueue<Node> queue = new PriorityQueue<Node>(codeComparator);
 
         //Startwerte des Startknotens festlegen
         source.addAttribute("distance", 0.0);
+        //Startkonte in prev hinzufügen
         prev.put(source, null);
-        costs.put(source, 0.0);
+        //cost für Startknote
+        cost.put(source, 0.0);
 
+        //add startknote in queue
         queue.add(source);
 
         //setz die anderen Knoten unendlichen Wert
         for (Node node : graph.getEachNode()) {
             if (node != source) {
                 node.addAttribute("distance", Double.POSITIVE_INFINITY);
-                costs.put(node, Double.POSITIVE_INFINITY);
+                cost.put(node, Double.POSITIVE_INFINITY);
             }
         }
 
         while (!queue.isEmpty()) {
+            // nimmt erste Node in Warteschlange
             Node aktuell = queue.poll();
 
             //System.out.println(queue);
@@ -64,12 +81,12 @@ public class DijkstraAlgorithm {
 
                 Double distance;
 
-                Double newCost;
-
+                Double newDistance;
+                // noch nicht besucht und hat Verbindung mit aktuellKnote
                 if (!visited.contains(node) && aktuell.hasEdgeToward(node)) {
 
                     // Kosten zwischen dem aktuellen Knoten und seinem Nachbarn
-                     distance = getShortestDist(aktuell, node);
+                     distance = getShortestDistance(aktuell, node);
 
                      if (distance < 0){
                          System.out.println("Kreis negativer Länge gefunden!");
@@ -77,18 +94,18 @@ public class DijkstraAlgorithm {
                      }
 
                     // Kosten zwischen dem Start Knoten und seinem Nachbarn
-                     newCost = costs.get(aktuell) + distance;
+                     newDistance = cost.get(aktuell) + distance;
 
                     // Gesamtkosten und vorherigen Knoten aktualisieren, wenn der Pfad besser ist
-                    if (newCost < costs.get(node)) {
+                    if (newDistance < cost.get(node)) {
                         accessCounter++;
                         if (queue.contains(node)) {
                             queue.remove(node);
                         }
 
-                        node.addAttribute("distance", newCost);
+                        node.addAttribute("distance", newDistance);
                         queue.add(node);
-                        costs.put(node, newCost);
+                        cost.put(node, newDistance);
 
                         prev.put(node, aktuell);
                     }
@@ -98,18 +115,21 @@ public class DijkstraAlgorithm {
             }
 
         }
-//        System.out.println(prev);
 
-        // trace back the path with HashMap
         List<Node> path = new LinkedList<>();
 
-        Node curr = target;
-        while (curr != null) {
-            path.add(0, curr);
-            curr = prev.get(curr);
-
+        Node aktuellNode = target;
+        while (aktuellNode!= null) {
+            path.add(0, aktuellNode);
+            aktuellNode = prev.get(aktuellNode);
         }
-        System.out.println(accessCounter);
+
+        if (path.isEmpty()){
+            return null;
+        }
+
+        System.out.println("Anzahl der Zugriffe" + accessCounter);
+        //System.out.println(path);
         uiForDijkstra(path);
         return path;
 
@@ -117,16 +137,17 @@ public class DijkstraAlgorithm {
     }
 
 
-    private static double getShortestDist(Node sourceNode, Node targetNode) {
-        double min = Double.POSITIVE_INFINITY;
+    //Rechnen das geringeste Gewicht zwischen 2 Knoten in ein Graph
+    private static double getShortestDistance(Node sourceNode, Node targetNode) {
+        double minCost = Double.POSITIVE_INFINITY;
         for (Edge edge : sourceNode.getEachEdge()) {
             if (sourceNode.hasEdgeToward(targetNode) && sourceNode.getEdgeToward(targetNode).equals(edge)) {
-                if (Double.valueOf(edge.getAttribute("ui.label").toString()) < min) {
-                    min = Double.valueOf(edge.getAttribute("ui.label").toString());
+                if (Double.valueOf(edge.getAttribute("ui.label").toString()) < minCost) {
+                    minCost = Double.valueOf(edge.getAttribute("ui.label").toString());
                 }
             }
         }
-        return min;
+        return minCost;
     }
 
     public static void uiForDijkstra(List<Node> path){
