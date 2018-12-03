@@ -76,15 +76,6 @@ public class GraphGeneratorTest {
         assertTrue(graph.getNodeCount() == 1000);
     }
 
-    @Test
-    public void floydWarhsalTest() throws Exception{
-        Graph graph = GraphGenerator.generateGraph("test5",1000,35000,10);
 
-        List<Node> floyd = shortestPathsWithFloydWarshal(graph, graph.getNode(0), graph.getNode(50));
-
-        assertTrue(graph != null);
-        assertTrue(graph.getEdgeCount() == 35000);
-        assertTrue(graph.getNodeCount() == 1000);
-    }
 }
 

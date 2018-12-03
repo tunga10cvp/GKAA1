@@ -13,19 +13,17 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class DijkstraAlgorithmTest {
+
     @Test
-    public void leerGraph() {
+    public void keinStatKnoten() {
 
         try {
             Graph graph = readFile("gka-Dateien/leerGraph.gka");
-
 
             Node source = graph.getNode(0);
             Node target = graph.getNode(graph.getNodeCount());
 
             List<Node> floyd = shortestPathsWithDijkstra(graph, source, target);
-
-            fail("This should have thrown an exception");
 
         } catch (IllegalArgumentException e) {
             assertTrue(e.getMessage().equals("SourceNode darf nicht null sein"));
