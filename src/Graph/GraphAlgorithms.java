@@ -68,7 +68,7 @@ public class GraphAlgorithms {
 
         testGraph.display();
 
-        //System.out.println(bfsReturn);
+        System.out.println(bfsReturn);
         //System.out.println(bfsReturn.get(0));
     }
 

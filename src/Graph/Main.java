@@ -64,7 +64,7 @@ public class Main {
 //
 //
 //
-//        graph.display();
+        graph.display();
 
 
 
