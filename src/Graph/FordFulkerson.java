@@ -25,31 +25,30 @@ public class FordFulkerson {
                 if (nodes.get(i).equals(nodes.get(j))){
                     distance[i][j] = 0.0;
                 }
-
                 else if (nodes.get(i).hasEdgeToward(nodes.get(j))){
                     distance[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
                 }
-                else distance[i][j] = Double.MAX_VALUE;
+                else distance[i][j] = Double.POSITIVE_INFINITY;
             }
         }
 
         Map<Node, Node> prev = new HashMap<>();
-        //List<Node> augmentedPath = new ArrayList<>();
+        List<List<Node>> augmentedPaths = new ArrayList<>();
 
         double maxFlow = 0.0;
 
         while (bfs(graph, prev, startNode, zielNode)){
             List<Node> augmentedPath = new ArrayList<>();
 
-            Double flow = Double.MAX_VALUE;
+            Double flow = Double.POSITIVE_INFINITY;
 
             Node v = zielNode;
             while (v != startNode){
                 augmentedPath.add(v);
                 Node u = prev.get(v);
 
-                if (flow > distance[u][v]){
-                    flow = distance[u][v];
+                if (flow > Double.valueOf(u.getEdgeToward(v).getAttribute("ui.label"))){
+                    flow = Double.valueOf(u.getEdgeToward(v).getAttribute("ui.label"));
                 }
 
                 v = u;
@@ -57,7 +56,7 @@ public class FordFulkerson {
 
             augmentedPath.add(startNode);
             Collections.reverse(augmentedPath);
-            augmentedPath.add(augmentedPath);
+            augmentedPaths.add(augmentedPath);
 
             maxFlow += flow;
 
@@ -65,19 +64,18 @@ public class FordFulkerson {
 
             while (v != startNode){
                 Node u = prev.get(v);
-                distance[u][v] -= flow;
-                distance[v][u] += flow;
+                Double.valueOf(u.getEdgeToward(v).getAttribute("ui.label")) -= flow;
+                Double.valueOf(v.getEdgeToward(u).getAttribute("ui.label")) += flow;
                 v = u;
             }
         }
         return maxFlow;
     }
 
-    public static boolean bfs(Graph graph,Map<Node, Node> prev, Node startNode, Node zielNode){
+    public static boolean bfs(Graph graph, Map<Node, Node> prev, Node startNode, Node zielNode){
         Set<Node> visited = new HashSet<>();
 
         Queue<Node> queue = new LinkedList<>();
-        
 
         queue.add(startNode);
         visited.add(startNode);
@@ -153,9 +151,10 @@ public class FordFulkerson {
 
         testGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
 
-        //Boolean bfsReturn = bfs(testGraph, prev, testGraph.getNode("A"), testGraph.getNode("G"));
+      // Boolean bfsReturn = bfs(testGraph,testGraph.getNode("A"), testGraph.getNode("G"));
 
         FordFulkerson ff = new FordFulkerson();
+        //System.out.println(bfsReturn);
         System.out.println(ff.fordFulkerson(testGraph, testGraph.getNode("A"), testGraph.getNode("G")));
         testGraph.display();
     }
