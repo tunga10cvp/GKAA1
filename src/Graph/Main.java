@@ -53,18 +53,34 @@ public class Main {
 
 
         /**
+         * Graph Generator aufrufen
+         */
+        Graph newGraph = null;
+        try {
+            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        newGraph.addAttribute("ui.stylesheet", styleSheet);
+        newGraph.display();
+
+        //System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
+        //System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
+
+
+        /**
          *  FloydWarshalAlgorithm aufrufen
          */
-        Node source = graph.getNode("Kiel");
-        Node target = graph.getNode("Lübeck");
-
-
-
-        FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
+//        Node source = graph.getNode("Kiel");
+//        Node target = graph.getNode("Lübeck");
 //
 //
 //
-        graph.display();
+//        FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(graph, source, target);
+////
+////
+////
+//        graph.display();
 
 
 
@@ -120,5 +136,6 @@ public class Main {
                     " fill-color: red;"+
                     " text-color: red;"+
                     "}";
+
 
 }

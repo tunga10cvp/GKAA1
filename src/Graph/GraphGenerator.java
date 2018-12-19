@@ -89,7 +89,7 @@ public class GraphGenerator {
             if (generatedGraph.getNodeCount() > 1) {
                 String newEdgeId = String.valueOf(i);
                 String newNodeId = String.valueOf(i);
-                String randomNodeInGraphId = generatedGraph.getNode(String.valueOf(Math.round(Math.floor(Math.random() * generatedGraph.getNodeCount()))));
+                String randomNodeInGraphId = String.valueOf(generatedGraph.getNode(String.valueOf(Math.round(Math.floor(Math.random() * generatedGraph.getNodeCount())))));
                 generatedGraph.addEdge(newEdgeId, randomNodeInGraphId, newNodeId);
             }
         }

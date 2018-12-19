@@ -22,7 +22,7 @@ public class GraphAlgorithms {
         testGraph.addNode("G");
 
         testGraph.addEdge("AB","A", "B", true);
-        testGraph.getEdge("AB").setAttribute("weight", 1);
+         testGraph.getEdge("AB").setAttribute("weight", 1);
 
         testGraph.addEdge("AC","A", "C", true);
         testGraph.getEdge("AC").setAttribute("weight", 2);
