@@ -84,6 +84,7 @@ public class GraphGenerator {
         //generiere nodeNum Knoten und verbinde sie zu einem Netzwerk
         for (int i = 0; i < nodeNum; i++) {
             generatedGraph.addNode(String.valueOf(i));
+            //System.out.println(generatedGraph.getNodeCount());
 
             //Verbinde mit bestehenden Knoten, um Zusammenhang zu gewährleisten
             if (generatedGraph.getNodeCount() > 1) {
@@ -92,6 +93,8 @@ public class GraphGenerator {
                 String randomNodeInGraphId = String.valueOf(generatedGraph.getNode(String.valueOf(Math.round(Math.floor(Math.random() * generatedGraph.getNodeCount())))));
                 generatedGraph.addEdge(newEdgeId, randomNodeInGraphId, newNodeId);
             }
+
+            //System.out.println(generatedGraph.getEdgeCount());
         }
 
         //Bisher wurde pro Knoten (ausser der Quelle) eine Kante zur Sicherung des Zusammenhangs generiert
