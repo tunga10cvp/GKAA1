@@ -73,8 +73,8 @@ public class GraphGenerator {
             throw new IllegalArgumentException("Anzahl der Knoten muss größer als Anzahl der Kanten sein");
         }
         //Kantenanzahl nicht größer als Knotenanzahl
-        if (nodeNum >= edgeNum) {
-            throw new IllegalArgumentException("Kann kein Netzwerk generieren, wenn Kantenanzahl kleiner gleich Knotenanzahl");
+        if (edgeNum < nodeNum - 1) {
+            throw new IllegalArgumentException("Kann kein Netzwerk generieren, wenn Kantenanzahl kleiner als Knotenanzahl - 1");
         }
         //Nicht mindestens 2 Knoten für Quelle und Senke
         if (nodeNum < 2) {
@@ -87,10 +87,16 @@ public class GraphGenerator {
             //System.out.println(generatedGraph.getNodeCount());
 
             //Verbinde mit bestehenden Knoten, um Zusammenhang zu gewährleisten
-            if (generatedGraph.getNodeCount() > 1) {
-                String newEdgeId = String.valueOf(i);
+            if (i > 0) {
+                String newEdgeId = String.valueOf(i - 1);
                 String newNodeId = String.valueOf(i);
-                String randomNodeInGraphId = String.valueOf(generatedGraph.getNode(String.valueOf(Math.round(Math.floor(Math.random() * generatedGraph.getNodeCount())))));
+                String randomNodeInGraphId;
+
+                //finde zufälligen Knoten, der nicht der Neue ist
+                do
+                randomNodeInGraphId = String.valueOf(generatedGraph.getNode(String.valueOf(Math.round(Math.floor(Math.random() * generatedGraph.getNodeCount())))));
+                while(randomNodeInGraphId.equals(newNodeId));
+
                 generatedGraph.addEdge(newEdgeId, randomNodeInGraphId, newNodeId);
             }
 
@@ -98,12 +104,12 @@ public class GraphGenerator {
         }
 
         //Bisher wurde pro Knoten (ausser der Quelle) eine Kante zur Sicherung des Zusammenhangs generiert
-        int numberOfAlreadyGeneratedEdges = nodeNum - 1;
+        int numberOfAlreadyGeneratedEdges = generatedGraph.getNodeCount() - 1;
 
         //Füge restliche Kanten hinzu, falls zu generierende Kanten mehr als bisher generierte Kanten.
         //Start- und Zielknoten werden dabei zufällig bestimmt.
         if (edgeNum > numberOfAlreadyGeneratedEdges) {
-            for (int i = numberOfAlreadyGeneratedEdges; i < edgeNum - numberOfAlreadyGeneratedEdges; i++) {
+            for (int i = numberOfAlreadyGeneratedEdges + 1; i < edgeNum - numberOfAlreadyGeneratedEdges; i++) {
                 String edgeId = String.valueOf(i);
                 generatedGraph.addEdge(edgeId, String.valueOf(Math.round(Math.floor(Math.random() * nodeNum))), String.valueOf(Math.round(Math.floor(Math.random() * nodeNum))), true);
             }
