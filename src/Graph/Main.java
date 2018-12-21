@@ -10,13 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static Graph.DijkstraAlgorithm.shortestPathsWithDijkstra;
+import static Graph.FordFulkerson.graphMatrix;
 import static Graph.GraphAlgorithms.traverseWithBFS;
 import static Graph.ReadFile.readFile;
 
 public class Main {
 
     public static void main(final String[] args) throws InterruptedException {
-        String filename = "gka-Dateien/graph03.gka";
+        String filename = "gka-Dateien/graph04.gka";
         Graph graph = readFile(filename);
 
         /**
@@ -55,14 +56,14 @@ public class Main {
         /**
          * Graph BigNet aufrufen
          */
-        Graph newGraph = null;
-        try {
-            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        newGraph.addAttribute("ui.stylesheet", styleSheet);
-        newGraph.display();
+//        Graph newGraph = null;
+//        try {
+//            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        newGraph.addAttribute("ui.stylesheet", styleSheet);
+//        newGraph.display();
 
 //        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
 //        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
@@ -96,6 +97,23 @@ public class Main {
 //        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(graph, source, target));
 
        // graph.display();
+
+        /**
+         *  FordFulkerson aufrufen
+         */
+
+        Node source = graph.getNode("v1");
+        Node target = graph.getNode("v8");
+
+        int[][]arr = graphMatrix(graph);
+
+        FordFulkerson m = new FordFulkerson();
+
+        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+
+        //System.out.println(m.fordFulkerson(arr, source, target));
+        System.out.println(traverseWithBFS(graph, source, target));
+        graph.display();
 
 
     }

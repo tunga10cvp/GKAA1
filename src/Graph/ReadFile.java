@@ -150,7 +150,7 @@ public class ReadFile {
                 // - es kein Leerstring ist
                 if (weight != null &&
                         !"".equals(weight)) {
-                    graph.getEdge(idEdge).addAttribute("ui.label", Double.valueOf(weight));
+                    graph.getEdge(idEdge).addAttribute("ui.label", Integer.valueOf(weight));
                     //graph.addAttribute("ui.label", graph.getEdge(idEdge));
                 }
 
