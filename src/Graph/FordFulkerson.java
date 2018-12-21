@@ -1,6 +1,5 @@
 package Graph;
 
-import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
@@ -8,145 +7,151 @@ import org.graphstream.graph.implementations.MultiGraph;
 import java.util.*;
 
 public class FordFulkerson {
+    static final int V = 7;    //Number of vertices in graph
 
-    public static int fordFulkerson(Graph graph, Node startNode, Node zielNode){
+    /* Returns true if there is a path from source 's' to sink
+      't' in residual graph. Also fills parent[] to store the
+      path */
 
-        int nummberOfNodes = graph.getNodeCount();
+    /**
+     *  return true wenn es ein path von startNode nach zielNode gibt
+     *
+     * @param rGraph ein Graph in Matrix
+     * @param startNode startNode
+     * @param zielNode zielNode
+     * @param parent Vorgänger
+     * @return
+     */
+    boolean bfs(int rGraph[][], Node startNode, Node zielNode, int parent[])
+    {
+
+        int s = startNode.getIndex();
+        int t = zielNode.getIndex();
+
+        // erstellt ein Visited Array und markiert alle Knoten als nicht visited
+        boolean visited[] = new boolean[V];
+        for(int i=0; i<V; ++i)
+            visited[i]=false;
+
+
+        // erstellt eine Liste, fügt startNode hinzu und markiert als visited
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        queue.add(s);
+        visited[s] = true;
+        parent[s]=-1;
+
+        // Wenn die Liste nicht leer ist
+
+        while (queue.size()!=0) {
+
+            int u = queue.poll();
+
+            for (int v=0; v < V; v++) {
+
+                if (visited[v]==false && rGraph[u][v] > 0)
+                {
+                    queue.add(v);
+                    parent[v] = u;
+                    visited[v] = true;
+                }
+            }
+        }
+
+        // If we reached sink in BFS starting from source, then
+        // return true, else false
+        return (visited[t] == true);
+    }
+
+    // Returns tne maximum flow from s to t in the given graph
+    int fordFulkerson(int graph[][], Node startNode, Node zielNode)
+    {
+        int u, v;
+
+        int s = startNode.getIndex();
+        int t = zielNode.getIndex();
+        // Create a residual graph and fill the residual graph
+        // with given capacities in the original graph as
+        // residual capacities in residual graph
+
+        // Residual graph where rGraph[i][j] indicates
+        // residual capacity of edge from i to j (if there
+        // is an edge. If rGraph[i][j] is 0, then there is
+        // not)
+        int rGraph[][] = new int[V][V];
+
+        for (u = 0; u < V; u++) {
+            for (v = 0; v < V; v++){
+                rGraph[u][v] = graph[u][v];
+                //System.out.println(rGraph[u][v]);
+            }
+
+        }
+        // This array is filled by BFS and to store path
+        int parent[] = new int[V];
+
+        int max_flow = 0;  // There is no flow initially
+
+        // Augment the flow while tere is path from source
+        // to sink
+        while (bfs(rGraph, startNode, zielNode, parent))
+        {
+            // Find minimum residual capacity of the edhes
+            // along the path filled by BFS. Or we can say
+            // find the maximum flow through the path found.
+            int path_flow = Integer.MAX_VALUE;
+            for (v=t; v!=s; v=parent[v])
+            {
+                u = parent[v];
+                path_flow = Math.min(path_flow, rGraph[u][v]);
+            }
+
+            // update residual capacities of the edges and
+            // reverse edges along the path
+            for (v=t; v != s; v=parent[v])
+            {
+                u = parent[v];
+                rGraph[u][v] -= path_flow;
+                rGraph[v][u] += path_flow;
+            }
+
+            // Add path flow to overall flow
+            max_flow += path_flow;
+        }
+
+        // Return the overall flow
+        return max_flow;
+    }
+
+
+    public static int[][] graphMatrix(Graph graph){
+        int V = graph.getNodeCount();
+
         List<Node> nodes = new ArrayList<>();
-
-        int source = startNode.getIndex();
-
-        int target = zielNode.getIndex();
-
-        int[][] rGraph = new int[nummberOfNodes][nummberOfNodes];
 
         for (Node node : graph.getEachNode()){
             nodes.add(node);
         }
 
-        for (int i = 0; i < nummberOfNodes; i++){
-            for (int j = 0; j < nummberOfNodes; j++){
+        int graphMatrix[][] = new int[V][V];
+
+        for (int i = 0; i < V; i++){
+            for (int j = 0; j < V; j++){
                 if (nodes.get(i).hasEdgeToward(nodes.get(j))){
-                    rGraph[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
+                    graphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
+
                 }
+                else graphMatrix[i][j] = 0;
             }
         }
 
-        Map<Integer, Integer> parent = new HashMap<>();
-
-        List<List<Integer>> augmentedPaths = new ArrayList<>();
-
-        int maxFlow = 0;
-
-        while (hasAugmentingPath(graph, parent, startNode, zielNode)){
-            List<Integer> augmentedPath = new ArrayList<>();
-
-            int flow = Integer.MAX_VALUE;
-
-            int v = target;
-            while (v != source){
-                augmentedPath.add(v);
-                int u = parent.get(v);
-
-                if (flow > rGraph[u][v]){
-                    flow = rGraph[u][v];
-                }
-
-                v = u;
-
-
-            }
-
-            augmentedPath.add(source);
-
-            // reserve die augmentedPath
-            Collections.reverse(augmentedPath);
-
-            //add   to augmentedPaths
-            augmentedPaths.add(augmentedPath);
-
-            maxFlow += flow;
-
-            v = target;
-
-            while (v != source){
-                int u = parent.get(v);
-               // u.getEdgeToward(v).setAttribute("ui.label", Integer.valueOf(u.getEdgeToward(v).getAttribute("ui.label")) - flow);
-               // v.getEdgeToward(u).setAttribute("ui.label", Integer.valueOf(u.getEdgeToward(v).getAttribute("ui.label")) + flow);
-                rGraph[u][v] -= flow;
-                rGraph[u][v] += flow;
-                v = u;
-            }
-
-        }
-
-        printAugmentedPaths(augmentedPaths);
-        return maxFlow;
+        return graphMatrix;
     }
 
-    private static void printAugmentedPaths(List<List<Integer>> augmentedPaths) {
-        System.out.println("Augmented paths");
-        augmentedPaths.forEach(path -> {
-            path.forEach(i -> System.out.print(i + " "));
-            System.out.println();
-        });
-    }
 
-    public static boolean hasAugmentingPath(Graph graph,Map<Integer, Integer> parent, Node startNode, Node zielNode){
+    // Driver program to test above functions
+    public static void main (String[] args) throws java.lang.Exception
+    {
 
-        int source = startNode.getIndex();
-
-        int target = zielNode.getIndex();
-
-        Set<Integer> visited = new HashSet<>();
-
-       // Map<Node, Node> prev = new HashMap<>();
-        Queue<Integer> queue = new LinkedList<>();
-
-        int V = graph.getNodeCount();
-
-        int nummberOfNodes = graph.getNodeCount();
-        int[][] rGraph = new int[nummberOfNodes][nummberOfNodes];
-
-        queue.add(source);
-        visited.add(source);
-
-        // AugmentedPath : duong tang luong
-        boolean augmentedPath = false;
-
-        //Gucken, ob wir einen erweiterten Pfad von der StartKnote zur ZielKnote finden können
-        while (!queue.isEmpty()){
-            int u = queue.poll();
-
-            for (int v = 0; v < V; v++ ){
-
-                if (!visited.contains(v) && rGraph[u][v] > 0){
-                    parent.put(v, u);
-
-                    visited.add(v);
-
-                    queue.add(v);
-
-                    if ( v == target){
-                        augmentedPath = true;
-                        break;
-
-                    }
-                }
-            }
-        }
-//        List<Integer> path = new ArrayList<>();
-//        Integer aktuell = zielNode.getIndex();
-//        while (aktuell!= null){
-//            path.add(0, aktuell);
-//            aktuell = parent.get(aktuell);
-//        }
-
-        return augmentedPath;
-
-    }
-
-    public static void main(String[] args){
         Graph residualGraph = new MultiGraph("Residual Graph");
 
         residualGraph.addNode("x1");
@@ -157,34 +162,34 @@ public class FordFulkerson {
         residualGraph.addNode("x6");
         residualGraph.addNode("x7");
 
-        residualGraph.addEdge("x1x2", "x1", "x2", false);
+        residualGraph.addEdge("x1x2", "x1", "x2", true);
         residualGraph.getEdge("x1x2").setAttribute("ui.label", 9);
 
-        residualGraph.addEdge("x2x6", "x2", "x6", false);
+        residualGraph.addEdge("x2x6", "x2", "x6", true);
         residualGraph.getEdge("x2x6").setAttribute("ui.label", 3);
 
-        residualGraph.addEdge("x6x7", "x6", "x7", false);
+        residualGraph.addEdge("x6x7", "x6", "x7", true);
         residualGraph.getEdge("x6x7").setAttribute("ui.label", 6);
 
-        residualGraph.addEdge("x1x3", "x1", "x3", false);
+        residualGraph.addEdge("x1x3", "x1", "x3", true);
         residualGraph.getEdge("x1x3").setAttribute("ui.label", 4);
 
-        residualGraph.addEdge("x3x7", "x3", "x7", false);
+        residualGraph.addEdge("x3x7", "x3", "x7", true);
         residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
 
-        residualGraph.addEdge("x2x3", "x2", "x3", false);
+        residualGraph.addEdge("x2x3", "x2", "x3", true);
         residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
 
-        residualGraph.addEdge("x1x4", "x1", "x4", false);
+        residualGraph.addEdge("x1x4", "x1", "x4", true);
         residualGraph.getEdge("x1x4").setAttribute("ui.label", 8);
 
-        residualGraph.addEdge("x4x5", "x4", "x5", false);
+        residualGraph.addEdge("x4x5", "x4", "x5", true);
         residualGraph.getEdge("x4x5").setAttribute("ui.label", 5);
 
-        residualGraph.addEdge("x5x7", "x5", "x7", false);
+        residualGraph.addEdge("x5x7", "x5", "x7", true);
         residualGraph.getEdge("x5x7").setAttribute("ui.label", 2);
 
-        residualGraph.addEdge("x5x3", "x5", "x3", false);
+        residualGraph.addEdge("x5x3", "x5", "x3", true);
         residualGraph.getEdge("x5x3").setAttribute("ui.label", 3);
 
         Node source = residualGraph.getNode("x1");
@@ -193,78 +198,22 @@ public class FordFulkerson {
         Node target = residualGraph.getNode("x7");
         target.addAttribute("ui.style", "fill-color: blue;");
 
-//        List<Node> listNode = new ArrayList<>();
-//        listNode.add(residualGraph.getNode("x1"));
-//        listNode.add(residualGraph.getNode("x2"));
-//        listNode.add(residualGraph.getNode("x3"));
-//        listNode.add(residualGraph.getNode("x4"));
-//        listNode.add(residualGraph.getNode("x5"));
-//
-//        Collections.reverse(listNode);
-//
-//        System.out.println(listNode);
-
-//        int startNode = Integer.valueOf(residualGraph.getNode("x1").getId());
-        System.out.println(residualGraph.getNode("x1").getIndex());
-        System.out.println(residualGraph.getNodeCount());
-
-        List<Node> nodes = new ArrayList<>();
-        for (Node node : residualGraph.getEachNode()){
-            nodes.add(node);
-        }
-
-        System.out.println(nodes);
-
-
         residualGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
 
-        residualGraph.addAttribute("ui.stylesheet", styleSheet);
 
-        //Boolean bfsReturn = hasAugmentingPath(residualGraph,residualGraph.getNode("x1"), residualGraph.getNode("x7"));
 
-        FordFulkerson ff = new FordFulkerson();
-        //System.out.println(bfsReturn);
-        System.out.println(ff.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+        int[][]arr = graphMatrix(residualGraph);
+
+        // Let us create a graph shown in the above example
+        //int graph[][] = residualCapacityMatrix;
+
+        FordFulkerson m = new FordFulkerson();
+        System.out.println(residualGraph.getNode("x6").getIndex());
+
+        System.out.println("The maximum possible flow is " +
+                m.fordFulkerson(arr, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+
         residualGraph.display();
 
     }
-
-    // Aussehen für die Graphen
-    protected static String styleSheet =
-            "graph {" +
-                    "   fill-color: black;"+
-                    "}" +
-
-                    "node {" +
-                    "   text-color: yellow;" +
-                    "   shape: line;" +
-                    "   text-size: 20px;" +
-                    "   shape: circle;" +
-                    "   fill-color: green;" +
-                    "   size: 15px;" +
-                    //  "   text-alignment: center;" +
-                    //  "   fill-mode: gradient-radial;" +
-                    // "   stroke-color: yellow;" +
-
-                    "}" +
-                    "node.marked {" +
-                    "	fill-color: green;" +
-                    "}" +
-
-                    " edge {" +
-                    "shape: angle;" +
-                    " stroke-mode: plain;"+
-                    "text-color: white;"+
-                    "text-size: 20px;"+
-                    "fill-color: blue;"+
-                    "text-background-mode: rounded-box;"+
-                    "text-background-color: red;"+
-                    "}"+
-
-                    "edge.marked {"+
-                    " fill-color: red;"+
-                    " text-color: red;"+
-                    "}";
-
-
 }

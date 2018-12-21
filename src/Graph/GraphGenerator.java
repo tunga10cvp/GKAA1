@@ -27,7 +27,7 @@ public class GraphGenerator {
         //keine Knoten aber trotzdem Kanten eingeben
         else if (nodeNum <= 0 && edgeNum > 0) {
 
-            throw new IllegalArgumentException("Anzahl der Knoten muss größer als Anzahl der Kanten");
+            throw new IllegalArgumentException("Keine negative Anzahl wurde akzeptiert");
         } else {
             //generiere nodeNum Knoten
             for (int i = 0; i < nodeNum; i++) {
@@ -70,7 +70,7 @@ public class GraphGenerator {
         }
         //keine Knoten aber trotzdem Kanten eingegeben
         if (nodeNum <= 0 && edgeNum > 0) {
-            throw new IllegalArgumentException("Anzahl der Knoten muss größer als Anzahl der Kanten sein");
+            throw new IllegalArgumentException("Keine negative Anzahl wurde akzeptiert");
         }
         //Kantenanzahl nicht größer als Knotenanzahl
         if (edgeNum < nodeNum - 1) {

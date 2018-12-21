@@ -6,6 +6,7 @@ import org.graphstream.graph.Node;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.lang.Iterable;
 
 public class FloydWarshalAlgorithm {
 
@@ -40,7 +41,7 @@ public class FloydWarshalAlgorithm {
         //get all Nodes in a list
         for (Node node : graph.getEachNode()) {
             nodes.add(node);
-            accessCounter++;
+           accessCounter++;
         }
 
         //fill distance matrix initially

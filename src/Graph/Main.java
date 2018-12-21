@@ -53,7 +53,7 @@ public class Main {
 
 
         /**
-         * Graph Generator aufrufen
+         * Graph BigNet aufrufen
          */
         Graph newGraph = null;
         try {
@@ -64,8 +64,8 @@ public class Main {
         newGraph.addAttribute("ui.stylesheet", styleSheet);
         newGraph.display();
 
-        //System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
-        //System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
+//        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
+//        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
 
 
         /**
