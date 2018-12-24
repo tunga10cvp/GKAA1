@@ -22,7 +22,7 @@ public class FordFulkerson {
      * @param parent Vorgänger
      * @return
      */
-    boolean augumentPath(int rGraph[][], Node startNode, Node zielNode, int parent[])
+    public static boolean augumentPath(int rGraph[][], Node startNode, Node zielNode, int parent[])
     {
 
         int s = startNode.getIndex();
@@ -63,7 +63,7 @@ public class FordFulkerson {
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int graph[][], Node startNode, Node zielNode)
+    public static int fordFulkerson(int graph[][], Node startNode, Node zielNode)
     {
 
         int u, v;
