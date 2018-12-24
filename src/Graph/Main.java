@@ -17,7 +17,7 @@ import static Graph.ReadFile.readFile;
 public class Main {
 
     public static void main(final String[] args) throws InterruptedException {
-        String filename = "gka-Dateien/graph04.gka";
+        String filename = "newGraph/graph01.gka";
         Graph graph = readFile(filename);
 
         /**
@@ -102,17 +102,20 @@ public class Main {
          *  FordFulkerson aufrufen
          */
 
-        Node source = graph.getNode("v1");
-        Node target = graph.getNode("v8");
+        Node source = graph.getNode("0");
+        Node target = graph.getNode("5");
 
-        int[][]arr = graphMatrix(graph);
+
 
         FordFulkerson m = new FordFulkerson();
 
+        int[][] rGraph = graphMatrix(graph);
+
         //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
 
-        //System.out.println(m.fordFulkerson(arr, source, target));
-        System.out.println(traverseWithBFS(graph, source, target));
+
+        System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
+       // System.out.println(traverseWithBFS(graph, source, target));
         graph.display();
 
 

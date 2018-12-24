@@ -7,7 +7,7 @@ import org.graphstream.graph.implementations.MultiGraph;
 import java.util.*;
 
 public class FordFulkerson {
-    static final int V = 7;    //Number of vertices in graph
+
 
     /* Returns true if there is a path from source 's' to sink
       't' in residual graph. Also fills parent[] to store the
@@ -22,15 +22,15 @@ public class FordFulkerson {
      * @param parent Vorgänger
      * @return
      */
-    boolean bfs(int rGraph[][], Node startNode, Node zielNode, int parent[])
+    boolean augumentPath(int rGraph[][], Node startNode, Node zielNode, int parent[])
     {
 
         int s = startNode.getIndex();
         int t = zielNode.getIndex();
 
         // erstellt ein Visited Array und markiert alle Knoten als nicht visited
-        boolean visited[] = new boolean[V];
-        for(int i=0; i<V; ++i)
+        boolean visited[] = new boolean[rGraph.length];
+        for(int i=0; i< rGraph.length; ++i)
             visited[i]=false;
 
 
@@ -46,7 +46,7 @@ public class FordFulkerson {
 
             int u = queue.poll();
 
-            for (int v=0; v < V; v++) {
+            for (int v=0; v < rGraph.length; v++) {
 
                 if (visited[v]==false && rGraph[u][v] > 0)
                 {
@@ -65,6 +65,7 @@ public class FordFulkerson {
     // Returns tne maximum flow from s to t in the given graph
     int fordFulkerson(int graph[][], Node startNode, Node zielNode)
     {
+
         int u, v;
 
         int s = startNode.getIndex();
@@ -77,23 +78,23 @@ public class FordFulkerson {
         // residual capacity of edge from i to j (if there
         // is an edge. If rGraph[i][j] is 0, then there is
         // not)
-        int rGraph[][] = new int[V][V];
+        int rGraph[][] = new int[graph.length][graph.length];
 
-        for (u = 0; u < V; u++) {
-            for (v = 0; v < V; v++){
+        for (u = 0; u < rGraph.length; u++) {
+            for (v = 0; v < rGraph.length; v++){
                 rGraph[u][v] = graph[u][v];
                 //System.out.println(rGraph[u][v]);
             }
 
         }
         // This array is filled by BFS and to store path
-        int parent[] = new int[V];
+        int parent[] = new int[rGraph.length];
 
         int max_flow = 0;  // There is no flow initially
 
         // Augment the flow while tere is path from source
         // to sink
-        while (bfs(rGraph, startNode, zielNode, parent))
+        while (augumentPath(rGraph, startNode, zielNode, parent))
         {
             // Find minimum residual capacity of the edhes
             // along the path filled by BFS. Or we can say
@@ -147,8 +148,6 @@ public class FordFulkerson {
         return graphMatrix;
     }
 
-
-    // Driver program to test above functions
     public static void main (String[] args) throws java.lang.Exception
     {
 
@@ -202,13 +201,12 @@ public class FordFulkerson {
 
 
 
-        int[][]arr = graphMatrix(residualGraph);
+        int[][] arr = graphMatrix(residualGraph);
 
         // Let us create a graph shown in the above example
         //int graph[][] = residualCapacityMatrix;
 
         FordFulkerson m = new FordFulkerson();
-        System.out.println(residualGraph.getNode("x6").getIndex());
 
         System.out.println("The maximum possible flow is " +
                 m.fordFulkerson(arr, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
