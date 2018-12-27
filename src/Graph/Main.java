@@ -2,6 +2,7 @@ package Graph;
 
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
+import java.util.Calendar;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,8 +18,11 @@ import static Graph.ReadFile.readFile;
 public class Main {
 
     public static void main(final String[] args) throws InterruptedException {
-        String filename = "newGraph/graph01.gka";
-        Graph graph = readFile(filename);
+        long begin = Calendar.getInstance().getTimeInMillis();
+
+        String filename1 = "gka-Dateien/graph03.gka";
+        String filename2 = "newGraph/graph01.gka";
+        Graph graph = readFile(filename2);
 
         /**
          * BFS Algorithms aufrufen
@@ -27,7 +31,7 @@ public class Main {
 //        List<Node> bfsReturn = traverseWithBFS(graph, graph.getNode("Kiel"), graph.getNode("Celle"));
 //
 //        for (int i = 0; i < bfsReturn.size(); i++) {
-//            bfsReturn.get(i).addAttribute("ui.style", " fill-color: red;");
+//            bfsReturn.get(i).addAttribute("uistyle", " fill-color: red;");
 //        }
 //
 //        for (int i = 0; i < bfsReturn.size() - 1; i++) {
@@ -95,28 +99,48 @@ public class Main {
 //        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
 //
 //        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(graph, source, target));
-
-       // graph.display();
+//
+//        graph.display();
 
         /**
          *  FordFulkerson aufrufen
          */
+//
+//        Node source = graph.getNode("0");
+//        Node target = graph.getNode("5");
+//
+//        FordFulkerson m = new FordFulkerson();
+//
+//        int[][] rGraph = graphMatrix(graph);
+//        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+//
+//        System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
+//
+//        long end = Calendar.getInstance().getTimeInMillis();
+//
+//        System.out.println("Executed Time: " + (end - begin));
+//        System.out.println(traverseWithBFS(graph, source, target));
+//        graph.display();
 
-        Node source = graph.getNode("0");
-        Node target = graph.getNode("5");
+        /**
+         *  FordFulkerson auf Bignet
+         */
 
+        Graph bigNet = null;
+        try {
+            bigNet = GraphGenerator.generateBigNet("test1", 50, 800, 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        bigNet.addAttribute("ui.stylesheet", styleSheet);
+        bigNet.display();
 
+        Node source = bigNet.getNode(0);
+        Node target = bigNet.getNode(20);
 
-        FordFulkerson m = new FordFulkerson();
+        int[][] graphBigNet = graphMatrix(bigNet);
 
-        int[][] rGraph = graphMatrix(graph);
-
-        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
-
-
-        System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
-       // System.out.println(traverseWithBFS(graph, source, target));
-        graph.display();
+       System.out.println("Maximum: " + FordFulkerson.fordFulkerson(graphBigNet, source, target));
 
 
     }

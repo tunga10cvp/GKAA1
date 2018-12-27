@@ -19,11 +19,10 @@ public class FordFulkerson {
      * @param rGraph ein Graph in Matrix
      * @param startNode startNode
      * @param zielNode zielNode
-     * @param parent Vorgänger
+     * @param prev Vorgänger
      * @return
      */
-    public static boolean augumentPath(int rGraph[][], Node startNode, Node zielNode, int parent[])
-    {
+    public static boolean augumentPath(int rGraph[][], Node startNode, Node zielNode, int prev[]) {
 
         int s = startNode.getIndex();
         int t = zielNode.getIndex();
@@ -38,11 +37,11 @@ public class FordFulkerson {
         LinkedList<Integer> queue = new LinkedList<Integer>();
         queue.add(s);
         visited[s] = true;
-        parent[s]=-1;
+        prev[s]=-1;
 
         // Wenn die Liste nicht leer ist
 
-        while (queue.size()!=0) {
+        while (!queue.isEmpty()) {
 
             int u = queue.poll();
 
@@ -51,7 +50,7 @@ public class FordFulkerson {
                 if (visited[v]==false && rGraph[u][v] > 0)
                 {
                     queue.add(v);
-                    parent[v] = u;
+                    prev[v] = u;
                     visited[v] = true;
                 }
             }
@@ -63,8 +62,7 @@ public class FordFulkerson {
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    public static int fordFulkerson(int graph[][], Node startNode, Node zielNode)
-    {
+    public static int fordFulkerson(int graph[][], Node startNode, Node zielNode) {
 
         int u, v;
 
@@ -94,22 +92,21 @@ public class FordFulkerson {
 
         // Augment the flow while tere is path from source
         // to sink
-        while (augumentPath(rGraph, startNode, zielNode, parent))
-        {
+        while (augumentPath(rGraph, startNode, zielNode, parent)) {
+
             // Find minimum residual capacity of the edhes
             // along the path filled by BFS. Or we can say
             // find the maximum flow through the path found.
             int path_flow = Integer.MAX_VALUE;
-            for (v=t; v!=s; v=parent[v])
-            {
+
+            for (v=t; v!=s; v=parent[v]) {
                 u = parent[v];
                 path_flow = Math.min(path_flow, rGraph[u][v]);
             }
 
             // update residual capacities of the edges and
             // reverse edges along the path
-            for (v=t; v != s; v=parent[v])
-            {
+            for (v=t; v != s; v=parent[v]) {
                 u = parent[v];
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
@@ -125,6 +122,7 @@ public class FordFulkerson {
 
 
     public static int[][] graphMatrix(Graph graph){
+        // Anzahl der Knoten
         int V = graph.getNodeCount();
 
         List<Node> nodes = new ArrayList<>();
@@ -148,70 +146,69 @@ public class FordFulkerson {
         return graphMatrix;
     }
 
-    public static void main (String[] args) throws java.lang.Exception
-    {
-
-        Graph residualGraph = new MultiGraph("Residual Graph");
-
-        residualGraph.addNode("x1");
-        residualGraph.addNode("x2");
-        residualGraph.addNode("x3");
-        residualGraph.addNode("x4");
-        residualGraph.addNode("x5");
-        residualGraph.addNode("x6");
-        residualGraph.addNode("x7");
-
-        residualGraph.addEdge("x1x2", "x1", "x2", true);
-        residualGraph.getEdge("x1x2").setAttribute("ui.label", 9);
-
-        residualGraph.addEdge("x2x6", "x2", "x6", true);
-        residualGraph.getEdge("x2x6").setAttribute("ui.label", 3);
-
-        residualGraph.addEdge("x6x7", "x6", "x7", true);
-        residualGraph.getEdge("x6x7").setAttribute("ui.label", 6);
-
-        residualGraph.addEdge("x1x3", "x1", "x3", true);
-        residualGraph.getEdge("x1x3").setAttribute("ui.label", 4);
-
-        residualGraph.addEdge("x3x7", "x3", "x7", true);
-        residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
-
-        residualGraph.addEdge("x2x3", "x2", "x3", true);
-        residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
-
-        residualGraph.addEdge("x1x4", "x1", "x4", true);
-        residualGraph.getEdge("x1x4").setAttribute("ui.label", 8);
-
-        residualGraph.addEdge("x4x5", "x4", "x5", true);
-        residualGraph.getEdge("x4x5").setAttribute("ui.label", 5);
-
-        residualGraph.addEdge("x5x7", "x5", "x7", true);
-        residualGraph.getEdge("x5x7").setAttribute("ui.label", 2);
-
-        residualGraph.addEdge("x5x3", "x5", "x3", true);
-        residualGraph.getEdge("x5x3").setAttribute("ui.label", 3);
-
-        Node source = residualGraph.getNode("x1");
-        source.addAttribute("ui.style", "fill-color: red;");
-
-        Node target = residualGraph.getNode("x7");
-        target.addAttribute("ui.style", "fill-color: blue;");
-
-        residualGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
-
-
-
-        int[][] arr = graphMatrix(residualGraph);
-
-        // Let us create a graph shown in the above example
-        //int graph[][] = residualCapacityMatrix;
-
-        FordFulkerson m = new FordFulkerson();
-
-        System.out.println("The maximum possible flow is " +
-                m.fordFulkerson(arr, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
-
-        residualGraph.display();
-
-    }
+//    public static void main (String[] args) throws java.lang.Exception {
+//
+//        Graph residualGraph = new MultiGraph("Residual Graph");
+//
+//        residualGraph.addNode("x1");
+//        residualGraph.addNode("x2");
+//        residualGraph.addNode("x3");
+//        residualGraph.addNode("x4");
+//        residualGraph.addNode("x5");
+//        residualGraph.addNode("x6");
+//        residualGraph.addNode("x7");
+//
+//        residualGraph.addEdge("x1x2", "x1", "x2", true);
+//        residualGraph.getEdge("x1x2").setAttribute("ui.label", 9);
+//
+//        residualGraph.addEdge("x2x6", "x2", "x6", true);
+//        residualGraph.getEdge("x2x6").setAttribute("ui.label", 3);
+//
+//        residualGraph.addEdge("x6x7", "x6", "x7", true);
+//        residualGraph.getEdge("x6x7").setAttribute("ui.label", 6);
+//
+//        residualGraph.addEdge("x1x3", "x1", "x3", true);
+//        residualGraph.getEdge("x1x3").setAttribute("ui.label", 4);
+//
+//        residualGraph.addEdge("x3x7", "x3", "x7", true);
+//        residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
+//
+//        residualGraph.addEdge("x2x3", "x2", "x3", true);
+//        residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
+//
+//        residualGraph.addEdge("x1x4", "x1", "x4", true);
+//        residualGraph.getEdge("x1x4").setAttribute("ui.label", 8);
+//
+//        residualGraph.addEdge("x4x5", "x4", "x5", true);
+//        residualGraph.getEdge("x4x5").setAttribute("ui.label", 5);
+//
+//        residualGraph.addEdge("x5x7", "x5", "x7", true);
+//        residualGraph.getEdge("x5x7").setAttribute("ui.label", 2);
+//
+//        residualGraph.addEdge("x5x3", "x5", "x3", true);
+//        residualGraph.getEdge("x5x3").setAttribute("ui.label", 3);
+//
+//        Node source = residualGraph.getNode("x1");
+//        source.addAttribute("ui.style", "fill-color: red;");
+//
+//        Node target = residualGraph.getNode("x7");
+//        target.addAttribute("ui.style", "fill-color: blue;");
+//
+//        residualGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
+//
+//
+//
+//        int[][] arr = graphMatrix(residualGraph);
+//
+//        // Let us create a graph shown in the above example
+//        //int graph[][] = residualCapacityMatrix;
+//
+//        FordFulkerson fordFulkerson = new FordFulkerson();
+//
+//        System.out.println("The maximum possible flow is " +
+//                fordFulkerson.fordFulkerson(arr, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+//
+//        residualGraph.display();
+//
+//    }
 }

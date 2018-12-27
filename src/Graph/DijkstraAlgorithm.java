@@ -156,7 +156,7 @@ public class DijkstraAlgorithm {
 
     public static void uiForDijkstra(List<Node> path){
 
-        List<Double> distance = new ArrayList<>();
+        List<Integer> distance = new ArrayList<>();
 
         if (!path.isEmpty()) {
             for (int i = 0; i < path.size(); i++) {
@@ -175,7 +175,7 @@ public class DijkstraAlgorithm {
             }
 
             Double summe = 0.0;
-            for (Double dis : distance) {
+            for (Integer dis : distance) {
                 summe += dis;
             }
 

@@ -117,7 +117,7 @@ public class GraphGenerator {
 
         //Alle Kanten mit zufälligem Gewicht versehen
         for (Edge currentEdge : generatedGraph.getEachEdge()) {
-            currentEdge.setAttribute("ui.label", Math.floor(Math.random() * weightLimit));
+            currentEdge.setAttribute("ui.label", (int)(Math.random() * weightLimit));
         }
         //Quelle und Senke kennzeichnen
         generatedGraph.getNode("0").setAttribute("Quelle", true);
