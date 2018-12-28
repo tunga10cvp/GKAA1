@@ -86,28 +86,28 @@ public class FordFulkerson {
 
         }
         // This array is filled by BFS and to store path
-        int parent[] = new int[rGraph.length];
+        int prev[] = new int[rGraph.length];
 
         int max_flow = 0;  // There is no flow initially
 
         // Augment the flow while tere is path from source
         // to sink
-        while (augumentPath(rGraph, startNode, zielNode, parent)) {
+        while (augumentPath(rGraph, startNode, zielNode, prev)) {
 
             // Find minimum residual capacity of the edhes
             // along the path filled by BFS. Or we can say
             // find the maximum flow through the path found.
             int path_flow = Integer.MAX_VALUE;
 
-            for (v=t; v!=s; v=parent[v]) {
-                u = parent[v];
+            for (v=t; v!=s; v=prev[v]) {
+                u = prev[v];
                 path_flow = Math.min(path_flow, rGraph[u][v]);
             }
 
             // update residual capacities of the edges and
             // reverse edges along the path
-            for (v=t; v != s; v=parent[v]) {
-                u = parent[v];
+            for (v=t; v != s; v=prev[v]) {
+                u = prev[v];
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
             }

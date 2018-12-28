@@ -88,7 +88,6 @@ public class Main {
 //        graph.display();
 
 
-
         /**
          *  DijkstraAlgorithm aufrufen
          */
@@ -127,22 +126,28 @@ public class Main {
          */
 
         Graph bigNet = null;
-        try {
-            bigNet = GraphGenerator.generateBigNet("test1", 50, 800, 10);
-        } catch (Exception e) {
-            e.printStackTrace();
+        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
+        for (int i = 0; i < anzahl; i++) {
+
+            try {
+                bigNet = GraphGenerator.generateBigNet("test1", 2500, 2000000, 10);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            bigNet.addAttribute("ui.stylesheet", styleSheet);
+            // bigNet.display();
+
+            Node source = bigNet.getNode(0);
+            Node target = bigNet.getNode(20);
+
+            int[][] graphBigNet = graphMatrix(bigNet);
+
+            System.out.println(i + " Maximum: " + FordFulkerson.fordFulkerson(graphBigNet, source, target));
+
+            long end = Calendar.getInstance().getTimeInMillis();
+            System.out.println(i+ " Executed Time: " + (end - begin));
+            System.out.println("--------------------------------------------");
         }
-        bigNet.addAttribute("ui.stylesheet", styleSheet);
-        bigNet.display();
-
-        Node source = bigNet.getNode(0);
-        Node target = bigNet.getNode(20);
-
-        int[][] graphBigNet = graphMatrix(bigNet);
-
-       System.out.println("Maximum: " + FordFulkerson.fordFulkerson(graphBigNet, source, target));
-
-
     }
 
     // Aussehen für die Graphen
