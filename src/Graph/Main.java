@@ -18,11 +18,11 @@ import static Graph.ReadFile.readFile;
 public class Main {
 
     public static void main(final String[] args) throws InterruptedException {
-        long begin = Calendar.getInstance().getTimeInMillis();
+
 
         String filename1 = "gka-Dateien/graph03.gka";
-        String filename2 = "newGraph/graph01.gka";
-        Graph graph = readFile(filename2);
+        String filename2 = "newGraph/einKnote.gka";
+        Graph graph = readFile(filename1);
 
         /**
          * BFS Algorithms aufrufen
@@ -68,9 +68,12 @@ public class Main {
 //        }
 //        newGraph.addAttribute("ui.stylesheet", styleSheet);
 //        newGraph.display();
+//
+//        System.out.println(newGraph.getNodeCount());
+//        System.out.println(newGraph.getEdgeCount());
 
-//        System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
-//        System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
+        //System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
+        //System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
 
 
         /**
@@ -104,50 +107,52 @@ public class Main {
         /**
          *  FordFulkerson aufrufen
          */
+
+        Node source = graph.getNode("Hamburg");
+        Node target = graph.getNode("Kiel");
+
+        FordFulkerson m = new FordFulkerson();
+
+        int[][] rGraph = graphMatrix(graph);
+        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+
+        System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
+
+        long end = Calendar.getInstance().getTimeInMillis();
+
+        //System.out.println("Executed Time: " + (end - begin));
+        //System.out.println(traverseWithBFS(graph, source, target));
+        graph.display();
+
+//        /**
+//         *  FordFulkerson auf Bignet
+//         */
 //
-//        Node source = graph.getNode("0");
-//        Node target = graph.getNode("5");
+//        Graph bigNet = null;
+//        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
+//        for (int i = 0; i < anzahl; i++) {
 //
-//        FordFulkerson m = new FordFulkerson();
+//            long begin = Calendar.getInstance().getTimeInMillis();
 //
-//        int[][] rGraph = graphMatrix(graph);
-//        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+//            try {
+//                bigNet = GraphGenerator.generateBigNet("test1", 2500, 2000000, 10);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            bigNet.addAttribute("ui.stylesheet", styleSheet);
+//            // bigNet.display();
 //
-//        System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
+//            Node source = bigNet.getNode(0);
+//            Node target = bigNet.getNode(20);
 //
-//        long end = Calendar.getInstance().getTimeInMillis();
+//            int[][] graphBigNet = graphMatrix(bigNet);
 //
-//        System.out.println("Executed Time: " + (end - begin));
-//        System.out.println(traverseWithBFS(graph, source, target));
-//        graph.display();
-
-        /**
-         *  FordFulkerson auf Bignet
-         */
-
-        Graph bigNet = null;
-        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
-        for (int i = 0; i < anzahl; i++) {
-
-            try {
-                bigNet = GraphGenerator.generateBigNet("test1", 2500, 2000000, 10);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            bigNet.addAttribute("ui.stylesheet", styleSheet);
-            // bigNet.display();
-
-            Node source = bigNet.getNode(0);
-            Node target = bigNet.getNode(20);
-
-            int[][] graphBigNet = graphMatrix(bigNet);
-
-            System.out.println(i + " Maximum: " + FordFulkerson.fordFulkerson(graphBigNet, source, target));
-
-            long end = Calendar.getInstance().getTimeInMillis();
-            System.out.println(i+ " Executed Time: " + (end - begin));
-            System.out.println("--------------------------------------------");
-        }
+//            System.out.println(i + " Maximum: " + FordFulkerson.fordFulkerson(graphBigNet, source, target));
+//
+//            long end = Calendar.getInstance().getTimeInMillis();
+//            System.out.println(i+ " Executed Time: " + (end - begin));
+//            System.out.println("--------------------------------------------");
+//        }
     }
 
     // Aussehen für die Graphen

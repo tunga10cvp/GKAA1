@@ -76,6 +76,17 @@ public class GraphGeneratorTest {
         assertTrue(graph.getNodeCount() == 1000);
     }
 
+    @Test
+    public void bigNet1() throws Exception{
+        Graph graph = GraphGenerator.generateBigNet("test6",1000,35000,10);
+
+        assertTrue(graph != null);
+        assertTrue(graph.getEdgeCount() == 34000);
+        assertTrue(graph.getNodeCount() == 1000);
+    }
+
+
+
 
 }
 

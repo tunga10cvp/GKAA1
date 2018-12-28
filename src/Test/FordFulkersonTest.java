@@ -81,13 +81,47 @@ public class FordFulkersonTest {
 
         int[][] rGraph = graphMatrix(graph);
 
-        Integer maxflow = FordFulkerson.fordFulkerson(rGraph, source, target);
+        Integer ergebnis = FordFulkerson.fordFulkerson(rGraph, source, target);
 
         int maxFlow = 23;
 
-        assertTrue(maxflow == maxflow);
+        assertTrue(ergebnis == maxFlow);
 
     }
 
+    @Test
+    public void zweiKnotenTest() {
+
+        Graph graph = readFile("newGraph/graph02.gka");
+
+        Node source = graph.getNode("v1");
+        Node target = graph.getNode("v2");
+
+        int[][] rGraph = graphMatrix(graph);
+
+        Integer ergebnis = FordFulkerson.fordFulkerson(rGraph, source, target);
+
+        int maxFlow = 3;
+
+        assertTrue(ergebnis == maxFlow);
+
+    }
+
+    @Test
+    public void einKnotenTest() {
+
+        Graph graph = readFile("newGraph/einKnote.gka");
+
+        Node source = graph.getNode("v1");
+
+        int[][] rGraph = graphMatrix(graph);
+
+        Integer ergebnis = FordFulkerson.fordFulkerson(rGraph, source, source);
+
+        int maxFlow = 0;
+
+        assertTrue(ergebnis == maxFlow);
+
+    }
 
 }

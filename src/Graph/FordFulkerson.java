@@ -8,138 +8,162 @@ import java.util.*;
 
 public class FordFulkerson {
 
-
-    /* Returns true if there is a path from source 's' to sink
-      't' in residual graph. Also fills parent[] to store the
-      path */
-
     /**
-     *  return true wenn es ein path von startNode nach zielNode gibt
+     * return true wenn es einen Pfad von startNode zu zielNode gibt
      *
-     * @param rGraph ein Graph in Matrix
+     * @param adjazenzMatrix   Eine Adjazenzmatrix eines Graph
      * @param startNode startNode
-     * @param zielNode zielNode
-     * @param prev Vorgänger
+     * @param zielNode  zielNode
+     * @param prev      Vorgänger
      * @return
      */
-    public static boolean augumentPath(int rGraph[][], Node startNode, Node zielNode, int prev[]) {
+    public static boolean augumentPath(int adjazenzMatrix[][], Node startNode, Node zielNode, int prev[]) {
 
-        int s = startNode.getIndex();
-        int t = zielNode.getIndex();
+        //index für StartNode und ZielNode
+        int source = startNode.getIndex();
+        int target = zielNode.getIndex();
 
         // erstellt ein Visited Array und markiert alle Knoten als nicht visited
-        boolean visited[] = new boolean[rGraph.length];
-        for(int i=0; i< rGraph.length; ++i)
-            visited[i]=false;
+        boolean visited[] = new boolean[adjazenzMatrix.length];
 
+        for (int i = 0; i < adjazenzMatrix.length; ++i) {
+            visited[i] = false;
+        }
 
         // erstellt eine Liste, fügt startNode hinzu und markiert als visited
         LinkedList<Integer> queue = new LinkedList<Integer>();
-        queue.add(s);
-        visited[s] = true;
-        prev[s]=-1;
+        queue.add(source);
+        visited[source] = true;
+        prev[source] = -1;
 
         // Wenn die Liste nicht leer ist
 
         while (!queue.isEmpty()) {
 
-            int u = queue.poll();
+            // aktuellKnote aus der Queue
+            int aktuell = queue.poll();
 
-            for (int v=0; v < rGraph.length; v++) {
+            // gucke alle Nachbar
+            for (int neighbor = 0; neighbor < adjazenzMatrix.length; neighbor++) {
 
-                if (visited[v]==false && rGraph[u][v] > 0)
-                {
-                    queue.add(v);
-                    prev[v] = u;
-                    visited[v] = true;
+                // Wenn der noch nicht besucht wurder und mit dem aktuellen Knote verkfnüpfen ist
+                // füg den Nachbar in queue hinzu und markiert als visited
+                if (visited[neighbor] == false && adjazenzMatrix[aktuell][neighbor] > 0) {
+                    queue.add(neighbor);
+                    prev[neighbor] = aktuell;
+                    visited[neighbor] = true;
                 }
             }
         }
 
-        // If we reached sink in BFS starting from source, then
-        // return true, else false
-        return (visited[t] == true);
+        // return true, wenn wir den ZielKnote erreichen
+        return (visited[target] == true);
     }
 
-    // Returns tne maximum flow from s to t in the given graph
-    public static int fordFulkerson(int graph[][], Node startNode, Node zielNode) {
+    /**
+     *
+     * @param adjazenzMatrix   Eine Adjazenzmatrix eines Graph
+     * @param startNode startNode
+     * @param zielNode  zielNode
 
-        int u, v;
+     * @return maximal fluss zwischen startknote und zielKnote
+     */
+    public static int fordFulkerson(int adjazenzMatrix[][], Node startNode, Node zielNode) {
 
-        int s = startNode.getIndex();
-        int t = zielNode.getIndex();
-        // Create a residual graph and fill the residual graph
-        // with given capacities in the original graph as
-        // residual capacities in residual graph
+        // setze den Wert für Fluss ist 0
+        int maximalflow = 0;  //
 
-        // Residual graph where rGraph[i][j] indicates
-        // residual capacity of edge from i to j (if there
-        // is an edge. If rGraph[i][j] is 0, then there is
-        // not)
-        int rGraph[][] = new int[graph.length][graph.length];
+        //wenn startknote auch zielKnote ist
+        if (startNode == zielNode) {
+            maximalflow = 0;
+        } else {
 
-        for (u = 0; u < rGraph.length; u++) {
-            for (v = 0; v < rGraph.length; v++){
-                rGraph[u][v] = graph[u][v];
-                //System.out.println(rGraph[u][v]);
+            // index für Start und ZielKnote
+            int source = startNode.getIndex();
+            int target = zielNode.getIndex();
+
+            // erstellt eine Matrix eines Graph und tragen die KanteGewichte in diese Matrix ein
+            // wenn es kein Gewicht ziwschen 2 Knoten gibt, wird residualGraph[i][j] auf 0 gesetzt
+            int residualGraph[][] = new int[adjazenzMatrix.length][adjazenzMatrix.length];
+
+            //
+            int i,j;
+
+            // setzt die Werte für residualGraph aus der adjazenzMatrix
+            for (i = 0; i < residualGraph.length; i++) {
+                for (j = 0; j < residualGraph.length; j++) {
+                    residualGraph[i][j] = adjazenzMatrix[i][j];
+                    //System.out.println(rGraph[u][v]);
+                }
+
             }
+            // die Vorgänger
+            int prev[] = new int[residualGraph.length];
 
+
+            // wenn es gibt den Pfad von startKonte zu ZielKnote gibt
+            while (augumentPath(residualGraph, startNode, zielNode, prev)) {
+
+                // der Wert für den FLuss wird am Anfang und endlich gesezt
+                int aktuelleflow = Integer.MAX_VALUE;
+
+
+                // Wenn wir den ZielKnote erreichen, # StartKnote
+                // Nehmen wir den kleinesten Wert für den Fluss raus
+                for (j = target; j != source; j = prev[j]) {
+                    i = prev[j];
+                    aktuelleflow = Math.min(aktuelleflow, residualGraph[i][j]);
+                }
+
+                // update den neuen Wert für jeden Fluss des Graphes
+                for (j = target; j != source; j = prev[j]) {
+                    i = prev[j];
+
+                    //Eine forward  Kante
+                    residualGraph[i][j] -= aktuelleflow;
+                    //Eine backward Kante
+                    residualGraph[j][i] += aktuelleflow;
+                }
+
+                // Fügen Sie den Pfadfluss zum Gesamtfluss hinzu
+                maximalflow += aktuelleflow;
+            }
         }
-        // This array is filled by BFS and to store path
-        int prev[] = new int[rGraph.length];
 
-        int max_flow = 0;  // There is no flow initially
-
-        // Augment the flow while tere is path from source
-        // to sink
-        while (augumentPath(rGraph, startNode, zielNode, prev)) {
-
-            // Find minimum residual capacity of the edhes
-            // along the path filled by BFS. Or we can say
-            // find the maximum flow through the path found.
-            int path_flow = Integer.MAX_VALUE;
-
-            for (v=t; v!=s; v=prev[v]) {
-                u = prev[v];
-                path_flow = Math.min(path_flow, rGraph[u][v]);
-            }
-
-            // update residual capacities of the edges and
-            // reverse edges along the path
-            for (v=t; v != s; v=prev[v]) {
-                u = prev[v];
-                rGraph[u][v] -= path_flow;
-                rGraph[v][u] += path_flow;
-            }
-
-            // Add path flow to overall flow
-            max_flow += path_flow;
-        }
-
-        // Return the overall flow
-        return max_flow;
+        // Return den Gesamtfluss
+        return maximalflow;
     }
 
 
-    public static int[][] graphMatrix(Graph graph){
+
+
+    /**
+     * Wandeln den Graph sowie jede Datei *.gka in eine adjazenzMatrix um
+     * @param graph unser Graph
+     * @return eine adjazenzMatrix
+     */
+    public static int[][] graphMatrix(Graph graph) {
         // Anzahl der Knoten
         int V = graph.getNodeCount();
 
+        //Liste aller Knote
         List<Node> nodes = new ArrayList<>();
 
-        for (Node node : graph.getEachNode()){
+        // in Liste reinpacken
+        for (Node node : graph.getEachNode()) {
             nodes.add(node);
         }
 
+        // eine adjazenzMatrix
         int graphMatrix[][] = new int[V][V];
 
-        for (int i = 0; i < V; i++){
-            for (int j = 0; j < V; j++){
-                if (nodes.get(i).hasEdgeToward(nodes.get(j))){
+        // sammeln alle Kantegewichte ein, wenn nicht verbunden -> auf 0 setzen
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
                     graphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
 
-                }
-                else graphMatrix[i][j] = 0;
+                } else graphMatrix[i][j] = 0;
             }
         }
 
