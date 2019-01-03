@@ -67,7 +67,7 @@ public class FordFulkersonTest {
 
         int maxFlow = 20;
 
-        assertTrue(maxflow == maxflow);
+        assertTrue(maxflow == maxFlow);
 
     }
 

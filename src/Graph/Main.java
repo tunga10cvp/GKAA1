@@ -21,8 +21,8 @@ public class Main {
 
 
         String filename1 = "gka-Dateien/graph03.gka";
-        String filename2 = "newGraph/einKnote.gka";
-        Graph graph = readFile(filename1);
+        String filename2 = "newGraph/graph01.gka";
+        Graph graph = readFile(filename2);
 
         /**
          * BFS Algorithms aufrufen
@@ -108,8 +108,8 @@ public class Main {
          *  FordFulkerson aufrufen
          */
 
-        Node source = graph.getNode("Hamburg");
-        Node target = graph.getNode("Kiel");
+        Node source = graph.getNode("0");
+        Node target = graph.getNode("5");
 
         FordFulkerson m = new FordFulkerson();
 
@@ -118,7 +118,7 @@ public class Main {
 
         System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
 
-        long end = Calendar.getInstance().getTimeInMillis();
+        long end = Calendar.getInstance ().getTimeInMillis();
 
         //System.out.println("Executed Time: " + (end - begin));
         //System.out.println(traverseWithBFS(graph, source, target));

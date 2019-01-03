@@ -17,7 +17,60 @@ public class FordFulkerson {
      * @param prev      Vorgänger
      * @return
      */
-    public static boolean augumentPath(int adjazenzMatrix[][], Node startNode, Node zielNode, int prev[]) {
+//    public static boolean bfs(int adjazenzMatrix[][], Node startNode, Node zielNode, int prev[]) {
+//
+//        //index für StartNode und ZielNode
+//        int source = startNode.getIndex();
+//        int target = zielNode.getIndex();
+//
+//        // erstellt ein Visited Array und markiert alle Knoten als nicht visited
+//        boolean visited[] = new boolean[adjazenzMatrix.length];
+//
+//        for (int i = 0; i < adjazenzMatrix.length; ++i) {
+//            visited[i] = false;
+//        }
+//
+//        // erstellt eine Liste, fügt startNode hinzu und markiert als visited
+//        LinkedList<Integer> queue = new LinkedList<Integer>();
+//        queue.add(source);
+//        visited[source] = true;
+//        prev[source] = -1;
+//
+//        // Wenn die Liste nicht leer ist
+//
+//        while (!queue.isEmpty()) {
+//
+//            // aktuellKnote aus der Queue
+//            int aktuell = queue.poll();
+//
+//            // gucke alle Nachbar
+//            for (int neighbor = 0; neighbor < adjazenzMatrix.length; neighbor++) {
+//
+//                // Wenn der noch nicht besucht wurde und mit dem aktuellen Knote verkfnüpfen ist
+//                // füg den Nachbar in queue hinzu und markiert als visited
+//                if (visited[neighbor] == false && adjazenzMatrix[aktuell][neighbor] > 0) {
+//                    queue.add(neighbor);
+//                    prev[neighbor] = aktuell;
+//                    visited[neighbor] = true;
+//                }
+//            }
+//        }
+//
+//        // return true, wenn wir den ZielKnote erreichen
+//        return (visited[target] == true);
+//    }
+
+    /**
+     * return true wenn es einen Pfad von startNode zu zielNode gibt
+     *
+     * @param adjazenzMatrix   Eine Adjazenzmatrix eines Graph
+     * @param startNode startNode
+     * @param zielNode  zielNode
+     * @param prev      Vorgänger
+     * @return
+     */
+
+    public static boolean augmentingPathDFS(int adjazenzMatrix[][], Node startNode, Node zielNode, int prev[]) {
 
         //index für StartNode und ZielNode
         int source = startNode.getIndex();
@@ -30,33 +83,37 @@ public class FordFulkerson {
             visited[i] = false;
         }
 
-        // erstellt eine Liste, fügt startNode hinzu und markiert als visited
-        LinkedList<Integer> queue = new LinkedList<Integer>();
-        queue.add(source);
-        visited[source] = true;
-        prev[source] = -1;
+        // use Stack zu speichern von startNode zu zielNode
+        Stack<Integer> stack =new  Stack<Integer>();
 
-        // Wenn die Liste nicht leer ist
+        // Starten mit StartNode
+        stack.push(source);
 
-        while (!queue.isEmpty()) {
+        // Wenn Stack nicht leer ist
+        while (!stack.isEmpty()) {
 
-            // aktuellKnote aus der Queue
-            int aktuell = queue.poll();
+            int neighbor;
 
-            // gucke alle Nachbar
-            for (int neighbor = 0; neighbor < adjazenzMatrix.length; neighbor++) {
+            // get AktuellNode
+            Integer aktuell = stack.pop();
 
-                // Wenn der noch nicht besucht wurder und mit dem aktuellen Knote verkfnüpfen ist
-                // füg den Nachbar in queue hinzu und markiert als visited
-                if (visited[neighbor] == false && adjazenzMatrix[aktuell][neighbor] > 0) {
-                    queue.add(neighbor);
-                    prev[neighbor] = aktuell;
-                    visited[neighbor] = true;
+            // wenn noch nicht besucht, markiert als besucht
+            if (!visited[aktuell]){
+                visited[aktuell] = true;
+                prev[source] = -1;
+
+                //guck alle Nachbar von AktuellNode die noch nicht besucht wurden
+                for (neighbor = 0; neighbor < adjazenzMatrix.length; neighbor++){
+                    if (adjazenzMatrix[aktuell][neighbor] > 0 && !visited[neighbor]){
+                        //in Stack reinpacken
+                        // Node mit niedriger Id liegt oben
+                        stack.push(neighbor);
+                        //set Vorgänger
+                        prev[neighbor] = aktuell;
+                    }
                 }
             }
         }
-
-        // return true, wenn wir den ZielKnote erreichen
         return (visited[target] == true);
     }
 
@@ -101,10 +158,10 @@ public class FordFulkerson {
             int prev[] = new int[residualGraph.length];
 
 
-            // wenn es gibt den Pfad von startKonte zu ZielKnote gibt
-            while (augumentPath(residualGraph, startNode, zielNode, prev)) {
+            // wenn es den Pfad von startKonte zu ZielKnote gibt
+            while (augmentingPathDFS(residualGraph, startNode, zielNode, prev)) {
 
-                // der Wert für den FLuss wird am Anfang und endlich gesezt
+                // der Wert für den FLuss wird am Anfang unendlich gesezt
                 int aktuelleflow = Integer.MAX_VALUE;
 
 
@@ -120,9 +177,9 @@ public class FordFulkerson {
                     i = prev[j];
 
                     //Eine forward  Kante
-                    residualGraph[i][j] -= aktuelleflow;
+                    residualGraph[i][j] = residualGraph[i][j] - aktuelleflow;
                     //Eine backward Kante
-                    residualGraph[j][i] += aktuelleflow;
+                    residualGraph[j][i] = residualGraph[j][i] + aktuelleflow;
                 }
 
                 // Fügen Sie den Pfadfluss zum Gesamtfluss hinzu
