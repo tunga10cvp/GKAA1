@@ -1,0 +1,61 @@
+----------Implementierung für Ford Fulkerson mit Hilfe von DFS----------
+
+maxFlow = 0
+für jeden Kante (i,j) in Graph:
+	residualCapacity(i,j) = Kantegewicht(i,j)
+
+while es gibt einen Pfad p von StartNode zu ZielNode
+    aktuellFlow = Min(residualCapacity(i,j) für (i,j) in p)
+
+    for jede Kante(i,j) in p:
+    	if (i,j) ist ein forward Kante:
+    		residualGraph(i,j) = residualGraph(i,j) - aktuelleflow;
+    	else:
+    		residualGraph(i,j) = residualGraph(i,j) - aktuelleflow;
+
+    maxFlow = maxFlow + aktuellFlow;
+
+return maxFlow
+
+-------------Implementierung für DFS-------------------------------------
+
+Alle Knote als unvisited markiert
+
+Erstellt neue Stack s
+
+s.push(startNode)
+
+while (s ist nicht leer) do
+
+	x = s.pop()  // hol ein Element von oben Stack
+
+	if (x wurde noch nicht besucht)
+
+		x als besucht markiert
+
+		for (alle Nachbar y von x)
+
+			if (y wurde noch nicht besucht)
+
+				s.push(y)
+
+return true if ZielNode wurde erreicht
+
+-------------Implementierung für GraphMatrix-----------------------------
+
+Anzahl der Knoten V
+
+Erstellt eine List aller Knoten nodes
+
+Erstellt eine GraphMatrix[][]
+
+for (jede Knote i in nodes)
+	for (jede Knote j in nodes)
+		if (zwischen i und j hat eine Kante)
+			graphMatrix[i][j] = Kantegewicht(i,j)
+		else
+			graphMatrix[i][j] = 0
+
+return graphMatrix
+
+
