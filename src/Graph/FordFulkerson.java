@@ -84,7 +84,7 @@ public class FordFulkerson {
         }
 
         // use Stack zu speichern von startNode zu zielNode
-        Stack<Integer> stack =new  Stack<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();
 
         // Starten mit StartNode
         stack.push(source);
@@ -203,6 +203,7 @@ public class FordFulkerson {
 
 
 
+
     public static void main (String[] args) throws java.lang.Exception {
 
         Graph residualGraph = new MultiGraph("Residual Graph");
@@ -230,6 +231,9 @@ public class FordFulkerson {
         residualGraph.addEdge("x3x7", "x3", "x7", true);
         residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
 
+//        residualGraph.addEdge("1", "x3", "x7", true);
+//        residualGraph.getEdge("x3x7").setAttribute("ui.label", 10);
+
         residualGraph.addEdge("x2x3", "x2", "x3", true);
         residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
 
@@ -253,7 +257,7 @@ public class FordFulkerson {
 
         residualGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
 
-
+        residualGraph.addAttribute("ui.stylesheet", styleSheet);
 
 
 
@@ -263,10 +267,47 @@ public class FordFulkerson {
         FordFulkerson fordFulkerson = new FordFulkerson();
 
         System.out.println("The maximum possible flow is " +
-                fordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+               fordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
 
         residualGraph.display();
 
     }
+
+    // Aussehen für die Graphen
+    protected static String styleSheet =
+            "graph {" +
+                    "   fill-color: black;"+
+                    "}" +
+
+                    "node {" +
+                    "   text-color: yellow;" +
+                    "   shape: line;" +
+                    "   text-size: 20px;" +
+                    "   shape: circle;" +
+                    "   fill-color: green;" +
+                    "   size: 15px;" +
+                    //  "   text-alignment: center;" +
+                    //  "   fill-mode: gradient-radial;" +
+                    // "   stroke-color: yellow;" +
+
+                    "}" +
+                    "node.marked {" +
+                    "	fill-color: green;" +
+                    "}" +
+
+                    " edge {" +
+                    "shape: angle;" +
+                    " stroke-mode: plain;"+
+                    "text-color: white;"+
+                    "text-size: 15px;"+
+                    "fill-color: blue;"+
+                    "text-background-mode: rounded-box;"+
+                    "text-background-color: red;"+
+                    "}"+
+
+                    "edge.marked {"+
+                    " fill-color: red;"+
+                    " text-color: red;"+
+                    "}";
 
 }
