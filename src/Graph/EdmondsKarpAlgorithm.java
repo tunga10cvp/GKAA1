@@ -33,8 +33,8 @@ public class EdmondsKarpAlgorithm {
         // initialize residual graph matrix
         int[][] residualGraphMatrix = createResidualGraphMatrix(graph);
 
-        int source = sourceNode.getIndex();
-        int sink = sinkNode.getIndex();
+        int source = Integer.valueOf(sourceNode.getId());
+        int sink = Integer.valueOf(sinkNode.getId());
         int i, j;
 
         // array to store path for augmentingPathBFS
@@ -82,8 +82,8 @@ public class EdmondsKarpAlgorithm {
         int residualGraphMatrix[][] = new int[V][V];
         List<Node> nodes = new ArrayList<>();
 
-        for (Node node : graph.getEachNode()) {
-            nodes.add(node);
+        for (int i = 0; i < V; i++) {
+            nodes.add(graph.getNode(String.valueOf(i)));
         }
 
         // Add up all edge's weights from nodes i to j in the matrix, if not connected -> 0
@@ -91,14 +91,12 @@ public class EdmondsKarpAlgorithm {
             for (int j = 0; j < V; j++) {
 
                 for (Edge leavingEdge : nodes.get(i).getEachLeavingEdge()) {
-                    if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
+                    if (leavingEdge.getNode1().equals(nodes.get(j))) {
                         if (residualGraphMatrix[i][j] > 0)
                             residualGraphMatrix[i][j] += (int)leavingEdge.getAttribute("ui.label");
                         else
                             residualGraphMatrix[i][j] = (int)leavingEdge.getAttribute("ui.label");
                     }
-                    else
-                        residualGraphMatrix[i][j] = 0;
                 }
             }
         }
@@ -139,15 +137,10 @@ public class EdmondsKarpAlgorithm {
             // adds all unvisited neighbors with remaining potential to queue and sets them as visited with current as prev
             for (int potentialNeighbor = 0; potentialNeighbor < residualGraphMatrix.length; potentialNeighbor++) {
 
-                if (!visited[potentialNeighbor]) {
-                    int forwardPotential = residualGraphMatrix[current][potentialNeighbor];
-                    int backwardPotential = residualGraphMatrix[potentialNeighbor][current];
-
-                    if (forwardPotential > 0 || backwardPotential > 0) {
-                        queue.add(potentialNeighbor);
-                        prev[potentialNeighbor] = current;
-                        visited[potentialNeighbor] = true;
-                    }
+                if (!visited[potentialNeighbor] && residualGraphMatrix[current][potentialNeighbor] > 0) {
+                    queue.add(potentialNeighbor);
+                    prev[potentialNeighbor] = current;
+                    visited[potentialNeighbor] = true;
                 }
             }
         }
