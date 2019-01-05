@@ -25,11 +25,11 @@ public class FordFulkersonTest {
 
 
 
-        Integer maxflow = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ergebnis = FordFulkerson.fordFulkerson(graph, source, target);
 
-        int maxFlow = 23;
+        int maxflow = 23;
 
-        assertTrue(maxflow == maxflow);
+        assertTrue(ergebnis == maxflow);
 
     }
 
@@ -43,11 +43,11 @@ public class FordFulkersonTest {
 
 
 
-        Integer maxflow = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ergebnis = FordFulkerson.fordFulkerson(graph, source, target);
 
-        int maxFlow = 276;
+        int maxflow = 276;
 
-        assertTrue(maxflow == maxflow);
+        assertTrue(ergebnis == maxflow);
 
     }
 
@@ -62,11 +62,11 @@ public class FordFulkersonTest {
 
 
 
-        Integer maxflow = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ergebnis = FordFulkerson.fordFulkerson(graph, source, target);
 
-        int maxFlow = 20;
+        int maxflow = 20;
 
-        assertTrue(maxflow == maxFlow);
+        assertTrue(ergebnis == maxflow);
 
     }
 
