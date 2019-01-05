@@ -202,40 +202,6 @@ public class FordFulkerson {
     }
 
 
-//    /**
-//     * Wandeln den Graph sowie jede Datei *.gka in eine ResidualGraphMatrix um
-//     * @param graph unser Graph
-//     * @return eine adjazenzMatrix
-//     */
-//    public static int[][] graphMatrix(Graph graph) {
-//        // Anzahl der Knoten
-//        int V = graph.getNodeCount();
-//
-//        //Liste aller Knote
-//        List<Node> nodes = new ArrayList<>();
-//
-//        // in Liste reinpacken
-//        for (Node node : graph.getEachNode()) {
-//            nodes.add(node);
-//        }
-//
-//        // eine adjazenzMatrix
-//        int graphMatrix[][] = new int[V][V];
-//
-//        // sammeln alle Kantegewichte ein, wenn nicht verbunden -> auf 0 setzen
-//        for (int i = 0; i < V; i++) {
-//            for (int j = 0; j < V; j++) {
-//                if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
-//                    graphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
-//
-//                } else graphMatrix[i][j] = 0;
-//            }
-//        }
-//
-//        System.out.println(graphMatrix);
-//
-//        return graphMatrix;
-//    }
 
     public static void main (String[] args) throws java.lang.Exception {
 
