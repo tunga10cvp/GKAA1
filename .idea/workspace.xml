@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Graph/Main.java" line="42" />
+    <bookmark url="file://$PROJECT_DIR$/src/Graph/Main.java" line="41" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae95200c-db5f-4929-a58f-274beda15a6a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodepad" beforeDir="false" afterPath="$PROJECT_DIR$/Fordfulkerson.text" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graph/FordFulkerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/FordFulkerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/DijkstraAlgorithmTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/DijkstraAlgorithmTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/FordFulkersonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/FordFulkersonTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,116 +21,133 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/GraphStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="59" column="59" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Test/DijkstraAlgorithmTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Test/DijkstraVsFloydTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
-              <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newGraph/graph01.gka">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/FordFulkerson.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-937">
-              <caret line="179" column="77" lean-forward="true" selection-start-line="179" selection-start-column="20" selection-end-line="179" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Fordfulkerson.text">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="144" selection-start-line="144" selection-end-line="144" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2730">
-              <caret line="189" column="9" selection-start-line="189" selection-start-column="9" selection-end-line="189" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Graph/FloydWarshalAlgorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.49570447">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Test/FloydWarshalAlgorithmTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Test/DijkstraVsFloydTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Graph/FordFulkerson.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="209">
+                  <caret line="146" column="62" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Graph/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="55" column="26" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Test/FordFulkersonTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="12" selection-end-line="127" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Fordfulkerson.text">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Test/GraphGeneratorTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1050">
+                  <caret line="81" selection-start-line="81" selection-end-line="81" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2783">
+                  <caret line="209" column="29" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2310">
+                  <caret line="161" column="8" selection-start-line="161" selection-start-column="8" selection-end-line="161" selection-end-column="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Graph/FloydWarshalAlgorithm.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="735">
+                  <caret line="55" selection-start-line="55" selection-end-line="55" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="281">
+                  <caret line="99" column="24" lean-forward="true" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,8 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GraphTest/EdgeGraph.java" />
-        <option value="$PROJECT_DIR$/src/GraphTest/GraphStream.java" />
         <option value="$PROJECT_DIR$/graph01.gka" />
         <option value="$PROJECT_DIR$/src/GraphTest/Main.java" />
         <option value="$PROJECT_DIR$/src/GraphTest/GraphIORead.java" />
@@ -199,17 +218,19 @@
         <option value="$PROJECT_DIR$/newGraph/graph01.gka" />
         <option value="$PROJECT_DIR$/src/Graph/FloydWarshalAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Test/DijkstraVsFloydTest.java" />
-        <option value="$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Graph/GraphGenerator.java" />
         <option value="$PROJECT_DIR$/src/Graph/GraphStream.java" />
         <option value="$PROJECT_DIR$/newGraph/graph02.gka" />
         <option value="$PROJECT_DIR$/newGraph/einKnote.gka" />
         <option value="$PROJECT_DIR$/gka-Dateien/GraphTest1.gka" />
         <option value="$PROJECT_DIR$/src/Test/GraphGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/Test/DijkstraAlgorithmTest.java" />
+        <option value="$PROJECT_DIR$/Fordfulkerson.text" />
+        <option value="$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Test/FordFulkersonTest.java" />
         <option value="$PROJECT_DIR$/src/Graph/Main.java" />
         <option value="$PROJECT_DIR$/src/Graph/FordFulkerson.java" />
-        <option value="$PROJECT_DIR$/Fordfulkerson.text" />
       </list>
     </option>
   </component>
@@ -223,11 +244,11 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
-    <option name="y" value="28" />
-    <option name="width" value="1280" />
-    <option name="height" value="748" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="258" />
+    <option name="y" value="27" />
+    <option name="width" value="958" />
+    <option name="height" value="803" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -235,7 +256,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,7 +331,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,7 +340,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546543486556" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546684965090" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -367,7 +388,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FordFulkerson">
+  <component name="RunManager" selected="JUnit.FordFulkersonTest">
+    <configuration name="EdmondsKarpAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Graph.EdmondsKarpAlgorithm" />
+      <module name="Aufgabe1GKA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FordFulkerson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Graph.FordFulkerson" />
       <module name="Aufgabe1GKA" />
@@ -394,7 +428,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FordFulkersonTest.graph04Test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DijkstraAlgorithmTest.keinStartKnoten" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aufgabe1GKA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.DijkstraAlgorithmTest" />
+      <option name="METHOD_NAME" value="keinStartKnoten" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FordFulkersonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Aufgabe1GKA" />
       <extension name="coverage">
         <pattern>
@@ -404,58 +454,24 @@
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
       <option name="MAIN_CLASS_NAME" value="Test.FordFulkersonTest" />
-      <option name="METHOD_NAME" value="graph04Test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FordFulkersonTest.graph04Test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Aufgabe1GKA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.FordFulkersonTest" />
-      <option name="METHOD_NAME" value="graph04Test2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GraphGeneratorTest.bigNet1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Aufgabe1GKA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.GraphGeneratorTest" />
-      <option name="METHOD_NAME" value="bigNet1" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.FordFulkerson" />
-      <item itemvalue="JUnit.GraphGeneratorTest.bigNet1" />
-      <item itemvalue="JUnit.FordFulkersonTest.graph04Test1" />
-      <item itemvalue="JUnit.FordFulkersonTest.graph04Test2" />
+      <item itemvalue="JUnit.DijkstraAlgorithmTest.keinStartKnoten" />
+      <item itemvalue="JUnit.FordFulkersonTest" />
+      <item itemvalue="Application.EdmondsKarpAlgorithm" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FordFulkersonTest" />
         <item itemvalue="Application.FordFulkerson" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.FordFulkersonTest.graph04Test2" />
-        <item itemvalue="JUnit.FordFulkersonTest.graph04Test1" />
-        <item itemvalue="JUnit.GraphGeneratorTest.bigNet1" />
+        <item itemvalue="Application.EdmondsKarpAlgorithm" />
+        <item itemvalue="JUnit.DijkstraAlgorithmTest.keinStartKnoten" />
       </list>
     </recent_temporary>
   </component>
@@ -518,7 +534,8 @@
       <workItem from="1546265682328" duration="583000" />
       <workItem from="1546293961253" duration="2429000" />
       <workItem from="1546506184331" duration="7464000" />
-      <workItem from="1546515145386" duration="4153000" />
+      <workItem from="1546515145386" duration="6972000" />
+      <workItem from="1546681564359" duration="3187000" />
     </task>
     <task id="LOCAL-00001" summary="gka-Da">
       <created>1540113153161</created>
@@ -730,49 +747,63 @@
       <option name="project" value="LOCAL" />
       <updated>1546513454147</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Ford Fulkerson mit augmentingPathDFS">
+      <created>1546548586716</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1546548586716</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Implementierung für Ford Fulkerson">
+      <created>1546548609531</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1546548609531</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FordFulkersonTest_einKnotenTest - 2018.12.28 at 13h 05m 56s.xml">
-      <configuration name="FordFulkersonTest.einKnotenTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FordFulkersonTest_einKnotenTest - 2018.12.28 at 13h 05m 58s.xml">
-      <configuration name="FordFulkersonTest.einKnotenTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphGeneratorTest_bigNet1 - 2018.12.28 at 13h 44m 15s.xml">
-      <configuration name="GraphGeneratorTest.bigNet1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphGeneratorTest_bigNet1 - 2018.12.28 at 13h 44m 27s.xml">
-      <configuration name="GraphGeneratorTest.bigNet1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphGeneratorTest_bigNet1 - 2018.12.28 at 13h 45m 07s.xml">
-      <configuration name="GraphGeneratorTest.bigNet1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphGeneratorTest_bigNet1 - 2018.12.28 at 13h 47m 26s.xml">
-      <configuration name="GraphGeneratorTest.bigNet1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphGeneratorTest_bigNet1 - 2018.12.28 at 13h 48m 50s.xml">
-      <configuration name="GraphGeneratorTest.bigNet1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GraphGeneratorTest_bigNet1 - 2018.12.28 at 15h 09m 56s.xml">
-      <configuration name="GraphGeneratorTest.bigNet1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FordFulkersonTest_graph04Test1 - 2018.12.29 at 22h 16m 36s.xml">
       <configuration name="FordFulkersonTest.graph04Test1" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FordFulkersonTest_graph04Test2 - 2018.12.29 at 22h 16m 55s.xml">
       <configuration name="FordFulkersonTest.graph04Test2" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DijkstraVsFloydTest_generateGraphTest - 2019.01.03 at 22h 14m 32s.xml">
+      <configuration name="DijkstraVsFloydTest.generateGraphTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DijkstraVsFloydTest_generateGraphTest - 2019.01.03 at 22h 16m 30s.xml">
+      <configuration name="DijkstraVsFloydTest.generateGraphTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DijkstraVsFloydTest_generateGraphTest - 2019.01.03 at 22h 16m 37s.xml">
+      <configuration name="DijkstraVsFloydTest.generateGraphTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DijkstraVsFloydTest_generateGraphTest - 2019.01.03 at 22h 17m 16s.xml">
+      <configuration name="DijkstraVsFloydTest.generateGraphTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DijkstraVsFloydTest_generateGraphTest - 2019.01.03 at 22h 17m 43s.xml">
+      <configuration name="DijkstraVsFloydTest.generateGraphTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DijkstraAlgorithmTest_keinStatKnoten - 2019.01.03 at 22h 19m 12s.xml">
+      <configuration name="DijkstraAlgorithmTest.keinStatKnoten" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DijkstraAlgorithmTest_keinStartKnoten - 2019.01.03 at 22h 19m 26s.xml">
+      <configuration name="DijkstraAlgorithmTest.keinStartKnoten" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FordFulkersonTest - 2019.01.05 at 10h 46m 38s.xml">
+      <configuration name="FordFulkersonTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256681000" />
+    <option name="totallyTimeSpent" value="262687000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="28" width="1280" height="748" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="807" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6585366" visible="true" weight="0.15831988" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6585366" visible="true" weight="0.16738197" />
       <window_info id="Structure" order="1" sideWeight="0.342" side_tool="true" weight="0.24964234" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -782,7 +813,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.3262195" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23780487" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21258742" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3964072" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -791,7 +822,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.22925457" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.32819074" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.28963414" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.2895105" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.021459227" />
@@ -826,7 +857,8 @@
     <MESSAGE value="kleine Änderung" />
     <MESSAGE value="new Graph für Ford Fulkrtson hinzugefügt" />
     <MESSAGE value="Ford Fulkerson mit augmentingPathDFS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ford Fulkerson mit augmentingPathDFS" />
+    <MESSAGE value="Implementierung für Ford Fulkerson" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementierung für Ford Fulkerson" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -979,16 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/FloydWarshalAlgorithmTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gka-Dateien/graph01.gka">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1037,26 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/GraphGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/FordFulkersonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph/GraphGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1755">
@@ -1074,16 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/GraphAlgorithms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph/GraphStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -1094,10 +1086,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/newGraph/graph01.gka">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph/GraphAlgorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/DijkstraAlgorithmTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="90">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/FloydWarshalAlgorithmTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1114,27 +1133,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/Main.java">
+    <entry file="file://$PROJECT_DIR$/Fordfulkerson.text">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+        <state relative-caret-position="405">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/GraphGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newGraph/graph01.gka">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph/DijkstraAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret line="189" column="9" selection-start-line="189" selection-start-column="9" selection-end-line="189" selection-end-column="9" />
+        <state relative-caret-position="2310">
+          <caret line="161" column="8" selection-start-line="161" selection-start-column="8" selection-end-line="161" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1148,27 +1167,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java">
+    <entry file="file://$PROJECT_DIR$/src/Test/FordFulkersonTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="144" selection-start-line="144" selection-end-line="144" />
+        <state relative-caret-position="15">
+          <caret line="12" selection-end-line="127" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph/FordFulkerson.java">
+    <entry file="file://$PROJECT_DIR$/src/Graph/EdmondsKarpAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-937">
-          <caret line="179" column="77" lean-forward="true" selection-start-line="179" selection-start-column="20" selection-end-line="179" selection-end-column="77" />
+        <state relative-caret-position="2783">
+          <caret line="209" column="29" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="55" column="26" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fordfulkerson.text">
+    <entry file="file://$PROJECT_DIR$/src/Graph/FordFulkerson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="209">
+          <caret line="146" column="62" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

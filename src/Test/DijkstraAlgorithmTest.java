@@ -15,7 +15,7 @@ import static org.junit.Assert.fail;
 public class DijkstraAlgorithmTest {
 
     @Test
-    public void keinStatKnoten() {
+    public void keinStartKnoten() {
 
         try {
             Graph graph = readFile("gka-Dateien/leerGraph.gka");

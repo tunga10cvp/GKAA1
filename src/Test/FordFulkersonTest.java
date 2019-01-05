@@ -10,7 +10,6 @@ import java.util.List;
 
 import static Graph.DijkstraAlgorithm.shortestPathsWithDijkstra;
 import static Graph.FloydWarshalAlgorithm.shortestPathsWithFloydWarshal;
-import static Graph.FordFulkerson.graphMatrix;
 import static Graph.ReadFile.readFile;
 import static org.junit.Assert.*;
 
@@ -24,9 +23,9 @@ public class FordFulkersonTest {
         Node source = graph.getNode("0");
         Node target = graph.getNode("5");
 
-        int[][] rGraph = graphMatrix(graph);
 
-        Integer maxflow = FordFulkerson.fordFulkerson(rGraph, source, target);
+
+        Integer maxflow = FordFulkerson.fordFulkerson(graph, source, target);
 
         int maxFlow = 23;
 
@@ -42,9 +41,9 @@ public class FordFulkersonTest {
         Node source = graph.getNode("Hamburg");
         Node target = graph.getNode("Kiel");
 
-        int[][] rGraph = graphMatrix(graph);
 
-        Integer maxflow = FordFulkerson.fordFulkerson(rGraph, source, target);
+
+        Integer maxflow = FordFulkerson.fordFulkerson(graph, source, target);
 
         int maxFlow = 276;
 
@@ -61,9 +60,9 @@ public class FordFulkersonTest {
         Node source = graph.getNode("v1");
         Node target = graph.getNode("v8");
 
-        int[][] rGraph = graphMatrix(graph);
 
-        Integer maxflow = FordFulkerson.fordFulkerson(rGraph, source, target);
+
+        Integer maxflow = FordFulkerson.fordFulkerson(graph, source, target);
 
         int maxFlow = 20;
 
@@ -79,9 +78,9 @@ public class FordFulkersonTest {
         Node source = graph.getNode("v1");
         Node target = graph.getNode("s");
 
-        int[][] rGraph = graphMatrix(graph);
 
-        Integer ergebnis = FordFulkerson.fordFulkerson(rGraph, source, target);
+
+        Integer ergebnis = FordFulkerson.fordFulkerson(graph, source, target);
 
         int maxFlow = 23;
 
@@ -97,9 +96,9 @@ public class FordFulkersonTest {
         Node source = graph.getNode("v1");
         Node target = graph.getNode("v2");
 
-        int[][] rGraph = graphMatrix(graph);
 
-        Integer ergebnis = FordFulkerson.fordFulkerson(rGraph, source, target);
+
+        Integer ergebnis = FordFulkerson.fordFulkerson(graph, source, target);
 
         int maxFlow = 3;
 
@@ -114,9 +113,8 @@ public class FordFulkersonTest {
 
         Node source = graph.getNode("v1");
 
-        int[][] rGraph = graphMatrix(graph);
 
-        Integer ergebnis = FordFulkerson.fordFulkerson(rGraph, source, source);
+        Integer ergebnis = FordFulkerson.fordFulkerson(graph, source, source);
 
         int maxFlow = 0;
 

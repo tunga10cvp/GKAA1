@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static Graph.DijkstraAlgorithm.shortestPathsWithDijkstra;
-import static Graph.FordFulkerson.graphMatrix;
 import static Graph.GraphAlgorithms.traverseWithBFS;
 import static Graph.ReadFile.readFile;
 
@@ -113,10 +112,9 @@ public class Main {
 
         FordFulkerson m = new FordFulkerson();
 
-        int[][] rGraph = graphMatrix(graph);
         //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
 
-        System.out.println("The maximum possible flow is " + m.fordFulkerson(rGraph, source, target));
+        System.out.println("The maximum possible flow is " + m.fordFulkerson(graph, source, target));
 
         long end = Calendar.getInstance ().getTimeInMillis();
 

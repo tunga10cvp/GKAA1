@@ -155,5 +155,68 @@ public class EdmondsKarpAlgorithm {
         // returns whether sink was visited via augmenting path
         return (visited[sink]);
     }
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+        Graph residualGraph = new MultiGraph("Residual Graph");
+
+        residualGraph.addNode("x1");
+        residualGraph.addNode("x2");
+        residualGraph.addNode("x3");
+        residualGraph.addNode("x4");
+        residualGraph.addNode("x5");
+        residualGraph.addNode("x6");
+        residualGraph.addNode("x7");
+
+        residualGraph.addEdge("x1x2", "x1", "x2", true);
+        residualGraph.getEdge("x1x2").setAttribute("ui.label", 9);
+
+        residualGraph.addEdge("x2x6", "x2", "x6", true);
+        residualGraph.getEdge("x2x6").setAttribute("ui.label", 3);
+
+        residualGraph.addEdge("x6x7", "x6", "x7", true);
+        residualGraph.getEdge("x6x7").setAttribute("ui.label", 6);
+
+        residualGraph.addEdge("x1x3", "x1", "x3", true);
+        residualGraph.getEdge("x1x3").setAttribute("ui.label", 4);
+
+        residualGraph.addEdge("x3x7", "x3", "x7", true);
+        residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
+
+        residualGraph.addEdge("x2x3", "x2", "x3", true);
+        residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
+
+        residualGraph.addEdge("x1x4", "x1", "x4", true);
+        residualGraph.getEdge("x1x4").setAttribute("ui.label", 8);
+
+        residualGraph.addEdge("x4x5", "x4", "x5", true);
+        residualGraph.getEdge("x4x5").setAttribute("ui.label", 5);
+
+        residualGraph.addEdge("x5x7", "x5", "x7", true);
+        residualGraph.getEdge("x5x7").setAttribute("ui.label", 2);
+
+        residualGraph.addEdge("x5x3", "x5", "x3", true);
+        residualGraph.getEdge("x5x3").setAttribute("ui.label", 3);
+
+        Node source = residualGraph.getNode("x1");
+        source.addAttribute("ui.style", "fill-color: red;");
+
+        Node target = residualGraph.getNode("x7");
+        target.addAttribute("ui.style", "fill-color: blue;");
+
+        residualGraph.getEachNode().forEach(node -> node.addAttribute("ui.label", node.getId()));
+
+
+        // Let us create a graph shown in the above example
+        //int graph[][] = residualCapacityMatrix;
+
+        EdmondsKarpAlgorithm edmondsKarpAlgorithm = new EdmondsKarpAlgorithm();
+
+        System.out.println("The maximum possible flow is " +
+                edmondsKarpAlgorithm.edmondsKarp(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+
+        residualGraph.display();
+
+    }
 }
 

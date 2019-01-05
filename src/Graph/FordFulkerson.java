@@ -90,7 +90,7 @@ public class FordFulkerson {
         stack.push(source);
 
         // Wenn Stack nicht leer ist
-        while (!stack.isEmpty()) {
+        while (!stack.isEmpty() && !visited[target]) {
 
             int neighbor;
 
@@ -119,16 +119,41 @@ public class FordFulkerson {
 
     /**
      *
-     * @param adjazenzMatrix   Eine Adjazenzmatrix eines Graph
+     * @param graph Graph
      * @param startNode startNode
      * @param zielNode  zielNode
 
      * @return maximal fluss zwischen startknote und zielKnote
      */
-    public static int fordFulkerson(int adjazenzMatrix[][], Node startNode, Node zielNode) {
+    public static int fordFulkerson(Graph graph, Node startNode, Node zielNode) {
 
         // setze den Wert für Fluss ist 0
         int maximalflow = 0;  //
+
+        int nodeCount = graph.getNodeCount();
+
+        //Liste aller Knoten
+        List<Node> nodes = new ArrayList<>();
+
+        // in Liste reinpacken
+        for (Node node : graph.getEachNode()) {
+            nodes.add(node);
+        }
+
+        // erstellt eine residualGraphMatrix und wandeln einen residual Grap aus Graphstream Graph
+        int residualGraphMatrix[][] = new int[nodeCount][nodeCount];
+
+        int i,j;
+
+        // pack alle Kantegewichte in residualGraphMatrix rein, wenn nicht verbunden -> auf 0 setzen
+        for (i = 0; i < nodeCount; i++) {
+            for (j = 0; j < nodeCount; j++) {
+                if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
+                    residualGraphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
+
+                } else residualGraphMatrix[i][j] = 0;
+            }
+        }
 
         //wenn startknote auch zielKnote ist
         if (startNode == zielNode) {
@@ -139,27 +164,12 @@ public class FordFulkerson {
             int source = startNode.getIndex();
             int target = zielNode.getIndex();
 
-            // erstellt eine Matrix eines Graph und tragen die KanteGewichte in diese Matrix ein
-            // wenn es kein Gewicht ziwschen 2 Knoten gibt, wird residualGraph[i][j] auf 0 gesetzt
-            int residualGraph[][] = new int[adjazenzMatrix.length][adjazenzMatrix.length];
-
-            //
-            int i,j;
-
-            // setzt die Werte für residualGraph aus der adjazenzMatrix
-            for (i = 0; i < residualGraph.length; i++) {
-                for (j = 0; j < residualGraph.length; j++) {
-                    residualGraph[i][j] = adjazenzMatrix[i][j];
-                    //System.out.println(rGraph[u][v]);
-                }
-
-            }
             // die Vorgänger
-            int prev[] = new int[residualGraph.length];
+            int prev[] = new int[residualGraphMatrix.length];
 
 
             // wenn es den Pfad von startKonte zu ZielKnote gibt
-            while (augmentingPathDFS(residualGraph, startNode, zielNode, prev)) {
+            while (augmentingPathDFS(residualGraphMatrix, startNode, zielNode, prev)) {
 
                 // der Wert für den FLuss wird am Anfang unendlich gesezt
                 int aktuelleflow = Integer.MAX_VALUE;
@@ -169,7 +179,7 @@ public class FordFulkerson {
                 // Nehmen wir den kleinesten Wert für den Fluss raus
                 for (j = target; j != source; j = prev[j]) {
                     i = prev[j];
-                    aktuelleflow = Math.min(aktuelleflow, residualGraph[i][j]);
+                    aktuelleflow = Math.min(aktuelleflow, residualGraphMatrix[i][j]);
                 }
 
                 // update den neuen Wert für jeden Fluss des Graphes
@@ -177,9 +187,9 @@ public class FordFulkerson {
                     i = prev[j];
 
                     //Eine forward  Kante
-                    residualGraph[i][j] = residualGraph[i][j] - aktuelleflow;
+                    residualGraphMatrix[i][j] = residualGraphMatrix[i][j] - aktuelleflow;
                     //Eine backward Kante
-                    residualGraph[j][i] = residualGraph[j][i] + aktuelleflow;
+                    residualGraphMatrix[j][i] = residualGraphMatrix[j][i] + aktuelleflow;
                 }
 
                 // Fügen Sie den Pfadfluss zum Gesamtfluss hinzu
@@ -192,40 +202,40 @@ public class FordFulkerson {
     }
 
 
-
-
-    /**
-     * Wandeln den Graph sowie jede Datei *.gka in eine adjazenzMatrix um
-     * @param graph unser Graph
-     * @return eine adjazenzMatrix
-     */
-    public static int[][] graphMatrix(Graph graph) {
-        // Anzahl der Knoten
-        int V = graph.getNodeCount();
-
-        //Liste aller Knote
-        List<Node> nodes = new ArrayList<>();
-
-        // in Liste reinpacken
-        for (Node node : graph.getEachNode()) {
-            nodes.add(node);
-        }
-
-        // eine adjazenzMatrix
-        int graphMatrix[][] = new int[V][V];
-
-        // sammeln alle Kantegewichte ein, wenn nicht verbunden -> auf 0 setzen
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
-                    graphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
-
-                } else graphMatrix[i][j] = 0;
-            }
-        }
-
-        return graphMatrix;
-    }
+//    /**
+//     * Wandeln den Graph sowie jede Datei *.gka in eine ResidualGraphMatrix um
+//     * @param graph unser Graph
+//     * @return eine adjazenzMatrix
+//     */
+//    public static int[][] graphMatrix(Graph graph) {
+//        // Anzahl der Knoten
+//        int V = graph.getNodeCount();
+//
+//        //Liste aller Knote
+//        List<Node> nodes = new ArrayList<>();
+//
+//        // in Liste reinpacken
+//        for (Node node : graph.getEachNode()) {
+//            nodes.add(node);
+//        }
+//
+//        // eine adjazenzMatrix
+//        int graphMatrix[][] = new int[V][V];
+//
+//        // sammeln alle Kantegewichte ein, wenn nicht verbunden -> auf 0 setzen
+//        for (int i = 0; i < V; i++) {
+//            for (int j = 0; j < V; j++) {
+//                if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
+//                    graphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
+//
+//                } else graphMatrix[i][j] = 0;
+//            }
+//        }
+//
+//        System.out.println(graphMatrix);
+//
+//        return graphMatrix;
+//    }
 
     public static void main (String[] args) throws java.lang.Exception {
 
@@ -279,7 +289,7 @@ public class FordFulkerson {
 
 
 
-        int[][] arr = graphMatrix(residualGraph);
+
 
         // Let us create a graph shown in the above example
         //int graph[][] = residualCapacityMatrix;
@@ -287,7 +297,7 @@ public class FordFulkerson {
         FordFulkerson fordFulkerson = new FordFulkerson();
 
         System.out.println("The maximum possible flow is " +
-                fordFulkerson.fordFulkerson(arr, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+                fordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
 
         residualGraph.display();
 
