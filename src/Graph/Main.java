@@ -2,6 +2,7 @@ package Graph;
 
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
+
 import java.util.Calendar;
 
 import java.io.FileNotFoundException;
@@ -19,10 +20,9 @@ public class Main {
     public static void main(final String[] args) throws InterruptedException {
 
 
-
-        String filename1 = "gka-Dateien/graph03.gka";
+        String filename1 = "gka-Dateien/graph04.gka";
         String filename2 = "newGraph/graph01.gka";
-        Graph graph = readFile(filename2);
+        Graph graph = readFile(filename1);
 
         /**
          * BFS Algorithms aufrufen
@@ -60,17 +60,17 @@ public class Main {
         /**
          * Graph BigNet aufrufen
          */
-//        Graph newGraph = null;
-//        try {
-//            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        newGraph.addAttribute("ui.stylesheet", styleSheet);
-//        newGraph.display();
-//
-//        System.out.println(newGraph.getNodeCount());
-//        System.out.println(newGraph.getEdgeCount());
+        Graph newGraph = null;
+        try {
+            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        newGraph.addAttribute("ui.stylesheet", styleSheet);
+        newGraph.display();
+
+        System.out.println(newGraph.getNodeCount());
+        System.out.println(newGraph.getEdgeCount());
 
         //System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
         //System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
@@ -105,61 +105,72 @@ public class Main {
 //        graph.display();
 
         /**
-         *  FordFulkerson aufrufen
+         *  FordFulkerson und EdmondsKarp aufrufen
          */
 
-        Node source = graph.getNode("0");
-        Node target = graph.getNode("5");
-
-
-
-        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
-
-        long begin = Calendar.getInstance().getTimeInMillis();
-
-        System.out.println("The maximum possible flow is " + FordFulkerson.fordFulkerson(graph, source, target));
-
-        long end = Calendar.getInstance ().getTimeInMillis();
-
-        System.out.println("Executed Time: " + (end - begin));
-        //System.out.println(traverseWithBFS(graph, source, target));
-        graph.display();
-
-//        /**
-//         *  FordFulkerson auf Bignet
-//         */
+//        Node source = graph.getNode("v1");
+//        Node target = graph.getNode("v8");
 //
+//
+//
+//        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+//
+//        long begin = System.nanoTime();
+//
+//
+//        System.out.println("The maximum possible flow by Ford Fulkerson is " + FordFulkerson.fordFulkerson(graph, source, target));
+//
+//
+//
+//        long end = System.nanoTime();
+//
+//        long begin1 = System.nanoTime();
+//
+//        System.out.println("The maximum possible flow by EdmonsKarpAlgorithm is " + EdmondsKarpAlgorithm.edmondsKarp(graph, source, target));
+//
+//        long end1 = System.nanoTime();
+//
+//
+//        System.out.println("Executed Time: " + (end - begin));
+//
+//        System.out.println("Executed Time: " + (end1 - begin1));
+        //System.out.println(traverseWithBFS(graph, source, target));
+        //graph.display();
+
+        /**
+         *  FordFulkerson auf Bignet
+         */
+
 //        Graph bigNet = null;
 //        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
-//        for (int i = 0; i < anzahl; i++) {
 //
-//            long begin = Calendar.getInstance().getTimeInMillis();
-//
-//            try {
-//                bigNet = GraphGenerator.generateBigNet("test1", 2500, 2000000, 10);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            bigNet.addAttribute("ui.stylesheet", styleSheet);
-//            // bigNet.display();
-//
-//            Node source = bigNet.getNode(0);
-//            Node target = bigNet.getNode(20);
-//
-//            int[][] graphBigNet = graphMatrix(bigNet);
-//
-//            System.out.println(i + " Maximum: " + FordFulkerson.fordFulkerson(graphBigNet, source, target));
-//
-//            long end = Calendar.getInstance().getTimeInMillis();
-//            System.out.println(i+ " Executed Time: " + (end - begin));
-//            System.out.println("--------------------------------------------");
+//        try {
+//            bigNet = GraphGenerator.generateBigNet("test1", 800, 300000, 10);
+//        } catch (Exception e) {
+//            e.printStackTrace();
 //        }
+//        bigNet.addAttribute("ui.stylesheet", styleSheet);
+//        // bigNet.display();
+//
+//        Node source = bigNet.getNode(0);
+//        Node target = bigNet.getNode(20);
+//
+//        long begin = System.nanoTime();
+//
+//        System.out.println("Maximum Flow FordFulkerson: " + FordFulkerson.fordFulkerson(bigNet, source, target));
+//
+//        System.out.println("Maximum Edmonds Karp: " + EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target));
+//
+//        long end = System.nanoTime();
+//        System.out.println(" Executed Time: " + (end - begin));
+//        System.out.println("--------------------------------------------");
+
     }
 
     // Aussehen für die Graphen
     protected static String styleSheet =
             "graph {" +
-                    "   fill-color: black;"+
+                    "   fill-color: black;" +
                     "}" +
 
                     "node {" +
@@ -180,17 +191,17 @@ public class Main {
 
                     " edge {" +
                     "shape: angle;" +
-                    " stroke-mode: plain;"+
-                    "text-color: white;"+
-                    "text-size: 15px;"+
-                    "fill-color: blue;"+
-                    "text-background-mode: rounded-box;"+
-                    "text-background-color: red;"+
-                    "}"+
+                    " stroke-mode: plain;" +
+                    "text-color: white;" +
+                    "text-size: 15px;" +
+                    "fill-color: blue;" +
+                    "text-background-mode: rounded-box;" +
+                    "text-background-color: red;" +
+                    "}" +
 
-                    "edge.marked {"+
-                    " fill-color: red;"+
-                    " text-color: red;"+
+                    "edge.marked {" +
+                    " fill-color: red;" +
+                    " text-color: red;" +
                     "}";
 
 

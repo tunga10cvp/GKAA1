@@ -188,7 +188,7 @@ public class ReadFile {
         graph.addAttribute("ui.quality");
 
         graph.addAttribute("ui.antialias");
-       // graph.addAttribute("weight", "edge.marked { text-color: yellow; }" );
+        // graph.addAttribute("weight", "edge.marked { text-color: yellow; }" );
         // graph.addAttribute("ui.screenshot", "heart.jpg");
 
 

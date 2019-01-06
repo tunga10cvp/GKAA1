@@ -4,17 +4,14 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.junit.Test;
 
-import Graph.FordFulkerson;
-import Graph.FordFulkerson;
-import java.util.List;
-
-import static Graph.DijkstraAlgorithm.shortestPathsWithDijkstra;
-import static Graph.FloydWarshalAlgorithm.shortestPathsWithFloydWarshal;
 import static Graph.ReadFile.readFile;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+
+import Graph.EdmondsKarpAlgorithm;
 
 
-public class FordFulkersonTest {
+public class EdmondsKarpAlgorithmTest {
+
     @Test
     public void newGraph01Test() {
 
@@ -25,14 +22,13 @@ public class FordFulkersonTest {
 
 
 
-        Integer ff = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
 
         int maxflow = 23;
 
-        assertTrue(ff == maxflow);
+        assertTrue(ek == maxflow);
 
     }
-
 
     @Test
     public void graph04Test1() {
@@ -44,11 +40,11 @@ public class FordFulkersonTest {
 
 
 
-        Integer ff = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
 
         int maxflow = 8;
 
-        assertTrue(ff == maxflow);
+        assertTrue(ek == maxflow);
 
     }
 
@@ -62,11 +58,11 @@ public class FordFulkersonTest {
 
 
 
-        Integer ff = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
 
         int maxFlow = 12;
 
-        assertTrue(ff == maxFlow);
+        assertTrue(ek == maxFlow);
 
     }
 
@@ -80,11 +76,11 @@ public class FordFulkersonTest {
 
 
 
-        Integer ff = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
 
         int maxFlow = 3;
 
-        assertTrue(ff == maxFlow);
+        assertTrue(ek == maxFlow);
 
     }
 
@@ -96,11 +92,11 @@ public class FordFulkersonTest {
         Node source = graph.getNode("v1");
 
 
-        Integer ff = FordFulkerson.fordFulkerson(graph, source, source);
+        Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, source);
 
         int maxFlow = 0;
 
-        assertTrue(ff == maxFlow);
+        assertTrue(ek == maxFlow);
 
     }
 
@@ -111,11 +107,10 @@ public class FordFulkersonTest {
         Node source = graph.getNode("x1");
         Node target = graph.getNode("x7");
 
-        Integer ff = FordFulkerson.fordFulkerson(graph, source, target);
+        Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
 
         int maxFlow = 16;
 
-        assertTrue(ff == maxFlow);
+        assertTrue(ek == maxFlow);
     }
-
 }

@@ -33,8 +33,12 @@ public class EdmondsKarpAlgorithm {
         // initialize residual graph matrix
         int[][] residualGraphMatrix = createResidualGraphMatrix(graph);
 
-        int source = Integer.valueOf(sourceNode.getId());
-        int sink = Integer.valueOf(sinkNode.getId());
+        /**
+         * ????????
+         */
+
+        int source = sourceNode.getIndex();
+        int sink = sinkNode.getIndex();
         int i, j;
 
         // array to store path for augmentingPathBFS
@@ -46,13 +50,11 @@ public class EdmondsKarpAlgorithm {
 
             int currentFlow = Integer.MAX_VALUE;
 
-
             // find maximum possible additional flow over augmenting path
             for (j = sink; j != source; j = prev[j]) {
                 i = prev[j];
                 currentFlow = Math.min(currentFlow, residualGraphMatrix[i][j]);
             }
-
             // update residual graph matrix
             for (j = sink; j != source; j = prev[j]) {
                 i = prev[j];
@@ -82,14 +84,15 @@ public class EdmondsKarpAlgorithm {
         int residualGraphMatrix[][] = new int[V][V];
         List<Node> nodes = new ArrayList<>();
 
-        for (int i = 0; i < V; i++) {
-            nodes.add(graph.getNode(String.valueOf(i)));
+        /**
+         * ????????
+         */
+        for (Node node : graph.getEachNode()) {
+            nodes.add(node);
         }
-
         // Add up all edge's weights from nodes i to j in the matrix, if not connected -> 0
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
-
                 for (Edge leavingEdge : nodes.get(i).getEachLeavingEdge()) {
                     if (leavingEdge.getNode1().equals(nodes.get(j))) {
                         if (residualGraphMatrix[i][j] > 0)
@@ -97,6 +100,7 @@ public class EdmondsKarpAlgorithm {
                         else
                             residualGraphMatrix[i][j] = (int)leavingEdge.getAttribute("ui.label");
                     }
+
                 }
             }
         }

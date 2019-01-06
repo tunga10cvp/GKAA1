@@ -1,5 +1,6 @@
 package Graph;
 
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
@@ -146,12 +147,20 @@ public class FordFulkerson {
         int i,j;
 
         // pack alle Kantegewichte in residualGraphMatrix rein, wenn nicht verbunden -> auf 0 setzen
+
         for (i = 0; i < nodeCount; i++) {
             for (j = 0; j < nodeCount; j++) {
-                if (nodes.get(i).hasEdgeToward(nodes.get(j))) {
-                    residualGraphMatrix[i][j] = nodes.get(i).getEdgeToward(nodes.get(j)).getAttribute("ui.label");
-
-                } else residualGraphMatrix[i][j] = 0;
+                for (Edge leavingEdge : nodes.get(i).getEachLeavingEdge()) {
+                    if (leavingEdge.getNode1().equals(nodes.get(j))) {
+                        if (residualGraphMatrix[i][j] > 0)
+                            residualGraphMatrix[i][j] += (int)leavingEdge.getAttribute("ui.label");
+                        else
+                            residualGraphMatrix[i][j] = (int)leavingEdge.getAttribute("ui.label");
+                    }
+                    else if (!nodes.get(i).hasEdgeToward(nodes.get(j))){
+                        residualGraphMatrix[i][j] = 0;
+                    }
+                }
             }
         }
 
@@ -217,7 +226,7 @@ public class FordFulkerson {
         residualGraph.addNode("x7");
 
         residualGraph.addEdge("x1x2", "x1", "x2", true);
-        residualGraph.getEdge("x1x2").setAttribute("ui.label", 9);
+        residualGraph.getEdge("x1x2").setAttribute("ui.label", -9);
 
         residualGraph.addEdge("x2x6", "x2", "x6", true);
         residualGraph.getEdge("x2x6").setAttribute("ui.label", 3);
@@ -229,10 +238,10 @@ public class FordFulkerson {
         residualGraph.getEdge("x1x3").setAttribute("ui.label", 4);
 
         residualGraph.addEdge("x3x7", "x3", "x7", true);
-        residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
+        residualGraph.getEdge("x3x7").setAttribute("ui.label", 10);
 
-//        residualGraph.addEdge("1", "x3", "x7", true);
-//        residualGraph.getEdge("x3x7").setAttribute("ui.label", 10);
+        residualGraph.addEdge("1", "x3", "x7", true);
+        residualGraph.getEdge("1").setAttribute("ui.label", 7);
 
         residualGraph.addEdge("x2x3", "x2", "x3", true);
         residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
@@ -267,7 +276,7 @@ public class FordFulkerson {
         FordFulkerson fordFulkerson = new FordFulkerson();
 
         System.out.println("The maximum possible flow is " +
-               fordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
+               fordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x2")));
 
         residualGraph.display();
 
