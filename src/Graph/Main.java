@@ -22,7 +22,7 @@ public class Main {
 
         String filename1 = "gka-Dateien/graph04.gka";
         String filename2 = "newGraph/graph01.gka";
-        Graph graph = readFile(filename1);
+        Graph graph = readFile(filename2);
 
         /**
          * BFS Algorithms aufrufen
@@ -60,17 +60,17 @@ public class Main {
         /**
          * Graph BigNet aufrufen
          */
-        Graph newGraph = null;
-        try {
-            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        newGraph.addAttribute("ui.stylesheet", styleSheet);
-        newGraph.display();
-
-        System.out.println(newGraph.getNodeCount());
-        System.out.println(newGraph.getEdgeCount());
+//        Graph newGraph = null;
+//        try {
+//            newGraph = GraphGenerator.generateBigNet("test1", 50, 800, 10);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        newGraph.addAttribute("ui.stylesheet", styleSheet);
+//        newGraph.display();
+//
+//        System.out.println(newGraph.getNodeCount());
+//        System.out.println(newGraph.getEdgeCount());
 
         //System.out.println(FloydWarshalAlgorithm.shortestPathsWithFloydWarshal(newGraph, newGraph.getNode("0"),newGraph.getNode("1")));
         //System.out.println(DijkstraAlgorithm.shortestPathsWithDijkstra(newGraph, newGraph.getNode("0"), newGraph.getNode("1")));
@@ -108,8 +108,8 @@ public class Main {
          *  FordFulkerson und EdmondsKarp aufrufen
          */
 
-//        Node source = graph.getNode("v1");
-//        Node target = graph.getNode("v8");
+//        Node source = graph.getNode("0");
+//        Node target = graph.getNode("5");
 //
 //
 //
@@ -134,36 +134,45 @@ public class Main {
 //        System.out.println("Executed Time: " + (end - begin));
 //
 //        System.out.println("Executed Time: " + (end1 - begin1));
-        //System.out.println(traverseWithBFS(graph, source, target));
-        //graph.display();
+//
+//        graph.display();
 
         /**
-         *  FordFulkerson auf Bignet
+         *  FordFulkerson und Edmonds Karp auf Bignet
          */
 
-//        Graph bigNet = null;
-//        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
-//
-//        try {
-//            bigNet = GraphGenerator.generateBigNet("test1", 800, 300000, 10);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        bigNet.addAttribute("ui.stylesheet", styleSheet);
-//        // bigNet.display();
-//
-//        Node source = bigNet.getNode(0);
-//        Node target = bigNet.getNode(20);
-//
-//        long begin = System.nanoTime();
-//
-//        System.out.println("Maximum Flow FordFulkerson: " + FordFulkerson.fordFulkerson(bigNet, source, target));
-//
-//        System.out.println("Maximum Edmonds Karp: " + EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target));
-//
-//        long end = System.nanoTime();
-//        System.out.println(" Executed Time: " + (end - begin));
-//        System.out.println("--------------------------------------------");
+        Graph bigNet = null;
+        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
+
+        try {
+            bigNet = GraphGenerator.generateBigNet("test1", 800, 300000, 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        bigNet.addAttribute("ui.stylesheet", styleSheet);
+        // bigNet.display();
+
+        Node source = bigNet.getNode(0);
+        Node target = bigNet.getNode(20);
+
+        long begin = System.nanoTime();
+
+        System.out.println("Maximum Flow FordFulkerson: " + FordFulkerson.fordFulkerson(bigNet, source, target));
+
+
+
+        long end = System.nanoTime();
+        System.out.println("Executed Time: " + (end - begin));
+        System.out.println("--------------------------------------------");
+
+        long begin1 = System.nanoTime();
+
+
+
+        System.out.println("Maximum Flow Edmonds Karp: " + EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target));
+
+        long end1 = System.nanoTime();
+        System.out.println("Executed Time: " + (end1 - begin1));
 
     }
 

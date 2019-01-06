@@ -33,9 +33,6 @@ public class EdmondsKarpAlgorithm {
         // initialize residual graph matrix
         int[][] residualGraphMatrix = createResidualGraphMatrix(graph);
 
-        /**
-         * ????????
-         */
 
         int source = sourceNode.getIndex();
         int sink = sinkNode.getIndex();
@@ -84,9 +81,6 @@ public class EdmondsKarpAlgorithm {
         int residualGraphMatrix[][] = new int[V][V];
         List<Node> nodes = new ArrayList<>();
 
-        /**
-         * ????????
-         */
         for (Node node : graph.getEachNode()) {
             nodes.add(node);
         }
@@ -209,7 +203,7 @@ public class EdmondsKarpAlgorithm {
 
         EdmondsKarpAlgorithm edmondsKarpAlgorithm = new EdmondsKarpAlgorithm();
 
-        System.out.println("The maximum possible flow is " +
+        System.out.println("Maximal Flow: " +
                 edmondsKarpAlgorithm.edmondsKarp(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
 
         residualGraph.display();

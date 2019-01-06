@@ -85,6 +85,57 @@ public class GraphGeneratorTest {
         assertTrue(graph.getNodeCount() == 1000);
     }
 
+    @Test
+    public void bigNet2() throws Exception{
+        Graph graph = GraphGenerator.generateBigNet("test6",2000,50000,10);
+
+        assertTrue(graph != null);
+        assertTrue(graph.getEdgeCount() == 48000);
+        assertTrue(graph.getNodeCount() == 2000);
+    }
+
+    @Test
+    public void negativeBigNet() throws Exception{
+
+        try {
+            Graph graph = GraphGenerator.generateBigNet("test3",-10,-10,0);
+
+            fail("This should have thrown an exception");
+
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getMessage().equals("Keine negative Anzahl Knoten wird akzeptiert"));
+        }
+
+
+    }
+
+    @Test
+    public void einKnoteBigNet() throws Exception {
+
+        try {
+            Graph graph = GraphGenerator.generateBigNet("test5",1,0,0);
+
+            fail("This should have thrown an exception");
+
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getMessage().equals("Muss mindestens 2 Knoten besitzen für ein Netzwerk (Quelle und Senke)     "));
+        }
+    }
+
+    @Test
+    public void kantewenigeraslknote() throws Exception {
+
+
+        try {
+            Graph graph = GraphGenerator.generateBigNet("test4",100,90,0);
+
+            fail("This should have thrown an exception");
+
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getMessage().equals("Kann kein Netzwerk generieren, wenn Kantenanzahl kleiner als Knotenanzahl - 1"));
+        }
+    }
+
 
 
 

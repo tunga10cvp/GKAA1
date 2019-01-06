@@ -64,66 +64,96 @@ public class FordFulkerson {
     /**
      * return true wenn es einen Pfad von startNode zu zielNode gibt
      *
-     * @param adjazenzMatrix   Eine Adjazenzmatrix eines Graph
-     * @param startNode startNode
-     * @param zielNode  zielNode
-     * @param prev      Vorgänger
+     * @param residualGraphMatrix Eine Adjazenzmatrix eines Graph
+     * @param startNode           startNode
+     * @param zielNode            zielNode
+     * @param prev                Vorgänger
      * @return
      */
 
-    public static boolean augmentingPathDFS(int adjazenzMatrix[][], Node startNode, Node zielNode, int prev[]) {
+    public static boolean augmentingPathDFS(int residualGraphMatrix[][], Node startNode, Node zielNode, int prev[]) {
 
         //index für StartNode und ZielNode
         int source = startNode.getIndex();
         int target = zielNode.getIndex();
 
         // erstellt ein Visited Array und markiert alle Knoten als nicht visited
-        boolean visited[] = new boolean[adjazenzMatrix.length];
+        boolean visited[] = new boolean[residualGraphMatrix.length];
 
-        for (int i = 0; i < adjazenzMatrix.length; ++i) {
+        for (int i = 0; i < residualGraphMatrix.length; ++i) {
             visited[i] = false;
         }
 
-        // use Stack zu speichern von startNode zu zielNode
-        Stack<Integer> stack = new Stack<Integer>();
+        // mit Hilfe eines Stack um die Knote "zum Besuchen" zu speichern
+        Stack<Integer> stack = new Stack<>();
 
         // Starten mit StartNode
-        stack.push(source);
+        stack.add(source);
+        prev[source] = -1;
 
         // Wenn Stack nicht leer ist
-        while (!stack.isEmpty() && !visited[target]) {
+        while (!stack.isEmpty()) {
 
             int neighbor;
 
             // get AktuellNode
             Integer aktuell = stack.pop();
+            //System.out.println(aktuell);
 
             // wenn noch nicht besucht, markiert als besucht
-            if (!visited[aktuell]){
+            if (!visited[aktuell]) {
                 visited[aktuell] = true;
-                prev[source] = -1;
+                //System.out.println("aktuelNode " + aktuell);
 
-                //guck alle Nachbar von AktuellNode die noch nicht besucht wurden
-                for (neighbor = 0; neighbor < adjazenzMatrix.length; neighbor++){
-                    if (adjazenzMatrix[aktuell][neighbor] > 0 && !visited[neighbor]){
-                        //in Stack reinpacken
-                        // Node mit niedriger Id liegt oben
-                        stack.push(neighbor);
-                        //set Vorgänger
-                        prev[neighbor] = aktuell;
+                List<Integer> neightborList = new ArrayList<>();
+
+                for (neighbor = 0; neighbor < residualGraphMatrix.length; neighbor++) {
+                    if (residualGraphMatrix[aktuell][neighbor] > 0 && !visited[neighbor]) {
+                        neightborList.add(neighbor);
+
                     }
                 }
+
+                // die Nachbarliste wurde zufällig sortiert
+                Collections.shuffle(neightborList);
+                //System.out.println("random " + neightborList);
+
+                
+                for (int i = 0; i < neightborList.size(); i++) {
+
+                        stack.add(neightborList.get(i));
+                        prev[neightborList.get(i)] = aktuell;
+
+
+                }
+
+//                //guck alle Nachbar von AktuellNode die noch nicht besucht wurden
+//                for (neighbor = 0; neighbor < residualGraphMatrix.length; neighbor++) {
+//                    if (residualGraphMatrix[aktuell][neighbor] > 0 && !visited[neighbor]) {
+//                        //in Stack reinpacken
+//                        // Node mit niedriger Id liegt oben
+//                        stack.push(neighbor);
+//                        //set Vorgänger
+//                        prev[neighbor] = aktuell;
+//
+//                    }
+//                }
+
+
+                //System.out.println("in Stack " + stack);
+
             }
+
+
         }
+
         return (visited[target] == true);
     }
 
     /**
-     *
-     * @param graph Graph
+     * @param graph     Graph
      * @param startNode startNode
      * @param zielNode  zielNode
-
      * @return maximal fluss zwischen startknote und zielKnote
      */
     public static int fordFulkerson(Graph graph, Node startNode, Node zielNode) {
@@ -141,23 +171,21 @@ public class FordFulkerson {
             nodes.add(node);
         }
 
-        // erstellt eine residualGraphMatrix und wandeln einen residual Grap aus Graphstream Graph
+        // erstellt eine residualGraphMatrix und wandeln in einen residual Graph aus Graphstream Graph
         int residualGraphMatrix[][] = new int[nodeCount][nodeCount];
 
-        int i,j;
+        int i, j;
 
         // pack alle Kantegewichte in residualGraphMatrix rein, wenn nicht verbunden -> auf 0 setzen
-
         for (i = 0; i < nodeCount; i++) {
             for (j = 0; j < nodeCount; j++) {
                 for (Edge leavingEdge : nodes.get(i).getEachLeavingEdge()) {
                     if (leavingEdge.getNode1().equals(nodes.get(j))) {
                         if (residualGraphMatrix[i][j] > 0)
-                            residualGraphMatrix[i][j] += (int)leavingEdge.getAttribute("ui.label");
+                            residualGraphMatrix[i][j] += (int) leavingEdge.getAttribute("ui.label");
                         else
-                            residualGraphMatrix[i][j] = (int)leavingEdge.getAttribute("ui.label");
-                    }
-                    else if (!nodes.get(i).hasEdgeToward(nodes.get(j))){
+                            residualGraphMatrix[i][j] = (int) leavingEdge.getAttribute("ui.label");
+                    } else if (!nodes.get(i).hasEdgeToward(nodes.get(j))) {
                         residualGraphMatrix[i][j] = 0;
                     }
                 }
@@ -211,9 +239,7 @@ public class FordFulkerson {
     }
 
 
-
-
-    public static void main (String[] args) throws java.lang.Exception {
+    public static void main(String[] args) throws java.lang.Exception {
 
         Graph residualGraph = new MultiGraph("Residual Graph");
 
@@ -226,7 +252,7 @@ public class FordFulkerson {
         residualGraph.addNode("x7");
 
         residualGraph.addEdge("x1x2", "x1", "x2", true);
-        residualGraph.getEdge("x1x2").setAttribute("ui.label", -9);
+        residualGraph.getEdge("x1x2").setAttribute("ui.label", 9);
 
         residualGraph.addEdge("x2x6", "x2", "x6", true);
         residualGraph.getEdge("x2x6").setAttribute("ui.label", 3);
@@ -238,10 +264,10 @@ public class FordFulkerson {
         residualGraph.getEdge("x1x3").setAttribute("ui.label", 4);
 
         residualGraph.addEdge("x3x7", "x3", "x7", true);
-        residualGraph.getEdge("x3x7").setAttribute("ui.label", 10);
+        residualGraph.getEdge("x3x7").setAttribute("ui.label", 7);
 
-        residualGraph.addEdge("1", "x3", "x7", true);
-        residualGraph.getEdge("1").setAttribute("ui.label", 7);
+//            residualGraph.addEdge("1", "x3", "x7", true);
+//            residualGraph.getEdge("1").setAttribute("ui.label", 10);
 
         residualGraph.addEdge("x2x3", "x2", "x3", true);
         residualGraph.getEdge("x2x3").setAttribute("ui.label", 4);
@@ -269,23 +295,21 @@ public class FordFulkerson {
         residualGraph.addAttribute("ui.stylesheet", styleSheet);
 
 
-
         // Let us create a graph shown in the above example
         //int graph[][] = residualCapacityMatrix;
 
-        FordFulkerson fordFulkerson = new FordFulkerson();
 
-        System.out.println("The maximum possible flow is " +
-               fordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x2")));
+        System.out.println("Maximal Flow: " +
+                FordFulkerson.fordFulkerson(residualGraph, residualGraph.getNode("x1"), residualGraph.getNode("x7")));
 
-        residualGraph.display();
+        //residualGraph.display();
 
     }
 
     // Aussehen für die Graphen
     protected static String styleSheet =
             "graph {" +
-                    "   fill-color: black;"+
+                    "   fill-color: black;" +
                     "}" +
 
                     "node {" +
@@ -306,17 +330,17 @@ public class FordFulkerson {
 
                     " edge {" +
                     "shape: angle;" +
-                    " stroke-mode: plain;"+
-                    "text-color: white;"+
-                    "text-size: 15px;"+
-                    "fill-color: blue;"+
-                    "text-background-mode: rounded-box;"+
-                    "text-background-color: red;"+
-                    "}"+
+                    " stroke-mode: plain;" +
+                    "text-color: white;" +
+                    "text-size: 15px;" +
+                    "fill-color: blue;" +
+                    "text-background-mode: rounded-box;" +
+                    "text-background-color: red;" +
+                    "}" +
 
-                    "edge.marked {"+
-                    " fill-color: red;"+
-                    " text-color: red;"+
+                    "edge.marked {" +
+                    " fill-color: red;" +
+                    " text-color: red;" +
                     "}";
 
 }
