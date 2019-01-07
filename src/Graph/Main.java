@@ -131,9 +131,9 @@ public class Main {
         long end1 = System.nanoTime();
 
 
-        System.out.println("Executed Time: " + (end - begin));
+        System.out.println("Executed Time: " + (end - begin) + " ns");
 
-        System.out.println("Executed Time: " + (end1 - begin1));
+        System.out.println("Executed Time: " + (end1 - begin1) + " ns");
 
         graph.display();
 

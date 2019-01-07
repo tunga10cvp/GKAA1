@@ -61,6 +61,7 @@ public class EdmondsKarpAlgorithmTest {
         Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
 
         int maxFlow = 12;
+        graph.display();
 
         assertTrue(ek == maxFlow);
 

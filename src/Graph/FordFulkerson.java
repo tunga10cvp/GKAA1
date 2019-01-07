@@ -61,7 +61,6 @@ public class FordFulkerson {
 
                     }
                 }
-
                 // die Nachbarliste wurde zufällig sortiert
                 Collections.shuffle(neightborList);
                 //System.out.println("random " + neightborList);
