@@ -37,7 +37,8 @@ public class FordFulkersonVsEdmondsKarpTest {
 
         long begin2 = System.nanoTime();
         Integer ek = EdmondsKarpAlgorithm.edmondsKarp(graph, source, target);
-        long end2 = System.nanoTime();
+        long end2 = System.nanoTime()
+                ;
 
         System.out.println("Laufzeit Edmondskarp: " + (end2 - begin2));
 
@@ -88,13 +89,13 @@ public class FordFulkersonVsEdmondsKarpTest {
         Integer ff = FordFulkerson.fordFulkerson(bigNet, source, target);
         long end1 = System.nanoTime();
 
-        System.out.println("Laufzeit Fordfulkerson: " + (end1 - begin1));
+        System.out.println("Laufzeit Fordfulkerson: " + (end1 - begin1) + "ns" + " ---- " + (end1 - begin1)/1000000000 + "s");
 
         long begin2 = System.nanoTime();
         Integer ek = EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target);
         long end2 = System.nanoTime();
 
-        System.out.println("Laufzeit Edmondskarp: " + (end2 - begin2));
+        System.out.println("Laufzeit Fordfulkerson: " + (end2 - begin2) + "ns" + " ---- " + (end2 - begin2)/1000000000 + "s");
 
         assertEquals(ff, ek);
 
@@ -118,14 +119,13 @@ public class FordFulkersonVsEdmondsKarpTest {
         Integer ff = FordFulkerson.fordFulkerson(bigNet, source, target);
         long end1 = System.nanoTime();
 
-        System.out.println("Laufzeit Fordfulkerson: " + (end1 - begin1));
+        System.out.println("Laufzeit Fordfulkerson: " + (end1 - begin1) + " ns" + " ---- " + (end1 - begin1)/1000000000 + "s");
 
         long begin2 = System.nanoTime();
         Integer ek = EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target);
         long end2 = System.nanoTime();
 
-        System.out.println("Laufzeit Edmondskarp: " + (end2 - begin2));
-
+        System.out.println("Laufzeit Fordfulkerson: " + (end2 - begin2) + " ns" + " ---- " + (end2 - begin2)/1000000000 + "s");
         assertEquals(ff, ek);
 
     }

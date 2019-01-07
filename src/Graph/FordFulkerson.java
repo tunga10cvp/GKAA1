@@ -9,62 +9,11 @@ import java.util.*;
 
 public class FordFulkerson {
 
-    /**
-     * return true wenn es einen Pfad von startNode zu zielNode gibt
-     *
-     * @param adjazenzMatrix   Eine Adjazenzmatrix eines Graph
-     * @param startNode startNode
-     * @param zielNode  zielNode
-     * @param prev      Vorgänger
-     * @return
-     */
-//    public static boolean bfs(int adjazenzMatrix[][], Node startNode, Node zielNode, int prev[]) {
-//
-//        //index für StartNode und ZielNode
-//        int source = startNode.getIndex();
-//        int target = zielNode.getIndex();
-//
-//        // erstellt ein Visited Array und markiert alle Knoten als nicht visited
-//        boolean visited[] = new boolean[adjazenzMatrix.length];
-//
-//        for (int i = 0; i < adjazenzMatrix.length; ++i) {
-//            visited[i] = false;
-//        }
-//
-//        // erstellt eine Liste, fügt startNode hinzu und markiert als visited
-//        LinkedList<Integer> queue = new LinkedList<Integer>();
-//        queue.add(source);
-//        visited[source] = true;
-//        prev[source] = -1;
-//
-//        // Wenn die Liste nicht leer ist
-//
-//        while (!queue.isEmpty()) {
-//
-//            // aktuellKnote aus der Queue
-//            int aktuell = queue.poll();
-//
-//            // gucke alle Nachbar
-//            for (int neighbor = 0; neighbor < adjazenzMatrix.length; neighbor++) {
-//
-//                // Wenn der noch nicht besucht wurde und mit dem aktuellen Knote verkfnüpfen ist
-//                // füg den Nachbar in queue hinzu und markiert als visited
-//                if (visited[neighbor] == false && adjazenzMatrix[aktuell][neighbor] > 0) {
-//                    queue.add(neighbor);
-//                    prev[neighbor] = aktuell;
-//                    visited[neighbor] = true;
-//                }
-//            }
-//        }
-//
-//        // return true, wenn wir den ZielKnote erreichen
-//        return (visited[target] == true);
-//    }
 
     /**
      * return true wenn es einen Pfad von startNode zu zielNode gibt
      *
-     * @param residualGraphMatrix Eine Adjazenzmatrix eines Graph
+     * @param residualGraphMatrix Eine Matrix  eines Graph
      * @param startNode           startNode
      * @param zielNode            zielNode
      * @param prev                Vorgänger
@@ -98,7 +47,6 @@ public class FordFulkerson {
 
             // get AktuellNode
             Integer aktuell = stack.pop();
-            //System.out.println(aktuell);
 
             // wenn noch nicht besucht, markiert als besucht
             if (!visited[aktuell]) {
@@ -120,30 +68,11 @@ public class FordFulkerson {
 
                 
                 for (int i = 0; i < neightborList.size(); i++) {
-
-                        stack.add(neightborList.get(i));
-                        prev[neightborList.get(i)] = aktuell;
-
-
+                    stack.push(neightborList.get(i));
+                    prev[neightborList.get(i)] = aktuell;
                 }
 
-//                //guck alle Nachbar von AktuellNode die noch nicht besucht wurden
-//                for (neighbor = 0; neighbor < residualGraphMatrix.length; neighbor++) {
-//                    if (residualGraphMatrix[aktuell][neighbor] > 0 && !visited[neighbor]) {
-//                        //in Stack reinpacken
-//                        // Node mit niedriger Id liegt oben
-//                        stack.push(neighbor);
-//                        //set Vorgänger
-//                        prev[neighbor] = aktuell;
-//
-//                    }
-//                }
-
-
-                //System.out.println("in Stack " + stack);
-
             }
-
 
         }
 

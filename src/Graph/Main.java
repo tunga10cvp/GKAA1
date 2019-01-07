@@ -21,7 +21,7 @@ public class Main {
 
 
         String filename1 = "gka-Dateien/graph04.gka";
-        String filename2 = "newGraph/graph01.gka";
+        String filename2 = "newGraph/graph03.gka";
         Graph graph = readFile(filename2);
 
         /**
@@ -108,71 +108,71 @@ public class Main {
          *  FordFulkerson und EdmondsKarp aufrufen
          */
 
-//        Node source = graph.getNode("0");
-//        Node target = graph.getNode("5");
-//
-//
-//
-//        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
-//
-//        long begin = System.nanoTime();
-//
-//
-//        System.out.println("The maximum possible flow by Ford Fulkerson is " + FordFulkerson.fordFulkerson(graph, source, target));
-//
-//
-//
-//        long end = System.nanoTime();
-//
-//        long begin1 = System.nanoTime();
-//
-//        System.out.println("The maximum possible flow by EdmonsKarpAlgorithm is " + EdmondsKarpAlgorithm.edmondsKarp(graph, source, target));
-//
-//        long end1 = System.nanoTime();
-//
-//
-//        System.out.println("Executed Time: " + (end - begin));
-//
-//        System.out.println("Executed Time: " + (end1 - begin1));
-//
-//        graph.display();
+        Node source = graph.getNode("s");
+        Node target = graph.getNode("t");
+
+
+
+        //DijkstraAlgorithm.shortestPathsWithDijkstra(graph, "Kiel", "Lübeck");
+
+        long begin = System.nanoTime();
+
+
+        System.out.println("The maximum possible flow by Ford Fulkerson is " + FordFulkerson.fordFulkerson(graph, source, target));
+
+
+
+        long end = System.nanoTime();
+
+        long begin1 = System.nanoTime();
+
+        System.out.println("The maximum possible flow by EdmonsKarpAlgorithm is " + EdmondsKarpAlgorithm.edmondsKarp(graph, source, target));
+
+        long end1 = System.nanoTime();
+
+
+        System.out.println("Executed Time: " + (end - begin));
+
+        System.out.println("Executed Time: " + (end1 - begin1));
+
+        graph.display();
 
         /**
          *  FordFulkerson und Edmonds Karp auf Bignet
          */
 
-        Graph bigNet = null;
-        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
-
-        try {
-            bigNet = GraphGenerator.generateBigNet("test1", 800, 300000, 10);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        bigNet.addAttribute("ui.stylesheet", styleSheet);
-        // bigNet.display();
-
-        Node source = bigNet.getNode(0);
-        Node target = bigNet.getNode(20);
-
-        long begin = System.nanoTime();
-
-        System.out.println("Maximum Flow FordFulkerson: " + FordFulkerson.fordFulkerson(bigNet, source, target));
-
-
-
-        long end = System.nanoTime();
-        System.out.println("Executed Time: " + (end - begin));
-        System.out.println("--------------------------------------------");
-
-        long begin1 = System.nanoTime();
-
-
-
-        System.out.println("Maximum Flow Edmonds Karp: " + EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target));
-
-        long end1 = System.nanoTime();
-        System.out.println("Executed Time: " + (end1 - begin1));
+//        Graph bigNet = null;
+//        int anzahl = 100; // die eingegebene Anzahl, im Beispiel 2
+//
+//        try {
+//            bigNet = GraphGenerator.generateBigNet("test1", 800, 300000, 10);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        bigNet.addAttribute("ui.stylesheet", styleSheet);
+//        // bigNet.display();
+//
+//        Node source = bigNet.getNode(0);
+//        Node target = bigNet.getNode(20);
+//
+//        long begin = System.nanoTime();
+//
+//        System.out.println("Maximum Flow FordFulkerson: " + FordFulkerson.fordFulkerson(bigNet, source, target));
+//
+//
+//
+//        long end = System.nanoTime();
+//        System.out.println("Executed Time: " + (end - begin));
+//        System.out.println("--------------------------------------------");
+//
+//        long begin1 = System.nanoTime();
+//
+//
+//
+//        System.out.println("Maximum Flow Edmonds Karp: " + EdmondsKarpAlgorithm.edmondsKarp(bigNet, source, target));
+//
+//        long end1 = System.nanoTime();
+//        System.out.println("Executed Time: " + (end1 - begin1));
 
     }
 
